@@ -10,6 +10,6 @@ public class AppTest
     @Test
     public void myTest()
     {
-        System.out.println("My test");
+        System.out.println("My test (also checking Jenkins)");
     }
 }
