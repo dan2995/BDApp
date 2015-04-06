@@ -11,4 +11,26 @@ package mt.edu.um.b_d_app;
  */
 public class TransactionManager {
     
+    private int numTransactionsProcessed;
+    
+    public TransactionManager()
+    {
+        this.numTransactionsProcessed = 0;
+    }
+    
+    public boolean processTransaction(Transaction trans)
+    {
+        this.setNumberTransactionsProcessed();
+        return false;
+    }
+    
+    public int getNumberTransactionsProcessed()
+    {
+        return this.numTransactionsProcessed;
+    }
+    
+    private void setNumberTransactionsProcessed()
+    {
+        this.numTransactionsProcessed++;
+    }
 }

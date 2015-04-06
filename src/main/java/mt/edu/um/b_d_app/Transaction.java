@@ -50,6 +50,16 @@ public class Transaction {
         this.destinationAccountNumber = accountNumber;
     }
     
+    public long getAmount()
+    {
+        return this.amount;
+    }
+    
+    public void setAmount(long amount)
+    {
+        this.amount = amount;
+    }
+    
     //still not sure what it does
     public boolean process()
     {

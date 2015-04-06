@@ -25,8 +25,8 @@ public class TransactionClassTest {
     @Before
     public void setUp()
     {
-        testAccount1 = new Account(1);
-        testAccount2 = new Account(5);
+        testAccount1 = new Account(1,"tAcc1",0);
+        testAccount2 = new Account(5,"tAcc2",0);
         testTrans1 = new Transaction(1,5,200);
     }
     

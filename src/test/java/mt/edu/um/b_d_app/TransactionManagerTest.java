@@ -48,7 +48,7 @@ public class TransactionManagerTest {
     @Test
     public void processTransactionTest()
     {
-        int originalBalance = testAccount2.getAccountBalance();
+        long originalBalance = testAccount2.getAccountBalance();
         assertEquals(true, testTManager.processTransaction(testTrans1));
         assertEquals(originalBalance+200,testAccount2.getAccountBalance());
     }
