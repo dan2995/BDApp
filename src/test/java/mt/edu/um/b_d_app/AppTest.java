@@ -9,7 +9,16 @@ import org.junit.Test;
  * Unit test for simple App.
  */
 public class AppTest 
-{   
+{ 
+    //The test accounts declared for the Transaction classes tests
+    
+    
+    @Before
+    public void setUp()
+    {
+        
+    }
+    
     @Test
     public void myTest()
     {
@@ -26,5 +35,7 @@ public class AppTest
     public void testingMyCode() {
         assertEquals(5, (new App()).dummyTest());
     }
+    
+    
      
 }
