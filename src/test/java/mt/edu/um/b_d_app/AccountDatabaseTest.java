@@ -36,7 +36,17 @@ public class AccountDatabaseTest {
     }
 
     //Maybe add a test for add
-    
+
+    @Test
+    public void addAccountTest1(){
+        assertEquals(true,accountDatabase1.addAccount(7,"My Acc",300));
+    }
+
+    @Test
+    public void addAccountTest2(){
+        assertEquals(false,accountDatabase1.addAccount(2,"My Acc",300));
+    }
+
     @Test
     public void getAccountTest1(){
         assertEquals(account3,accountDatabase1.getAccount(3));

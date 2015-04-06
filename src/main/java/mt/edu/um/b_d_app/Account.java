@@ -46,7 +46,8 @@ public class Account {
     }
 
     boolean adjustBalance(long amount){
-        if((accountBalance - amount) >= 0){
+        if((accountBalance + amount) >= 0){
+            this.setAccountBalance(this.getAccountBalance()+amount);
             return true;
         } else return false;
     }
