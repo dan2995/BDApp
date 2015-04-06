@@ -8,6 +8,11 @@ import java.util.ArrayList;
  */
 public class AccountDatabase {
 
+    ArrayList<Account> accountList = new ArrayList<Account>(); //creating an arraylist of tuples
+    //Vector accountVector = new Vector();
+
+    AccountDatabase(){ //empty constructor - nothing to initialise
+    }
 
 
 }
