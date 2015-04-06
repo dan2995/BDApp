@@ -22,12 +22,21 @@ public class TransactionClassTest {
     //The test transaction instance
     Transaction testTrans1;
     
+    //The account database
+    AccountDatabase database;
+    
     @Before
     public void setUp()
     {
+        database = new AccountDatabase();
         testAccount1 = new Account(1,"tAcc1",0);
         testAccount2 = new Account(5,"tAcc2",0);
-        testTrans1 = new Transaction(1,5,200);
+        //consider adding a version of the add account that takes the Account object
+        
+        database.addAccount(1, "tAcc1", 0);
+        database.addAccount(5, "tAcc2", 0);
+        
+        testTrans1 = new Transaction(1,5,200,database);
     }
     
     

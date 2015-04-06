@@ -72,7 +72,7 @@ public class AccountTest {
     @Test
     public void setAccountBalanceTest()
     {
-        int original = account.getAccountBalance();
+        //long original = account.getAccountBalance();
         account.setAccountBalance(120);
         assertEquals(120,account.getAccountBalance());
     }

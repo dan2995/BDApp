@@ -26,14 +26,21 @@ public class TransactionManagerTest {
     //The test Transaction Manager
     TransactionManager testTManager;
     
+    AccountDatabase database;
+    
     @Before
     public void setUp()
     {
         testAccount1 = new Account(1,"tAcc1",0);
         testAccount2 = new Account(5,"tAcc2",0);
-        testTrans1 = new Transaction(1,5,200);
-        testTrans2 = new Transaction(5,1,100);
-        testTManager = new TransactionManager();
+        
+        database = new AccountDatabase();
+        database.addAccount(1, "tAcc1", 0);
+        database.addAccount(5, "tAcc2", 0);
+        
+        testTrans1 = new Transaction(1,5,200,database);
+        testTrans2 = new Transaction(5,1,100,database);
+        testTManager = new TransactionManager(database);
         
     }
     
@@ -41,15 +48,15 @@ public class TransactionManagerTest {
     public void numTransactionsProcessedTest()
     {
         assertEquals(0,testTManager.getNumberTransactionsProcessed());
-        testTManager.processTransaction(testTrans1);
+        testTManager.processTransaction(1,5,200);
         assertEquals(1,testTManager.getNumberTransactionsProcessed());
     }
     
     @Test
-    public void processTransactionTest()
+    public void processTransactionTest()//consider a version of the function which takes the object type
     {
         long originalBalance = testAccount2.getAccountBalance();
-        assertEquals(true, testTManager.processTransaction(testTrans1));
+        assertEquals(true, testTManager.processTransaction(1,5,200));
         assertEquals(originalBalance+200,testAccount2.getAccountBalance());
     }
     
