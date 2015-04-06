@@ -11,18 +11,24 @@ public class AccountDatabase {
     ArrayList<Account> accountList = new ArrayList<Account>(); //creating an arraylist of tuples
     //Vector accountVector = new Vector();
 
-    AccountDatabase(){ //empty constructor - nothing to initialise
+    AccountDatabase(){ //empty accountList = 0;
     }
 
     boolean addAccount(int accountNumber, String accountName, long accountBalance){
+        boolean flag = false;
         Account account1;
-        for(int i = 0; i < accountList.size(); i++) {
-            while (accountList.get(i).getAccountNumber() != accountNumber){
-                account1 = new Account(accountNumber,accountName,accountBalance);
-                accountList.add(account1);
-                return true;
+        //for(int i = 0; i < accountList.size(); i++) {
+            while(flag == false && i < accountList.size()){
+                if(accountList.get(i).getAccountNumber() == accountNumber){
+                    flag = true;
+                }
+                if(!flag){
+                    account1 = new Account(accountNumber,accountName,accountBalance);
+                    accountList.add(account1);
+                }
             }
-        }return false;
+        //}
+        return !flag;
     }
 
     Account getAccount(int accountNumber){
