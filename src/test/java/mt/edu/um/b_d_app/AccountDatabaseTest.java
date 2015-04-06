@@ -26,21 +26,21 @@ public class AccountDatabaseTest {
         account4 = new Account(4, "myAccount4", 90);
         account5 = new Account(5, "myAccount5", 32);
 
-        accountList.add(account1);
-        accountList.add(account2);
-        accountList.add(account3);
-        accountList.add(account4);
-        accountList.add(account5);
+        accountDatabase1.accountList.add(account1);
+        accountDatabase1.accountList.add(account2);
+        accountDatabase1.accountList.add(account3);
+        accountDatabase1.accountList.add(account4);
+        accountDatabase1.accountList.add(account5);
     }
 
     @Test
-         public void getAccountTest1(){
+    public void getAccountTest1(){
         assertEquals(true,accountDatabase1.getAccount(3));
     }
 
     @Test
     public void getAccountTest2(){
-        assertEquals(false,accountDatabase1.getAccount(6));
+        assertEquals(null,accountDatabase1.getAccount(6));
     }
 
     @Test
