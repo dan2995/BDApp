@@ -32,7 +32,7 @@ public class TransactionClassTest {
     
     
     
-    //Testing the Transaction Class
+    //Testing the Transaction Class members as per the provided class diagram
     @Test
     public void sourceAccountNumberTest()
     {
@@ -43,6 +43,20 @@ public class TransactionClassTest {
     public void destinationAccountNumberTest()
     {
         assertEquals(5, testTrans1.getDestinationAccountNumber());
+    }
+    
+    @Test
+    public void amountTest()
+    {
+        assertEquals(200, testTrans1.getAmount());
+    }
+    
+    @Test
+    public void processTest()
+    {
+        int originalBalance = testAccount2.getAccountBalance();
+        assertEquals(true, testTrans1.process());
+        assertEquals(originalBalance+200,testAccount2.getAccountBalance());
     }
     
 }
