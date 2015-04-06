@@ -48,4 +48,32 @@ public class AccountTest {
         account.setAccountName("MyAccountRenamed");
         assertEquals("MyAccountRenamed",account.getAccountName());
     }
+
+    @Test
+    public void getAccountNumberTest()
+    {
+        assertEquals(1,account.getAccountNumber());
+    }
+
+    @Test
+    public void setAccountNumberTest()
+    {
+        int original = account.getAccountNumber();
+        account.setAccountNumber(6);
+        assertEquals(6,account.getAccountName());
+    }
+
+    @Test
+    public void getAccountBalanceTest()
+    {
+        assertEquals(100,account.getAccountBalance());
+    }
+
+    @Test
+    public void setAccountNumberTest()
+    {
+        int original = account.getAccountBalance();
+        account.setAccountBalance(120);
+        assertEquals(120,account.getAccountBalance());
+    }
 }
