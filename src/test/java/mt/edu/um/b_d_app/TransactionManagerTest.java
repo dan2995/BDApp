@@ -32,6 +32,8 @@ public class TransactionManagerTest {
         testAccount1 = new Account(1);
         testAccount2 = new Account(5);
         testTrans1 = new Transaction(1,5,200);
+        testTrans2 = new Transaction(5,1,100);
+        
     }
     
 }
