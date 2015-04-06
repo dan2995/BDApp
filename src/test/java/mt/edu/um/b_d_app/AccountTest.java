@@ -29,7 +29,7 @@ public class AccountTest {
 
     @Test
     public void adjustBalanceTest3(){
-        assertEquals(false,account.adjustBalance(120));
+        assertEquals(false,account.adjustBalance(-120));
     }
     
     
@@ -60,7 +60,7 @@ public class AccountTest {
     {
         int original = account.getAccountNumber();
         account.setAccountNumber(6);
-        assertEquals(6,account.getAccountName());
+        assertEquals(6,account.getAccountNumber());
     }
 
     @Test
