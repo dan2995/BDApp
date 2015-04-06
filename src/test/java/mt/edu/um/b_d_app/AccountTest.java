@@ -70,7 +70,7 @@ public class AccountTest {
     }
 
     @Test
-    public void setAccountNumberTest()
+    public void setAccountBalanceTest()
     {
         int original = account.getAccountBalance();
         account.setAccountBalance(120);
