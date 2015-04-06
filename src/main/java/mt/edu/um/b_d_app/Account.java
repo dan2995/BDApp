@@ -44,4 +44,10 @@ public class Account {
     long getAccountBalance(){
         return accountBalance;
     }
+
+    boolean adjustBalance(long amount){
+        if((accountBalance - amount) >= 0){
+            return true;
+        } else return false;
+    }
 }
