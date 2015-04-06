@@ -36,4 +36,12 @@ public class Account {
     String getAccountName(){
         return accountName;
     }
+
+    void setAccountBalance(long accountBalance){
+        this.accountBalance = accountBalance;
+    }
+
+    long getAccountBalance(){
+        return accountBalance;
+    }
 }
