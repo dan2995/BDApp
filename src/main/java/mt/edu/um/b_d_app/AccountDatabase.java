@@ -34,6 +34,8 @@ public class AccountDatabase {
         return  null;
     }
 
-
+    int getSize(){
+        return accountList.size();
+    }
 
 }
