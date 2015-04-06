@@ -28,4 +28,12 @@ public class Account {
     int getAccountNumber(){
         return accountNumber;
     }
+
+    void setAccountName(String accountName){
+        this.accountName = accountName;
+    }
+
+    String getAccountName(){
+        return accountName;
+    }
 }
