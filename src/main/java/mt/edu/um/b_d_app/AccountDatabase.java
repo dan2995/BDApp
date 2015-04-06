@@ -19,16 +19,16 @@ public class AccountDatabase {
         Account account1;
         //for(int i = 0; i < accountList.size(); i++) {
         int i = 0;
-            while(flag == false && i < accountList.size()){
-                if(accountList.get(i).getAccountNumber() == accountNumber){
-                    flag = true;
-                }
-                if(!flag){
-                    account1 = new Account(accountNumber,accountName,accountBalance);
-                    accountList.add(account1);
-                }
-                i++;
+        while(flag == false && i < accountList.size()){
+            if(accountList.get(i).getAccountNumber() == accountNumber){
+                flag = true;
             }
+            if(!flag){
+                account1 = new Account(accountNumber,accountName,accountBalance);
+                accountList.add(account1);
+            }
+            i++;
+        }
         //}
         return !flag;
     }
@@ -42,7 +42,7 @@ public class AccountDatabase {
                 flag = true;
             }
         }
-        
+
         return  null;
     }
 
