@@ -31,4 +31,21 @@ public class AccountTest {
     public void adjustBalanceTest3(){
         assertEquals(false,account.adjustBalance(120));
     }
+    
+    
+    //test for setting the name after testing getting the name
+    
+    @Test
+    public void getNameTest()
+    {
+        assertEquals("myAccount",account.getAccountName());
+    }
+    
+    @Test 
+    public void setNameTest()
+    {
+        String original = account.getAccountName();
+        account.setAccountName("MyAccountRenamed");
+        assertEquals("MyAccountRenamed",account.getAccountName());
+    }
 }
