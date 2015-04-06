@@ -51,12 +51,12 @@ public class TransactionClassTest {
         assertEquals(200, testTrans1.getAmount());
     }
     
-    @Test
+    /*@Test
     public void processTest()
     {
         int originalBalance = testAccount2.getAccountBalance();
         assertEquals(true, testTrans1.process());
         assertEquals(originalBalance+200,testAccount2.getAccountBalance());
-    }
+    }*/
     
 }

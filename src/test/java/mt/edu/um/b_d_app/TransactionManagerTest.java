@@ -33,7 +33,25 @@ public class TransactionManagerTest {
         testAccount2 = new Account(5);
         testTrans1 = new Transaction(1,5,200);
         testTrans2 = new Transaction(5,1,100);
+        testTManager = new TransactionManager();
         
     }
+    
+    @Test
+    public void numTransactionsProcessedTest()
+    {
+        assertEquals(0,testTManager.getNumberTransactionsProcessed());
+        testTManager.processTransaction(testTrans1);
+        assertEquals(1,testTManager.getNumberTransactionsProcessed())
+    }
+    
+    @Test
+    public void processTransactionTest()
+    {
+        int originalBalance = testAccount2.getAccountBalance();
+        assertEquals(true, testTManager.processTransaction(testTrans1));
+        assertEquals(originalBalance+200,testAccount2.getAccountBalance());
+    }
+    
     
 }
