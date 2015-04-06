@@ -12,16 +12,23 @@ package mt.edu.um.b_d_app;
 public class TransactionManager {
     
     private int numTransactionsProcessed;
+    AccountDatabase database;
     
-    public TransactionManager()
+    public TransactionManager(AccountDatabase database)
     {
+        this.database = database;
         this.numTransactionsProcessed = 0;
     }
     
-    public boolean processTransaction(Transaction trans)
+    public boolean processTransaction(int src, int dst, int amount)
     {
-        this.setNumberTransactionsProcessed();
-        return false;
+        Transaction new_t = new Transaction(src,dst,amount,database);
+        boolean flag = new_t.process();
+        if(flag)
+        {
+            this.setNumberTransactionsProcessed();
+        }
+        return flag;
     }
     
     public int getNumberTransactionsProcessed()

@@ -14,9 +14,11 @@ public class Transaction {
     private int sourceAccountNumber;
     private int destinationAccountNumber;
     private long amount;
+    private AccountDatabase database;
     
-    public Transaction(int source, int destination, int amount)
+    public Transaction(int source, int destination, int amount, AccountDatabase database)
     {
+        this.database = database;
         this.sourceAccountNumber = source;
         this.destinationAccountNumber = destination;
         this.amount = amount;
@@ -27,7 +29,7 @@ public class Transaction {
         //handling an invalid transaction by setting all fields to zero
         //account numbers have been confirmed to be assumed to start from one
         
-        this(0,0,0);
+        this(0,0,0, null);
     }
     
     public int getSourceAccountNumber()
@@ -60,10 +62,26 @@ public class Transaction {
         this.amount = amount;
     }
     
-    //still not sure what it does
+    //accesses the account database to look up the accounts
     public boolean process()
     {
+        Account source = this.database.getAccount(this.sourceAccountNumber);
+        Account destination = this.database.getAccount(this.destinationAccountNumber);
+        
+        if(source==null || destination==null)
+        {
+            return false;
+        }
+        
+        //make sure account is changing the balance
+        if(source.adjustBalance(-(this.amount)) && destination.adjustBalance(this.amount))
+        {
+            return true;
+        }
+        
         return false;
     }
+    
+    //A way to destroy the object once process has been executd?
     
 }
