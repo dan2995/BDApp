@@ -16,14 +16,24 @@ public class AccountDatabase {
 
     boolean addAccount(int accountNumber, String accountName, long accountBalance){
         Account account1;
-        for(int i = 0; i < accountVector.size(); i++) {
-            while (accountVector[i].getAccountNumber() != accountNumber){
+        for(int i = 0; i < accountList.size(); i++) {
+            while (accountList.get(i).getAccountNumber() != accountNumber){
                 account1 = new Account(accountNumber,accountName,accountBalance);
-                accountVector.add(account1);
+                accountList.add(account1);
                 return true;
             }
         }return false;
     }
+
+    Account getAccount(int accountNumber){
+        for(int i =0;i<accountList.size();i++){
+            if(accountList.get(i).getAccountNumber() == accountNumber){
+                return accountList.get(i);
+            }
+        }
+        return  null;
+    }
+
 
 
 }
