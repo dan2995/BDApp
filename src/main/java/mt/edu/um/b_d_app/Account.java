@@ -24,4 +24,8 @@ public class Account {
     void setAccountNumber(int accountNumber){
         this.accountNumber = accountNumber;
     }
+
+    int getAccountNumber(){
+        return accountNumber;
+    }
 }
