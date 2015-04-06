@@ -51,6 +51,7 @@ public class TransactionClassTest {
         assertEquals(200, testTrans1.getAmount());
     }
     
+    //what does process do?
     /*@Test
     public void processTest()
     {

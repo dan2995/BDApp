@@ -29,8 +29,8 @@ public class TransactionManagerTest {
     @Before
     public void setUp()
     {
-        testAccount1 = new Account(1);
-        testAccount2 = new Account(5);
+        testAccount1 = new Account(1,"tAcc1",0);
+        testAccount2 = new Account(5,"tAcc2",0);
         testTrans1 = new Transaction(1,5,200);
         testTrans2 = new Transaction(5,1,100);
         testTManager = new TransactionManager();
@@ -42,7 +42,7 @@ public class TransactionManagerTest {
     {
         assertEquals(0,testTManager.getNumberTransactionsProcessed());
         testTManager.processTransaction(testTrans1);
-        assertEquals(1,testTManager.getNumberTransactionsProcessed())
+        assertEquals(1,testTManager.getNumberTransactionsProcessed());
     }
     
     @Test
