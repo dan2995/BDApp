@@ -25,6 +25,8 @@ public class AccountDatabaseTest {
         account3 = new Account(3, "myAccount3", 75);
         account4 = new Account(4, "myAccount4", 90);
         account5 = new Account(5, "myAccount5", 32);
+        
+        accountDatabase1 = new AccountDatabase();
 
         accountDatabase1.accountList.add(account1);
         accountDatabase1.accountList.add(account2);
@@ -33,6 +35,8 @@ public class AccountDatabaseTest {
         accountDatabase1.accountList.add(account5);
     }
 
+    //Maybe add a test for add
+    
     @Test
     public void getAccountTest1(){
         assertEquals(true,accountDatabase1.getAccount(3));

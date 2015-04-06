@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: mt.edu.um.b_d_app.AccountDatabaseTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.047 sec <<< FAILURE!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.062 sec <<< FAILURE!
 getAccountTest1(mt.edu.um.b_d_app.AccountDatabaseTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NullPointerException
 	at mt.edu.um.b_d_app.AccountDatabaseTest.SetUp(AccountDatabaseTest.java:29)
