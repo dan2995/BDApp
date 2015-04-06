@@ -1,10 +1,10 @@
-package mt.edu.um.b_d_app;
+/*package mt.edu.um.b_d_app;*/
 
 /**
  * Hello world!
  *
  */
-public class App 
+/*public class App 
 {
     public static void main( String[] args )
     {
@@ -15,4 +15,4 @@ public class App
     {
         return 5;
     }
-}
+}*/
