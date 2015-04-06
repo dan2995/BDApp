@@ -39,7 +39,7 @@ public class AccountDatabaseTest {
     
     @Test
     public void getAccountTest1(){
-        assertEquals(true,accountDatabase1.getAccount(3));
+        assertEquals(account3,accountDatabase1.getAccount(3));
     }
 
     @Test
