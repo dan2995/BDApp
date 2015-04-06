@@ -34,15 +34,13 @@ public class AccountDatabase {
     }
 
     Account getAccount(int accountNumber){
-        boolean flag = false;
-
-        while(flag == false){
-            if(accountList.get(i).getAccountNumber() == accountNumber){
+        for(int i = 0; i<accountList.size();i++)
+        {
+            if(accountList.get(i).getAccountNumber() == accountNumber)
+            {
                 return accountList.get(i);
-                flag = true;
             }
         }
-
         return  null;
     }
 
