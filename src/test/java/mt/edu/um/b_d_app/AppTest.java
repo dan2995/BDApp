@@ -15,7 +15,13 @@ public class AppTest
     {
         System.out.println("My test (also checking Jenkins)");
     }
-
+    
+    @Test
+    public void myTest2()
+    {
+        System.out.println("My test (also checking Jenkins) a second time.");
+    }
+    
     @Test
     public void testingMyCode() {
         assertEquals(5, (new App()).dummyTest());
