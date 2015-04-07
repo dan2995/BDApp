@@ -16,8 +16,8 @@ import org.junit.Test;
 public class TransactionManagerTest {
     
     //The test accounts declared for the Transaction classes tests
-    Account testAccount1;
-    Account testAccount2;
+    //Account testAccount1;
+    //Account testAccount2;
     
     //The test transaction instance
     Transaction testTrans1;
@@ -31,12 +31,12 @@ public class TransactionManagerTest {
     @Before
     public void setUp()
     {
-        testAccount1 = new Account(1,"tAcc1",0);
-        testAccount2 = new Account(5,"tAcc2",0);
+        //testAccount1 = new Account(1,"tAcc1",0);
+        //testAccount2 = new Account(5,"tAcc2",0);
         
         database = new AccountDatabase();
-        database.addAccount(1, "tAcc1", 0);
-        database.addAccount(5, "tAcc2", 0);
+        database.addAccount(1, "tAcc1", 500);
+        database.addAccount(5, "tAcc2", 500);
         
         testTrans1 = new Transaction(1,5,200,database);
         testTrans2 = new Transaction(5,1,100,database);
@@ -55,9 +55,11 @@ public class TransactionManagerTest {
     @Test
     public void processTransactionTest()//consider a version of the function which takes the object type
     {
-        long originalBalance = testAccount2.getAccountBalance();
+        long source1 = database.getAccount(1).getAccountBalance();
+        long dest1 = database.getAccount(5).getAccountBalance();
         assertEquals(true, testTManager.processTransaction(1,5,200));
-        assertEquals(originalBalance+200,testAccount2.getAccountBalance());
+        assertEquals(source1-200,database.getAccount(1).getAccountBalance());
+        assertEquals(dest1+200,database.getAccount(5).getAccountBalance());
     }
     
     

@@ -29,12 +29,9 @@ public class TransactionClassTest {
     public void setUp()
     {
         database = new AccountDatabase();
-        testAccount1 = new Account(1,"tAcc1",500);
-        testAccount2 = new Account(5,"tAcc2",500);
-        //consider adding a version of the add account that takes the Account object
         
-        database.addAccount(1, "tAcc1", 0);
-        database.addAccount(5, "tAcc2", 0);
+        database.addAccount(1, "tAcc1", 500);
+        database.addAccount(5, "tAcc2", 500);
         
         testTrans1 = new Transaction(1,5,200,database);
     }
@@ -64,7 +61,11 @@ public class TransactionClassTest {
     @Test
     public void processTest()
     {
+        long source_balance = database.getAccount(1).getAccountBalance();
+        long destination_balance = database.getAccount(5).getAccountBalance();
         assertEquals(true, testTrans1.process());
+        assertEquals(source_balance-testTrans1.getAmount(),database.getAccount(1).getAccountBalance());
+        assertEquals(destination_balance+testTrans1.getAmount(),database.getAccount(5).getAccountBalance());
     }
     
 }
