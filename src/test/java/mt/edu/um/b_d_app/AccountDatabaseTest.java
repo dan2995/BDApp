@@ -15,6 +15,8 @@ public class AccountDatabaseTest {
     Account account3;
     Account account4;
     Account account5;
+    
+    Account objAccount;
 
     AccountDatabase accountDatabase1;
 
@@ -33,6 +35,8 @@ public class AccountDatabaseTest {
         accountDatabase1.accountList.add(account3);
         accountDatabase1.accountList.add(account4);
         accountDatabase1.accountList.add(account5);
+        
+        objAccount = new Account(10,"objectAccount",62);
     }
 
     @Test
@@ -58,5 +62,13 @@ public class AccountDatabaseTest {
     @Test
     public void getSizeTest(){
         assertEquals(5,accountDatabase1.getSize());
+    }
+    
+    @Test
+    public void addAccountObjectTest()
+    {
+        int original_size = accountDatabase1.getSize();
+        assertEquals(true, accountDatabase1.addAccount(objAccount));
+        assertEquals(++original_size, accountDatabase1.getSize());
     }
 }
