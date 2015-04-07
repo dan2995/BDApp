@@ -45,10 +45,14 @@ public class Account {
         return accountBalance;
     }
 
+    //the method that takes the amount, invoked by Transaction.process()
     boolean adjustBalance(long amount){
-        if((accountBalance + amount) >= 0){
+        if((this.accountBalance + amount) >= 0)
+        {
             this.setAccountBalance(this.getAccountBalance()+amount);
             return true;
-        } else return false;
+        } 
+        //else return false;
+        return false;
     }
 }

@@ -65,6 +65,8 @@ public class Transaction {
     //accesses the account database to look up the accounts
     public boolean process()
     {
+        if(this.database==null) return false;
+        
         Account source = this.database.getAccount(this.sourceAccountNumber);
         Account destination = this.database.getAccount(this.destinationAccountNumber);
         
@@ -78,10 +80,10 @@ public class Transaction {
         {
             return true;
         }
-        
-        return false;
+        else
+        {
+            return false;
+        }
     }
-    
-    //A way to destroy the object once process has been executd?
     
 }

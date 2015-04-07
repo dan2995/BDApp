@@ -32,6 +32,26 @@ public class AccountDatabase {
         }
         return !flag;
     }
+    
+    //Overloading the method
+    boolean addAccount(Account account)
+    {
+        boolean flag = false;
+        int i = 0;
+        while(flag == false && i < accountList.size()){
+            if(accountList.get(i).getAccountNumber() == account.accountNumber) 
+            {
+                flag = true;
+            }
+            i++;
+        }
+        //}
+        if(!flag)
+        {
+            accountList.add(account);
+        }
+        return !flag;
+    }
 
     Account getAccount(int accountNumber){
         for(int i = 0; i<accountList.size();i++)

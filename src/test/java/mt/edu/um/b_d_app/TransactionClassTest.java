@@ -29,8 +29,8 @@ public class TransactionClassTest {
     public void setUp()
     {
         database = new AccountDatabase();
-        testAccount1 = new Account(1,"tAcc1",0);
-        testAccount2 = new Account(5,"tAcc2",0);
+        testAccount1 = new Account(1,"tAcc1",500);
+        testAccount2 = new Account(5,"tAcc2",500);
         //consider adding a version of the add account that takes the Account object
         
         database.addAccount(1, "tAcc1", 0);
@@ -60,13 +60,11 @@ public class TransactionClassTest {
         assertEquals(200, testTrans1.getAmount());
     }
     
-    //what does process do?
-    /*@Test
+
+    @Test
     public void processTest()
     {
-        int originalBalance = testAccount2.getAccountBalance();
         assertEquals(true, testTrans1.process());
-        assertEquals(originalBalance+200,testAccount2.getAccountBalance());
-    }*/
+    }
     
 }
