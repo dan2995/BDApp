@@ -62,5 +62,13 @@ public class TransactionManagerTest {
         assertEquals(dest1+200,database.getAccount(5).getAccountBalance());
     }
     
-    
+    @Test
+    public void processTransactionObjectTest()
+    {
+        long source1 = database.getAccount(5).getAccountBalance();
+        long dest1 = database.getAccount(1).getAccountBalance();
+        assertEquals(true, testTManager.processTransaction(testTrans2));
+        assertEquals(source1-100,database.getAccount(5).getAccountBalance());
+        assertEquals(dest1+100,database.getAccount(1).getAccountBalance());
+    }
 }
