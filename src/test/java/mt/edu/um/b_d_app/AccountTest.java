@@ -5,9 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * Created by Daniela on 06/04/2015.
- */
 public class AccountTest {
 
     Account account;
@@ -31,9 +28,6 @@ public class AccountTest {
     public void adjustBalanceTest3(){
         assertEquals(false,account.adjustBalance(-120));
     }
-    
-    
-    //test for setting the name after testing getting the name
     
     @Test
     public void getNameTest()
@@ -72,7 +66,6 @@ public class AccountTest {
     @Test
     public void setAccountBalanceTest()
     {
-        //long original = account.getAccountBalance();
         account.setAccountBalance(120);
         assertEquals(120,account.getAccountBalance());
     }
