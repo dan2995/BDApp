@@ -71,4 +71,31 @@ public class TransactionManagerTest {
         assertEquals(source1-100,database.getAccount(5).getAccountBalance());
         assertEquals(dest1+100,database.getAccount(1).getAccountBalance());
     }
+    
+    //As set up is run before each test, teh above tests are immune to the 15 second rule
+    
+    //Testing for business logic rule 3 (minimum inter-transaction time of 15 seconds for all accounts)
+    /*Proposed test
+    Have two transactions involving at least one account in common
+    The second transaction should return false whilst the first executes
+    
+    Then have another test that uses thread.sleep  to wait 16 seconds between transactions
+    Both transactions shoudl return true*/
+    
+    //Both testTrans1 and testTrans2 use the same accounts
+    @Test
+    public void trans15SecondRuleFailTest ()
+    {
+        assertEquals(true, testTManager.processTransaction(testTrans2));
+        assertEquals(false, testTManager.processTransaction(testTrans2));
+    }
+    
+    @Test
+    public void trans15SecondPassTest () throws InterruptedException
+    {
+        assertEquals(true, testTManager.processTransaction(testTrans2));
+        Thread.sleep(15000);//in milliseconds therefore 15 seconds = 15000 milliseconds
+        assertEquals(true, testTManager.processTransaction(testTrans1));
+    }
+    
 }
