@@ -5,9 +5,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by Daniela on 06/04/2015.
- */
 public class AccountDatabaseTest {
 
     Account account1;
