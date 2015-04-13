@@ -14,6 +14,17 @@ public class TransactionManager {
     private int numTransactionsProcessed;
     AccountDatabase database;
     
+    //Proposed handling of the 15 second rule
+    /*
+    Have an array list that stores instances of the class LastUsed, which has the account number and the time of last use 
+    When handling a transaction, traverse the array list. If the current time is more than 15 seconds later, remove the object from the list
+    If the required account numbers have no corresponding object or have been found and deleted, proceed with the transaction and create
+    new objects after the balances have been altered
+    Else return false
+    */
+    
+    ArrayList<LastUsed> active = new ArrayList<LastUsed> ();
+    
     public TransactionManager(AccountDatabase database)
     {
         this.database = database;
