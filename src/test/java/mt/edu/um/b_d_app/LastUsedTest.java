@@ -41,7 +41,7 @@ public class LastUsedTest {
     public void setLastUsedTest ()
     {
         long now = System.nanoTime();
-        testObject.setLastUsed();
+        testObject.setLastUsed(now);
         assertEquals(now, testObject.getLastUsed());
     }    
     
