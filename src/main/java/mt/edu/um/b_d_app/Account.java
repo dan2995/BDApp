@@ -42,8 +42,7 @@ public class Account {
         {
             this.setAccountBalance(this.getAccountBalance()+amount);
             return true;
-        } 
-        //else return false;
+        }
         return false;
     }
 }
