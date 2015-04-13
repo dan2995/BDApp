@@ -37,7 +37,7 @@ public class Transaction {
         return this.sourceAccountNumber;
     }
     
-    private public void setSourceAccountNumber(int accountNumber)
+    private void setSourceAccountNumber(int accountNumber)
     {
         this.sourceAccountNumber = accountNumber;
     }
@@ -47,7 +47,7 @@ public class Transaction {
         return this.destinationAccountNumber;
     }
     
-    private public void setDestinationAccountNumber(int accountNumber)
+    private void setDestinationAccountNumber(int accountNumber)
     {
         this.destinationAccountNumber = accountNumber;
     }
@@ -57,7 +57,7 @@ public class Transaction {
         return this.amount;
     }
     
-    private public void setAmount(long amount)
+    private void setAmount(long amount)
     {
         this.amount = amount;
     }
