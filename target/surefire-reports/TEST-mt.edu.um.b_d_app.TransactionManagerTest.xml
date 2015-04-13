@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="1" name="mt.edu.um.b_d_app.TransactionManagerTest" time="15.002" errors="0" skipped="0">
+<testsuite tests="5" failures="1" name="mt.edu.um.b_d_app.TransactionManagerTest" time="16.013" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_25\jre\bin"/>
@@ -63,7 +63,7 @@
   </properties>
   <testcase classname="mt.edu.um.b_d_app.TransactionManagerTest" name="numTransactionsProcessedTest" time="0"/>
   <testcase classname="mt.edu.um.b_d_app.TransactionManagerTest" name="processTransactionTest" time="0"/>
-  <testcase classname="mt.edu.um.b_d_app.TransactionManagerTest" name="trans15SecondRuleFailTest" time="0.001">
+  <testcase classname="mt.edu.um.b_d_app.TransactionManagerTest" name="trans15SecondRuleFailTest" time="0">
     <failure message="expected:&lt;false&gt; but was:&lt;true&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;false&gt; but was:&lt;true&gt;
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:743)
@@ -102,6 +102,6 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </failure>
   </testcase>
-  <testcase classname="mt.edu.um.b_d_app.TransactionManagerTest" name="trans15SecondPassTest" time="14.998"/>
+  <testcase classname="mt.edu.um.b_d_app.TransactionManagerTest" name="trans15SecondRulePassTest" time="16.013"/>
   <testcase classname="mt.edu.um.b_d_app.TransactionManagerTest" name="processTransactionObjectTest" time="0"/>
 </testsuite>

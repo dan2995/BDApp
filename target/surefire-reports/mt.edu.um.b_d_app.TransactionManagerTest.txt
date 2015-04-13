@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: mt.edu.um.b_d_app.TransactionManagerTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 15.002 sec <<< FAILURE!
-trans15SecondRuleFailTest(mt.edu.um.b_d_app.TransactionManagerTest)  Time elapsed: 0.001 sec  <<< FAILURE!
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 16.013 sec <<< FAILURE!
+trans15SecondRuleFailTest(mt.edu.um.b_d_app.TransactionManagerTest)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<false> but was:<true>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:743)
