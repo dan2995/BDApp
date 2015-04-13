@@ -41,23 +41,39 @@ public class TransactionManager {
     
     public boolean processTransaction(int src, int dst, int amount)
     {
-        Transaction new_t = new Transaction(src,dst,amount,database);
-        boolean flag = new_t.process();
-        if(flag)
+        if(this.timeRuleVerification(src, dst))
         {
-            this.setNumberTransactionsProcessed();
+            Transaction new_t = new Transaction(src,dst,amount,database);
+            boolean flag = new_t.process();
+            if(flag)
+            {
+                this.setNumberTransactionsProcessed();
+                this.updateActive(src, dst);
+            }
+            return flag;
         }
-        return flag;
+        else
+        {
+            return false;
+        }
     }
     
     public boolean processTransaction(Transaction transaction)
     {
-        boolean flag = transaction.process();
-        if(flag)
+        if(this.timeRuleVerification(transaction.getSourceAccountNumber(), transaction.getDestinationAccountNumber()))
         {
-            this.setNumberTransactionsProcessed();
+            boolean flag = transaction.process();
+            if(flag)
+            {
+                this.setNumberTransactionsProcessed();
+                this.updateActive(transaction.getSourceAccountNumber(), transaction.getDestinationAccountNumber());
+            }
+            return flag;
         }
-        return flag;
+        else
+        {
+            return false;
+        }
     }
     
     public int getNumberTransactionsProcessed()
@@ -70,7 +86,7 @@ public class TransactionManager {
         this.numTransactionsProcessed++;
     }
     
-    public boolean timeRuleVerification(int src, int dst)
+    private boolean timeRuleVerification(int src, int dst)
     {
         //locate the account in the active list if they exist
         //if neither exists
@@ -83,13 +99,27 @@ public class TransactionManager {
             {
                 long timestamp = active.get(i).getLastUsed();
                 long now = System.nanoTime();
-                if((timestamp+15)>=now)//15 seconds has not passed yet
+                if(((timestamp/1000)+15000000)>=now)//15 seconds has not passed yet (*10^6 to convert to micro seconds)
                 {
                     stop = true;
                 }
+                else//transaction may proceed
+                {
+                    active.remove(i);
+                    i--;//counteract the increment due to the shift of the elements
+                }    
             }
+            i++;
+               
         }
         
         return !stop;
+    }
+    
+    private void updateActive (int src, int dst)
+    {
+        long now = System.nanoTime();
+        active.add(new LastUsed(src, now));
+        active.add(new LastUsed(dst, now)); 
     }
 }
