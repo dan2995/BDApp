@@ -29,6 +29,8 @@ public class TransactionClassTest {
     Transaction failTrans2;
     Transaction failTrans3;
     
+    Transaction failTrans4;
+    
     @Before
     public void setUp()
     {
@@ -42,6 +44,7 @@ public class TransactionClassTest {
         failTrans1 = new Transaction(1,0,50,database);//non-existent account
         failTrans2 = new Transaction(1,5,10,null);//null database
         failTrans3 = new Transaction(1,5,1300,database);//invalid amount
+        failTrans4 = new Transaction();
     }
     
     
@@ -92,6 +95,12 @@ public class TransactionClassTest {
     public void processFailAmountTest ()
     {
         assertEquals(false,failTrans3.process());
+    }
+    
+    @Test
+    public void processFailAllTest ()
+    {
+        assertEquals(false,failTrans4.process());
     }
     
 }
