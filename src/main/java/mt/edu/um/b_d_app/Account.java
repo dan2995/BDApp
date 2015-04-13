@@ -28,9 +28,9 @@ public class Account {
         return accountName;
     }
 
-    /*private void setAccountBalance(long accountBalance){
+    private void setAccountBalance(long accountBalance){
         this.accountBalance = accountBalance;
-    }*/
+    }
 
     long getAccountBalance(){
         return accountBalance;
