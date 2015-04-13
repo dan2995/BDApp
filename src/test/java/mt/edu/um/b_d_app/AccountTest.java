@@ -49,13 +49,13 @@ public class AccountTest {
         assertEquals(1,account.getAccountNumber());
     }
 
-    @Test
+    /*@Test
     public void setAccountNumberTest()
     {
         int original = account.getAccountNumber();
         account.setAccountNumber(6);
         assertEquals(6,account.getAccountNumber());
-    }
+    }*/
 
     @Test
     public void getAccountBalanceTest()
