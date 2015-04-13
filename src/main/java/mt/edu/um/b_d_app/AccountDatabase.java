@@ -9,6 +9,7 @@ public class AccountDatabase {
     public AccountDatabase(){ //empty accountList = 0;
     }
 
+    //may be shortened to the creation of a Transaction object which is then passed to the overloaded method taking the object as its parameter
     public boolean addAccount(int accountNumber, String accountName, long accountBalance){
         boolean flag = false;
         Account account1;
