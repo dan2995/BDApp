@@ -33,12 +33,12 @@ public class LastUsed {
     
     public long getLastUsed()
     {
-        return 0;//skeleton code
+        return this.lastAccess;//skeleton code
     }
     
     public void setLastUsed(long time)
     {
-        
+        this.lastAccess = time;
     }
             
     
