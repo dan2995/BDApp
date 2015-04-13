@@ -28,7 +28,7 @@ public class LastUsed {
     
     public int getAccountNumber()
     {
-        return 0;//skeleton code
+        return this.accNumber;//skeleton code
     }
     
     public long getLastUsed()
