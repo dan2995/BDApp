@@ -27,11 +27,11 @@ public class AccountDatabaseTest {
         
         accountDatabase1 = new AccountDatabase();
 
-        accountDatabase1.accountList.add(account1);
-        accountDatabase1.accountList.add(account2);
-        accountDatabase1.accountList.add(account3);
-        accountDatabase1.accountList.add(account4);
-        accountDatabase1.accountList.add(account5);
+        accountDatabase1.addAccount(account1);
+        accountDatabase1.addAccount(account2);
+        accountDatabase1.addAccount(account3);
+        accountDatabase1.addAccount(account4);
+        accountDatabase1.addAccount(account5);
         
         objAccount = new Account(10,"objectAccount",62);
     }

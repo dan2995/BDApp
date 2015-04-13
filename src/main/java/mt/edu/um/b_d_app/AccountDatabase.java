@@ -31,7 +31,7 @@ public class AccountDatabase {
         boolean flag = false;
         int i = 0;
         while(flag == false && i < accountList.size()){
-            if(accountList.get(i).getAccountNumber() == account.accountNumber){
+            if(accountList.get(i).getAccountNumber() == account.getAccountNumber()){
                 flag = true;
             }
             i++;
