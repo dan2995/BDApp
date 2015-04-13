@@ -37,12 +37,12 @@ public class LastUsedTest {
         assertEquals(startUp,testObject.getLastUsed());
     }
     
-    @Test
+    /*@Test
     public void setLastUsedTest ()
     {
         long now = System.nanoTime();
         testObject.setLastUsed(now);
         assertEquals(now, testObject.getLastUsed());
-    }    
+    } */   
     
 }

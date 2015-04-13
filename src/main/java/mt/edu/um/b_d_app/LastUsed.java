@@ -14,10 +14,10 @@ public class LastUsed {
     private int accNumber;
     private long lastAccess;//last time in nanoseconds the account was used in a transacion
     
-    LastUsed()
+    /*LastUsed()
     {
         this(0,0);
-    }
+    }*/
     
     //assuming time passed as a parameter as a safety measure against different executions of System.nanoTime()
     LastUsed(int accNumber, long time)
@@ -36,10 +36,11 @@ public class LastUsed {
         return this.lastAccess;//skeleton code
     }
     
+    /*
     public void setLastUsed(long time)
     {
         this.lastAccess = time;
-    }
+    }*/
             
     
 }
