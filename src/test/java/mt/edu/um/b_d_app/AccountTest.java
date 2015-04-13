@@ -35,13 +35,13 @@ public class AccountTest {
         assertEquals("myAccount",account.getAccountName());
     }
     
-    @Test 
+    /*@Test
     public void setNameTest()
     {
         String original = account.getAccountName();
         account.setAccountName("MyAccountRenamed");
         assertEquals("MyAccountRenamed",account.getAccountName());
-    }
+    }*/
 
     @Test
     public void getAccountNumberTest()
@@ -63,10 +63,10 @@ public class AccountTest {
         assertEquals(100,account.getAccountBalance());
     }
 
-    @Test
+    /*@Test
     public void setAccountBalanceTest()
     {
         account.setAccountBalance(120);
         assertEquals(120,account.getAccountBalance());
-    }
+    }*/
 }
