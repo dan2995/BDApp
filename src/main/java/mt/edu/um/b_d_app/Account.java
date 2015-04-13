@@ -12,25 +12,25 @@ public class Account {
         accountBalance = accBalance;
     }
 
-    void setAccountNumber(int accountNumber){
+   /* private void setAccountNumber(int accountNumber){
         this.accountNumber = accountNumber;
-    }
+    }*/
 
     int getAccountNumber(){
         return accountNumber;
     }
 
-    void setAccountName(String accountName){
+    /*private void setAccountName(String accountName){
         this.accountName = accountName;
-    }
+    }*/
 
     String getAccountName(){
         return accountName;
     }
 
-    void setAccountBalance(long accountBalance){
+    /*private void setAccountBalance(long accountBalance){
         this.accountBalance = accountBalance;
-    }
+    }*/
 
     long getAccountBalance(){
         return accountBalance;
