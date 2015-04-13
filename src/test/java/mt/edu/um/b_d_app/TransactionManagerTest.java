@@ -91,7 +91,7 @@ public class TransactionManagerTest {
     }
     
     @Test
-    public void trans15SecondPassTest () throws InterruptedException
+    public void trans15SecondRulePassTest () throws InterruptedException
     {
         assertEquals(true, testTManager.processTransaction(testTrans2));
         Thread.sleep(15000);//in milliseconds therefore 15 seconds = 15000 milliseconds

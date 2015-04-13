@@ -24,7 +24,7 @@ public class TransactionManager {
     Else return false
     */
     
-    ArrayList<LastUsed> active = new ArrayList<LastUsed> ();
+    private ArrayList<LastUsed> active = new ArrayList<LastUsed> ();
     
     public TransactionManager(AccountDatabase database)
     {
@@ -36,6 +36,8 @@ public class TransactionManager {
     {
         this(null);
     }
+    
+    //make sure that src is never equal to dst
     
     public boolean processTransaction(int src, int dst, int amount)
     {
@@ -66,5 +68,28 @@ public class TransactionManager {
     private void setNumberTransactionsProcessed()
     {
         this.numTransactionsProcessed++;
+    }
+    
+    public boolean timeRuleVerification(int src, int dst)
+    {
+        //locate the account in the active list if they exist
+        //if neither exists
+        int i = 0;
+        boolean stop = false;
+        while(i<active.size() && (!stop))
+        {
+            int currentElement = active.get(i).getAccountNumber();
+            if(currentElement == src || currentElement == dst)
+            {
+                long timestamp = active.get(i).getLastUsed();
+                long now = System.nanoTime();
+                if((timestamp+15)>=now)//15 seconds has not passed yet
+                {
+                    stop = true;
+                }
+            }
+        }
+        
+        return !stop;
     }
 }
