@@ -37,30 +37,30 @@ public class Transaction {
         return this.sourceAccountNumber;
     }
     
-    private void setSourceAccountNumber(int accountNumber)
+    /*private void setSourceAccountNumber(int accountNumber)
     {
         this.sourceAccountNumber = accountNumber;
-    }
+    }*/
     
     public int getDestinationAccountNumber()
     {
         return this.destinationAccountNumber;
     }
     
-    private void setDestinationAccountNumber(int accountNumber)
+    /*private void setDestinationAccountNumber(int accountNumber)
     {
         this.destinationAccountNumber = accountNumber;
-    }
+    }*/
     
     public long getAmount()
     {
         return this.amount;
     }
     
-    private void setAmount(long amount)
+    /*private void setAmount(long amount)
     {
         this.amount = amount;
-    }
+    }*/
     
     //accesses the account database to look up the accounts
     public boolean process()
