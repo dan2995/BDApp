@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class AccountDatabase {
 
-    ArrayList<Account> accountList = new ArrayList<Account>();
+    private ArrayList<Account> accountList = new ArrayList<Account>();
 
-    AccountDatabase(){ //empty accountList = 0;
+    public AccountDatabase(){ //empty accountList = 0;
     }
 
-    boolean addAccount(int accountNumber, String accountName, long accountBalance){
+    public boolean addAccount(int accountNumber, String accountName, long accountBalance){
         boolean flag = false;
         Account account1;
         int i = 0;
@@ -27,7 +27,7 @@ public class AccountDatabase {
     }
     
     //Overloading the method
-    boolean addAccount(Account account){
+    public boolean addAccount(Account account){
         boolean flag = false;
         int i = 0;
         while(flag == false && i < accountList.size()){
@@ -42,7 +42,7 @@ public class AccountDatabase {
         return !flag;
     }
 
-    Account getAccount(int accountNumber){
+    public Account getAccount(int accountNumber){
         for(int i = 0; i<accountList.size();i++)
         {
             if(accountList.get(i).getAccountNumber() == accountNumber)
@@ -53,7 +53,7 @@ public class AccountDatabase {
         return  null;
     }
 
-    int getSize(){
+    public int getSize(){
         return accountList.size();
     }
 

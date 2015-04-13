@@ -2,11 +2,11 @@ package mt.edu.um.b_d_app;
 
 public class Account {
 
-    int accountNumber;
-    String accountName;
-    long accountBalance;
+    private int accountNumber;
+    private String accountName;
+    private long accountBalance;
 
-    Account(int accNumber, String accName, long accBalance){
+    public Account(int accNumber, String accName, long accBalance){
         accountNumber = accNumber;
         accountName = accName;
         accountBalance = accBalance;
@@ -16,7 +16,7 @@ public class Account {
         this.accountNumber = accountNumber;
     }*/
 
-    int getAccountNumber(){
+    public int getAccountNumber(){
         return accountNumber;
     }
 
@@ -24,7 +24,7 @@ public class Account {
         this.accountName = accountName;
     }*/
 
-    String getAccountName(){
+    public String getAccountName(){
         return accountName;
     }
 
@@ -32,12 +32,12 @@ public class Account {
         this.accountBalance = accountBalance;
     }
 
-    long getAccountBalance(){
+    public long getAccountBalance(){
         return accountBalance;
     }
 
     //the method that takes the amount, invoked by Transaction.process()
-    boolean adjustBalance(long amount){
+    public boolean adjustBalance(long amount){
         if((this.accountBalance + amount) >= 0)
         {
             this.setAccountBalance(this.getAccountBalance()+amount);
