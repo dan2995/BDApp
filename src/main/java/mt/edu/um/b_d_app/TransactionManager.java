@@ -82,7 +82,7 @@ public class TransactionManager {
         //if neither exists
         int i = 0;
         boolean stop = false;
-        long now = System.nanoTime();
+        long now = (System.nanoTime()/1000);
         while((i<active.size()) && (!stop))
         {
             int currentElement = (active.get(i)).getAccountNumber();

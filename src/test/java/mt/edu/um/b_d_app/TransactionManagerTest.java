@@ -86,8 +86,11 @@ public class TransactionManagerTest {
     @Test
     public void trans15SecondRuleFailTest ()
     {
+        long start = System.nanoTime();
         assertEquals(true, testTManager.processTransaction(testTrans2));
-        assertEquals(false, testTManager.processTransaction(testTrans2));
+        long now = System.nanoTime();
+        assertEquals(true,(start/1000+15000000)>(now/1000));
+        assertEquals(false, testTManager.processTransaction(testTrans1));
     }
     
     @Test
