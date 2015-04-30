@@ -51,7 +51,16 @@ public class CompositeTransactionTest {
     
     //test getTransaction
     
+    //__________________________________________________________________________________________
+    
     //test process
+    @Test
+    public void processCompositeTransactionTest()
+    {
+        transaction1.addAtomicTransaction(database1, 1, 2, 50, "IncreaseAcc2By50");
+        transaction1.addCompositeTransaction("2to3andBack");
+        (transaction1.getTransaction("2to3andBack")).;
+    }
     
     //test removeTransaction
     

@@ -10,4 +10,6 @@ public abstract class Transaction {
     {
         return this.name;
     }
+    
+    public abstract Transaction getTransaction(String name);
 }

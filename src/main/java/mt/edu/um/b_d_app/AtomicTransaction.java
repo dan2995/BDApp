@@ -91,4 +91,10 @@ public class AtomicTransaction extends Transaction {
         //split adjustBalance into checkBalance to check that therer are sufficient funds and use setBalance
     }
     
+    public Transaction getTransaction (String name)
+    {
+        //no lower levels to search through
+        return null;
+    }
+    
 }

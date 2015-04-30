@@ -78,6 +78,7 @@ public class CompositeTransaction extends Transaction{
             if((this.transactionList.get(i)).getTransactionName().equals(name))
             {
                 return this.transactionList.get(i);
+                //search through the nested levels too
             }
             i++;
         }
