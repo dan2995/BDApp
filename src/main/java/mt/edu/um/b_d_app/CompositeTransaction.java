@@ -27,7 +27,7 @@ public class CompositeTransaction extends Transaction{
         this("GenericTransaction");
     }
     
-    public boolean process() throws TransactionFailException
+    public boolean process() throws TransactionFailureException
     {
         int i = 0;
         boolean pass = true;
@@ -36,13 +36,13 @@ public class CompositeTransaction extends Transaction{
             pass = transactionList.get(i).process();
             if(!pass)
             {
-                throw new TransactionFailException("The transaction: "+transactionList.get(i).toString()+" failed to be processed.");
+                throw new TransactionFailureException("The transaction: "+transactionList.get(i).toString()+" failed to be processed.");
             }
             i++;
             
         }
         
-        return !fail;
+        return !pass;
     }
     
 }
