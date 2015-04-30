@@ -27,14 +27,19 @@ public class CompositeTransaction extends Transaction{
         this("GenericTransaction");
     }
     
-    public boolean process()
+    public boolean process() throws TransactionFailException
     {
         int i = 0;
-        boolean fail = false;
-        while(i<transactionList.size() && !fail)
+        boolean pass = true;
+        while(i<transactionList.size() && pass)
         {
-            fail = transactionList.get(i).process();
+            pass = transactionList.get(i).process();
+            if(!pass)
+            {
+                throw new TransactionFailException("The transaction: "+transactionList.get(i).toString()+" failed to be processed.");
+            }
             i++;
+            
         }
         
         return !fail;
