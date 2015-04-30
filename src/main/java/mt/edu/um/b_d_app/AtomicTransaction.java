@@ -32,7 +32,7 @@ public class AtomicTransaction extends Transaction {
         //handling an invalid transaction by setting all fields to zero
         //account numbers have been confirmed to be assumed to start from one
         
-        this(0,0,0, null,"");
+        this(0,0,0, null,"GenericTransaction");
     }
     
     public int getSourceAccountNumber()

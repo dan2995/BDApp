@@ -13,7 +13,7 @@ import org.junit.Test;
  *
  * @author Beatrix
  */
-public class TransactionClassTest {
+public class AtomicTransactionTest {
  
     //The test accounts declared for the AtomicTransaction classes tests
     Account testAccount1;
@@ -39,11 +39,11 @@ public class TransactionClassTest {
         database.addAccount(1, "tAcc1", 500);
         database.addAccount(5, "tAcc2", 500);
         
-        testTrans1 = new AtomicTransaction(1,5,200,database);
+        testTrans1 = new AtomicTransaction(1,5,200,database,"testTrans1");
         
-        failTrans1 = new AtomicTransaction(1,0,50,database);//non-existent account
-        failTrans2 = new AtomicTransaction(1,5,10,null);//null database
-        failTrans3 = new AtomicTransaction(1,5,1300,database);//invalid amount
+        failTrans1 = new AtomicTransaction(1,0,50,database,"failTrans1");//non-existent account
+        failTrans2 = new AtomicTransaction(1,5,10,null,"failTrans2");//null database
+        failTrans3 = new AtomicTransaction(1,5,1300,database,"failTrans3");//invalid amount
         failTrans4 = new AtomicTransaction();
     }
     

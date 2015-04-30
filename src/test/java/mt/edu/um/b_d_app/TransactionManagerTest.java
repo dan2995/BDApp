@@ -38,8 +38,8 @@ public class TransactionManagerTest {
         database.addAccount(1, "tAcc1", 500);
         database.addAccount(5, "tAcc2", 500);
         
-        testTrans1 = new AtomicTransaction(1,5,200,database);
-        testTrans2 = new AtomicTransaction(5,1,100,database);
+        testTrans1 = new AtomicTransaction(1,5,200,database,"testTrans1");
+        testTrans2 = new AtomicTransaction(5,1,100,database,"testTrans2");
         testTManager = new TransactionManager(database);
         
     }
@@ -48,7 +48,7 @@ public class TransactionManagerTest {
     public void numTransactionsProcessedTest()
     {
         assertEquals(0,testTManager.getNumberTransactionsProcessed());
-        testTManager.processTransaction(1,5,200);
+        testTManager.processTransaction(1,5,200,"dummyTransaction");
         assertEquals(1,testTManager.getNumberTransactionsProcessed());
     }
     
@@ -57,7 +57,7 @@ public class TransactionManagerTest {
     {
         long source1 = database.getAccount(1).getAccountBalance();
         long dest1 = database.getAccount(5).getAccountBalance();
-        assertEquals(true, testTManager.processTransaction(1,5,200));
+        assertEquals(true, testTManager.processTransaction(1,5,200,"dummyTransaction"));
         assertEquals(source1-200,database.getAccount(1).getAccountBalance());
         assertEquals(dest1+200,database.getAccount(5).getAccountBalance());
     }
