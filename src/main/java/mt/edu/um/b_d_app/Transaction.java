@@ -6,7 +6,7 @@ public abstract class Transaction {
     
     public abstract boolean process()throws TransactionFailureException;
     
-    public String getTranscationName()
+    public String getTransactionName()
     {
         return this.name;
     }
