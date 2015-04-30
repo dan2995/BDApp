@@ -30,6 +30,10 @@ public class CompositeTransaction extends Transaction{
     {
         return this.transactionList.add(new AtomicTransaction(src,dst,amount,database,name));
     }
+
+    public boolean addCompositeTransaction(String name){
+        return this.transactionList.add(new CompositeTransaction(name);
+    }
     
     public boolean process() throws TransactionFailureException
     {
