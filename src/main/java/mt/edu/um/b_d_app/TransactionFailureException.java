@@ -1,14 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mt.edu.um.b_d_app;
 
-/**
- *
- * @author Beatrix
- */
-public class TransactionFailureException {
-    
+public class TransactionFailureException extends Exception {
+
+    private String message;
+
+    public TransactionFailureException(String message){
+        this.message = message;
+    }
+
+    public String getMessage(){
+        return message;
+    }
+
 }
