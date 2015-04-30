@@ -11,4 +11,11 @@ package mt.edu.um.b_d_app;
  */
 public class TransactionTest {
     
+    //similar setup
+    
+    //test process
+    
+    //test getTransactionName
+    
+    
 }
