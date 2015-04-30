@@ -18,12 +18,13 @@ public class AtomicTransaction extends Transaction {
     //might become a redundant structure in this class
     //have a single database in the transaction manager?
     
-    public AtomicTransaction(int source, int destination, int amount, AccountDatabase database)
+    public AtomicTransaction(int source, int destination, int amount, AccountDatabase database, String name)
     {
         this.database = database;
         this.sourceAccountNumber = source;
         this.destinationAccountNumber = destination;
         this.amount = amount;
+        this.name = name;
     }
     
      public AtomicTransaction()
@@ -31,7 +32,7 @@ public class AtomicTransaction extends Transaction {
         //handling an invalid transaction by setting all fields to zero
         //account numbers have been confirmed to be assumed to start from one
         
-        this(0,0,0, null);
+        this(0,0,0, null,"");
     }
     
     public int getSourceAccountNumber()

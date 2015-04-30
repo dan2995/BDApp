@@ -14,7 +14,6 @@ import java.util.ArrayList;
 public class CompositeTransaction extends Transaction{
     
     private ArrayList<Transaction> transactionList;
-    private String name;
     
     public CompositeTransaction(String name)
     {
@@ -27,9 +26,9 @@ public class CompositeTransaction extends Transaction{
         this("GenericTransaction");
     }
     
-    public boolean addAtomicTransaction(AccountDatabase database, int src, int dst, int amount)
+    public boolean addAtomicTransaction(AccountDatabase database, int src, int dst, int amount, String name)
     {
-        return this.transactionList.add(new AtomicTransaction(src,dst,amount,database));
+        return this.transactionList.add(new AtomicTransaction(src,dst,amount,database,name));
     }
     
     public boolean process() throws TransactionFailureException
@@ -50,4 +49,20 @@ public class CompositeTransaction extends Transaction{
         return !pass;
     }
     
+    public boolean removeTransaction(String name)
+    {
+        int i = 0;
+        boolean found = false;
+        while(i<this.transactionList.size() && !found)
+        {
+            if((this.transactionList.get(i)).getTranscationName().equals(name))
+            {
+                this.transactionList.remove(i);
+                found = true;
+            }
+            i++;
+        }
+        
+        return found;
+    }
 }

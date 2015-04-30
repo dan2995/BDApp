@@ -31,12 +31,12 @@ public class TransactionManager {
     
     //make sure that src is never equal to dst
     
-    public boolean processTransaction(int src, int dst, int amount)
+    public boolean processTransaction(int src, int dst, int amount, String name)
     {
         if(this.timeRuleVerification(src, dst))
         {
             //refactor into its own method and pass to the implementation of processTransacion seen below
-            AtomicTransaction new_t = new AtomicTransaction(src,dst,amount,database);
+            AtomicTransaction new_t = new AtomicTransaction(src,dst,amount,database, name);
             boolean flag = new_t.process();
             if(flag)
             {
