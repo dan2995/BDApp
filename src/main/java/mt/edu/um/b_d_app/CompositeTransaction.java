@@ -22,8 +22,15 @@ public class CompositeTransaction extends Transaction{
     
     public boolean process()
     {
+        int i = 0;
+        boolean fail = false;
+        while(i<transactionList.size() && !fail)
+        {
+            fail = transactionList.get(i).process();
+            i++;
+        }
         
-        
+        return !fail;
     }
     
 }
