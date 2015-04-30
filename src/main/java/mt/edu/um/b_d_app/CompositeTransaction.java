@@ -85,5 +85,9 @@ public class CompositeTransaction extends Transaction{
         
         return null;
     }
+
+    public int getListSize(){
+        return transactionList.size();
+    }
     
 }

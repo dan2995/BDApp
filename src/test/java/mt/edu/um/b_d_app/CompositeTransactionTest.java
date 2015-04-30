@@ -37,8 +37,17 @@ public class CompositeTransactionTest {
 
     @Test
     public void addAtomicTransactionTest(){
-        assertEquals(true,account.adjustBalance(30));
+        int arrayListSize = transaction1.getListSize();
+        assertEquals(true,transaction1.addAtomicTransaction(database1, 2, 1, 50, "Transaction"));
+        int arrayListSizeUpdated = transaction1.getListSize();
+
     }
+
+    @Test
+    public void addAtomicTransactionTest(){
+        assertEquals(true,transaction1.addAtomicTransaction(database1, 2, 1, 50, "Transaction"));
+    }
+
 
 
 
