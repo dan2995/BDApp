@@ -59,7 +59,7 @@ public class CompositeTransaction extends Transaction{
         boolean found = false;
         while(i<this.transactionList.size() && !found)
         {
-            if((this.transactionList.get(i)).getTranscationName().equals(name))
+            if((this.transactionList.get(i)).getTransactionName().equals(name))
             {
                 this.transactionList.remove(i);
                 found = true;
@@ -75,7 +75,7 @@ public class CompositeTransaction extends Transaction{
         int i = 0;
         while(i<this.transactionList.size())
         {
-            if((this.transactionList.get(i)).getTranscationName().equals(name))
+            if((this.transactionList.get(i)).getTransactionName().equals(name))
             {
                 return this.transactionList.get(i);
             }
