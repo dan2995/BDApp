@@ -9,12 +9,12 @@ package mt.edu.um.b_d_app;
  *
  * @author Beatrix
  */
-public class Transaction {
+public class CompositeTransaction extends Transaction{
     
-    Transaction()
+    CompositeTransaction()
     {
-        
-       
+                
+                
     }
     
 }

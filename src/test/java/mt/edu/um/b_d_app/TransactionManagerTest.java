@@ -15,15 +15,15 @@ import org.junit.Test;
  */
 public class TransactionManagerTest {
     
-    //The test accounts declared for the Transaction classes tests
+    //The test accounts declared for the AtomicTransaction classes tests
     //Account testAccount1;
     //Account testAccount2;
     
     //The test transaction instance
-    Transaction testTrans1;
-    Transaction testTrans2;
+    AtomicTransaction testTrans1;
+    AtomicTransaction testTrans2;
     
-    //The test Transaction Manager
+    //The test AtomicTransaction Manager
     TransactionManager testTManager;
     
     AccountDatabase database;
@@ -38,8 +38,8 @@ public class TransactionManagerTest {
         database.addAccount(1, "tAcc1", 500);
         database.addAccount(5, "tAcc2", 500);
         
-        testTrans1 = new Transaction(1,5,200,database);
-        testTrans2 = new Transaction(5,1,100,database);
+        testTrans1 = new AtomicTransaction(1,5,200,database);
+        testTrans2 = new AtomicTransaction(5,1,100,database);
         testTManager = new TransactionManager(database);
         
     }

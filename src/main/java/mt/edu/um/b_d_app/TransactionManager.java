@@ -36,7 +36,7 @@ public class TransactionManager {
         if(this.timeRuleVerification(src, dst))
         {
             //refactor into its own method and pass to the implementation of processTransacion seen below
-            Transaction new_t = new Transaction(src,dst,amount,database);
+            AtomicTransaction new_t = new AtomicTransaction(src,dst,amount,database);
             boolean flag = new_t.process();
             if(flag)
             {
@@ -51,7 +51,7 @@ public class TransactionManager {
         }
     }
     
-    public boolean processTransaction(Transaction transaction)
+    public boolean processTransaction(AtomicTransaction transaction)
     {
         if(this.timeRuleVerification(transaction.getSourceAccountNumber(), transaction.getDestinationAccountNumber()))
         {

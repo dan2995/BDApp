@@ -15,21 +15,21 @@ import org.junit.Test;
  */
 public class TransactionClassTest {
  
-    //The test accounts declared for the Transaction classes tests
+    //The test accounts declared for the AtomicTransaction classes tests
     Account testAccount1;
     Account testAccount2;
     
     //The test transaction instance
-    Transaction testTrans1;
+    AtomicTransaction testTrans1;
     
     //The account database
     AccountDatabase database;
     
-    Transaction failTrans1;
-    Transaction failTrans2;
-    Transaction failTrans3;
+    AtomicTransaction failTrans1;
+    AtomicTransaction failTrans2;
+    AtomicTransaction failTrans3;
     
-    Transaction failTrans4;
+    AtomicTransaction failTrans4;
     
     @Before
     public void setUp()
@@ -39,17 +39,17 @@ public class TransactionClassTest {
         database.addAccount(1, "tAcc1", 500);
         database.addAccount(5, "tAcc2", 500);
         
-        testTrans1 = new Transaction(1,5,200,database);
+        testTrans1 = new AtomicTransaction(1,5,200,database);
         
-        failTrans1 = new Transaction(1,0,50,database);//non-existent account
-        failTrans2 = new Transaction(1,5,10,null);//null database
-        failTrans3 = new Transaction(1,5,1300,database);//invalid amount
-        failTrans4 = new Transaction();
+        failTrans1 = new AtomicTransaction(1,0,50,database);//non-existent account
+        failTrans2 = new AtomicTransaction(1,5,10,null);//null database
+        failTrans3 = new AtomicTransaction(1,5,1300,database);//invalid amount
+        failTrans4 = new AtomicTransaction();
     }
     
     
     
-    //Testing the Transaction Class members as per the provided class diagram
+    //Testing the AtomicTransaction Class members as per the provided class diagram
     @Test
     public void sourceAccountNumberTest()
     {
