@@ -5,7 +5,9 @@
  */
 package mt.edu.um.b_d_app;
 
-//add the imports
+import static org.junit.Assert.assertEquals;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  *
@@ -17,6 +19,9 @@ public class CompositeTransactionTest {
     Account account1;
     Account account2;
     Account account3;
+    TransactionManager manager;
+    CompositeTransaction transaction1;
+    CompositeTransaction transaction2;
 
 
     @Before
@@ -25,9 +30,9 @@ public class CompositeTransactionTest {
         account1 = new Account(1, "myAccount1", 100);
         account2 = new Account(2, "myAccount2", 200);
         account3 = new Account(3, "myAccount3", 300);
-        TransactionManager(database1);
-        CompositeTransaction("TransactionTest");
-        CompositeTransaction();
+        manager = new TransactionManager(database1);
+        transaction1 = new CompositeTransaction("TransactionTest");
+        transaction2 = new CompositeTransaction();
     }
 
     @Test
@@ -39,13 +44,6 @@ public class CompositeTransactionTest {
 
 
 
-    //begin
-    /*Create
-    new accounts (three)
-    new composite transaction with a given name
-    new composite transaction with no parameters
-    have a transaction manager
-    have an account database*/
     
     //test addAtomicTransaction
     

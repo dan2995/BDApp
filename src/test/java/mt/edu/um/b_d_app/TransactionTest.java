@@ -5,6 +5,10 @@
  */
 package mt.edu.um.b_d_app;
 
+import static org.junit.Assert.assertEquals;
+import org.junit.Before;
+import org.junit.Test;
+
 /**
  *
  * @author Beatrix
