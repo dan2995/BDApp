@@ -31,7 +31,7 @@ public class CompositeTransactionTest {
     }
 
     @Test
-    public void compositeTransactionTest1(){
+    public void addAtomicTransactionTest(){
         assertEquals(true,account.adjustBalance(30));
     }
 
