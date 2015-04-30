@@ -32,7 +32,7 @@ public class CompositeTransaction extends Transaction{
     }
 
     public boolean addCompositeTransaction(String name){
-        return this.transactionList.add(new CompositeTransaction(name);
+        return this.transactionList.add(new CompositeTransaction(name));
     }
     
     public boolean process() throws TransactionFailureException
