@@ -31,6 +31,8 @@ public class AtomicTransactionTest {
     
     AtomicTransaction failTrans4;
     
+    //test getTransactionName() as an inherited method
+    
     @Before
     public void setUp()
     {
