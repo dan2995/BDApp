@@ -14,7 +14,9 @@ public class Transaction {
     private int sourceAccountNumber;
     private int destinationAccountNumber;
     private long amount;
-    private AccountDatabase database;
+    private AccountDatabase database;//apply the singleton pattern to the database
+    //might become a redundant structure in this class
+    //have a single database in the transaction manager?
     
     public Transaction(int source, int destination, int amount, AccountDatabase database)
     {
@@ -84,6 +86,8 @@ public class Transaction {
         {
             return false;
         }
+        //room for further check
+        //split adjustBalance into checkBalance to check that therer are sufficient funds and use setBalance
     }
     
 }

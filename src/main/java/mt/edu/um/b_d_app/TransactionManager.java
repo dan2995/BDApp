@@ -16,6 +16,8 @@ public class TransactionManager {
     AccountDatabase database;
     private ArrayList<LastUsed> active = new ArrayList<LastUsed> ();
     
+    //either have a database in the transaction object or here in the transaction manager
+    //if in the transaction object assumes that the transactions come from the same database 
     public TransactionManager(AccountDatabase database)
     {
         this.database = database;
@@ -33,6 +35,7 @@ public class TransactionManager {
     {
         if(this.timeRuleVerification(src, dst))
         {
+            //refactor into its own method and pass to the implementation of processTransacion seen below
             Transaction new_t = new Transaction(src,dst,amount,database);
             boolean flag = new_t.process();
             if(flag)
@@ -76,13 +79,18 @@ public class TransactionManager {
         this.numTransactionsProcessed++;
     }
     
+    
+    //an improvement would be to remove any element of active that has an expired timestamp
     private boolean timeRuleVerification(int src, int dst)
+    //needs the database to prevent using the default TM database meber of the transaction object database is different
     {
         //locate the account in the active list if they exist
         //if neither exists
         int i = 0;
         boolean stop = false;
         long now = (System.nanoTime()/1000);
+        //assuming that processing of the check below is not sufficient enough to make an account record checked later in the loop valid
+        //i.e. that the below procesing time is negligible
         while((i<active.size()) && (!stop))
         {
             int currentElement = (active.get(i)).getAccountNumber();
