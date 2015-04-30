@@ -13,8 +13,9 @@ public class CompositeTransaction extends Transaction{
     
     CompositeTransaction()
     {
-                
-                
+                            
     }
+    
+    
     
 }

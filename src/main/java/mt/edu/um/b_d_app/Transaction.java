@@ -13,8 +13,14 @@ public class Transaction {
     
     Transaction()
     {
-        
-       
+         
     }
+    
+    public boolean process()
+    {
+        
+    }
+    
+    
     
 }
