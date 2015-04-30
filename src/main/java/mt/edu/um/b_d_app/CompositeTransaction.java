@@ -16,15 +16,20 @@ public class CompositeTransaction extends Transaction{
     private ArrayList<Transaction> transactionList;
     private String name;
     
-    CompositeTransaction(String name)
+    public CompositeTransaction(String name)
     {
         transactionList = new ArrayList<Transaction> ();
         this.name = name;
     }
     
-    CompositeTransaction()
+    public CompositeTransaction()
     {
         this("GenericTransaction");
+    }
+    
+    public boolean addAtomicTransaction(AccountDatabase database, int src, int dst, int amount)
+    {
+        return this.transactionList.add(new AtomicTransaction(src,dst,amount,database));
     }
     
     public boolean process() throws TransactionFailureException
