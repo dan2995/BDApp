@@ -69,4 +69,20 @@ public class CompositeTransaction extends Transaction{
         
         return found;
     }
+    
+    public Transaction getTransaction(String name)
+    {
+        int i = 0;
+        while(i<this.transactionList.size())
+        {
+            if((this.transactionList.get(i)).getTranscationName().equals(name))
+            {
+                return this.transactionList.get(i);
+            }
+            i++;
+        }
+        
+        return null;
+    }
+    
 }
