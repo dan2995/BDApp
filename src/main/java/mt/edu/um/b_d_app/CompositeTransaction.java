@@ -13,11 +13,18 @@ import java.util.ArrayList;
  */
 public class CompositeTransaction extends Transaction{
     
-    ArrayList<Transaction> transactionList = new ArrayList<Transaction> ();
+    private ArrayList<Transaction> transactionList;
+    private String name;
+    
+    CompositeTransaction(String name)
+    {
+        transactionList = new ArrayList<Transaction> ();
+        this.name = name;
+    }
     
     CompositeTransaction()
     {
-                            
+        this("GenericTransaction");
     }
     
     public boolean process()
