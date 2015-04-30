@@ -9,18 +9,7 @@ package mt.edu.um.b_d_app;
  *
  * @author Beatrix
  */
-public class Transaction {
+public abstract class Transaction {
     
-    Transaction()
-    {
-         
-    }
-    
-    public boolean process()
-    {
-        
-    }
-    
-    
-    
+    public abstract boolean process();
 }
