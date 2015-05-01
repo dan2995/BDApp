@@ -55,6 +55,8 @@ public class CompositeTransaction extends Transaction{
     
     public boolean removeTransaction(String name)
     {
+        
+        //revised version for nested structure
         int i = 0;
         boolean found = false;
         while(i<this.transactionList.size() && !found)
@@ -65,6 +67,9 @@ public class CompositeTransaction extends Transaction{
                 //search through the nested levels too
                 found = true;
             }
+            //check the current transactions lower levels
+            found = this.transactionList.get(i).removeTransaction(name);
+
             i++;
         }
         
@@ -81,6 +86,13 @@ public class CompositeTransaction extends Transaction{
                 return this.transactionList.get(i);
                 //search through the nested levels too
             }
+            //check the current transactions lower levels
+            Transaction result = this.transactionList.get(i).getTransaction(name);
+            if(result!=null)
+            {
+               return result;
+            }
+
             i++;
         }
         

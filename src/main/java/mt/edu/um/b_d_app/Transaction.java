@@ -12,4 +12,6 @@ public abstract class Transaction {
     }
     
     public abstract Transaction getTransaction(String name);
+    
+    public abstract boolean removeTransaction (String name);
 }

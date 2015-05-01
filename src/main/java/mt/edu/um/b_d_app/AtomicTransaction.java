@@ -97,4 +97,9 @@ public class AtomicTransaction extends Transaction {
         return null;
     }
     
+    public boolean removeTransaction (String name)
+    {
+        return false;//no components to remove in an atomic transaction
+    }
+    
 }
