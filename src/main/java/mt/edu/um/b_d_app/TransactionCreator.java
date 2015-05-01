@@ -18,13 +18,19 @@ public class TransactionCreator {
         }
         
         //Assuming a correct creator was found
-        return creator.createTransaction();
+        return creator.createTransaction(destinationList, amountList);
         
     }
     
     public Transaction createTransaction()
     {
         return null;//set to null as no default type was specified in the assignment specification
+    }
+    
+    public Transaction createTransaction(ArrayList<Account> destinationList, ArrayList<Integer> amountList){
+        
+        return null;//no type specified for this level in the transaction creator hierarchy
+        
     }
     
     private TransactionCreator findCreatorForTypeOfTransaction (RiskTypes type)
