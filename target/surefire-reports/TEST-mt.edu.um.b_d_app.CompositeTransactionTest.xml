@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="7" failures="0" name="mt.edu.um.b_d_app.CompositeTransactionTest" time="0.015" errors="0" skipped="0">
+<testsuite tests="9" failures="1" name="mt.edu.um.b_d_app.CompositeTransactionTest" time="0.009" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_25\jre\bin"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\Beatrix\Documents\GitHub\BDApp\BDApp"/>
+    <property name="user.dir" value="C:\Users\Beatrix\Documents\GitHub\BDApp"/>
     <property name="java.runtime.version" value="1.8.0_25-b18"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_25\jre\lib\endorsed"/>
@@ -61,11 +61,51 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="mt.edu.um.b_d_app.CompositeTransactionTest" name="processCompositeTransactionFailTest" time="0"/>
+  <testcase classname="mt.edu.um.b_d_app.CompositeTransactionTest" name="getTransactionTestFail" time="0"/>
+  <testcase classname="mt.edu.um.b_d_app.CompositeTransactionTest" name="getTransactionTestPass" time="0"/>
+  <testcase classname="mt.edu.um.b_d_app.CompositeTransactionTest" name="addAtomicTransactionTestFail" time="0.005">
+    <failure message="expected:&lt;false&gt; but was:&lt;true&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;false&gt; but was:&lt;true&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at mt.edu.um.b_d_app.CompositeTransactionTest.addAtomicTransactionTestFail(CompositeTransactionTest.java:49)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</failure>
+  </testcase>
+  <testcase classname="mt.edu.um.b_d_app.CompositeTransactionTest" name="addAtomicTransactionTestPass" time="0"/>
+  <testcase classname="mt.edu.um.b_d_app.CompositeTransactionTest" name="processCompositeTransactionFailTest" time="0.002"/>
   <testcase classname="mt.edu.um.b_d_app.CompositeTransactionTest" name="removeTransactionTestPass" time="0"/>
   <testcase classname="mt.edu.um.b_d_app.CompositeTransactionTest" name="removeTransactionFail" time="0"/>
-  <testcase classname="mt.edu.um.b_d_app.CompositeTransactionTest" name="addCompositeTransactionTest" time="0"/>
   <testcase classname="mt.edu.um.b_d_app.CompositeTransactionTest" name="processCompositeTransactionPassTest" time="0"/>
-  <testcase classname="mt.edu.um.b_d_app.CompositeTransactionTest" name="getTransactionTest" time="0"/>
-  <testcase classname="mt.edu.um.b_d_app.CompositeTransactionTest" name="addAtomicTransactionTest" time="0"/>
+  <testcase classname="mt.edu.um.b_d_app.CompositeTransactionTest" name="addCompositeTransactionTestPass" time="0"/>
 </testsuite>
