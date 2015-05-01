@@ -14,17 +14,9 @@ public class Account {
         lastAccess = 0;
     }
 
-   /* private void setAccountNumber(int accountNumber){
-        this.accountNumber = accountNumber;
-    }*/
-
     public int getAccountNumber(){
         return accountNumber;
     }
-
-    /*private void setAccountName(String accountName){
-        this.accountName = accountName;
-    }*/
 
     public String getAccountName(){
         return accountName;
@@ -46,5 +38,13 @@ public class Account {
             return true;
         }
         return false;
+    }
+
+    public void setLastAccess(long lastAccessInput){
+        this.lastAccess = lastAccessInput;
+    }
+
+    public long getLastAccess(){
+        return lastAccess;
     }
 }
