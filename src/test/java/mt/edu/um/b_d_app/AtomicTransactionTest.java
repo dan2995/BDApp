@@ -128,4 +128,20 @@ public class AtomicTransactionTest {
     {
         assertEquals(false,testTrans1.addTransaction(database,1,5,100,"AnyName"));
     }
+
+    @Test
+    public void addTransactionFail(){
+        assertEquals(false, testTrans1.addTransaction(database, 1,2,100,"Name"));
+    }
+
+    @Test
+    public void getListSizeTest(){
+        assertEquals(0, testTrans1.getListSize());
+    }
+
+    @Test
+    public void addTransactionTest(){
+        CompositeTransaction fail = new CompositeTransaction("fail");
+        assertEquals(false, testTrans1.addTransaction(fail));
+    }
 }
