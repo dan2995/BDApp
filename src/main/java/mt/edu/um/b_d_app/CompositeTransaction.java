@@ -17,8 +17,8 @@ public class CompositeTransaction extends Transaction{
     
     public CompositeTransaction(String name)
     {
+        super(name);
         transactionList = new ArrayList<Transaction> ();
-        this.name = name;
     }
     
     public CompositeTransaction()
@@ -26,6 +26,17 @@ public class CompositeTransaction extends Transaction{
         this("GenericTransaction");
     }
     
+    public boolean addTransaction(AccountDatabase database, int src, int dst, int amount, String name)
+    {
+        return this.transactionList.add(new AtomicTransaction(src,dst,amount,database,name));
+    }
+    
+    public boolean addTransaction(String name)
+    {
+        return this.transactionList.add(new CompositeTransaction(name));
+    }
+    
+    /*
     public boolean addAtomicTransaction(AccountDatabase database, int src, int dst, int amount, String name)
     {
         return this.transactionList.add(new AtomicTransaction(src,dst,amount,database,name));
@@ -33,7 +44,7 @@ public class CompositeTransaction extends Transaction{
 
     public boolean addCompositeTransaction(String name){
         return this.transactionList.add(new CompositeTransaction(name));
-    }
+    }*/
     
     public boolean process() throws TransactionFailureException
     {
