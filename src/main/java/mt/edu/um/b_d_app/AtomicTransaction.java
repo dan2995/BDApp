@@ -67,7 +67,7 @@ public class AtomicTransaction extends Transaction {
     }*/
     
     //accesses the account database to look up the accounts
-    public boolean process()
+    public boolean process() throws InterruptedException
     {
         if(this.database==null) return false;
         
@@ -82,6 +82,7 @@ public class AtomicTransaction extends Transaction {
         //check neither account has been used in the last 15 seconds
         if( !this.timeRuleVerification(source.getLastAccess()) || !this.timeRuleVerification(destination.getLastAccess()) )
         {
+            
             return false;
         }
         
@@ -92,6 +93,8 @@ public class AtomicTransaction extends Transaction {
             long finished = System.nanoTime();
             source.setLastAccess(finished);
             destination.setLastAccess(finished);
+            //sleeping to ensure 15 second rule
+            Thread.sleep(15000);//15 seconds
             return true;
         }
         else

@@ -1,6 +1,6 @@
 package mt.edu.um.b_d_app;
 
-public abstract class Transaction {
+public abstract class Transaction{
     
     private String name;
     
@@ -9,7 +9,7 @@ public abstract class Transaction {
         this.name = name;
     }
     
-    public abstract boolean process()throws TransactionFailureException;//operation method
+    public abstract boolean process()throws TransactionFailureException,InterruptedException;//operation method
     
     public String getTransactionName()
     {

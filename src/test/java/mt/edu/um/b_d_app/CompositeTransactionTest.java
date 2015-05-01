@@ -85,6 +85,7 @@ public class CompositeTransactionTest {
     
     //test process
     @Test
+    
     public void processCompositeTransactionPassTest()
     {
         long acc1Balance = account1.getAccountBalance();
