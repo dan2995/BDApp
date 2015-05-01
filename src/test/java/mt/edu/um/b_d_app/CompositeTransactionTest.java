@@ -69,24 +69,10 @@ public class CompositeTransactionTest {
         assertEquals(null,transaction2.getTransaction("GenericTransaction"));
     }
 
-
-
-
-
-
-    
-    //test addAtomicTransaction
-    
-    //test addCompositeTransaction
-    
-    //test getTransaction
-    
-    //__________________________________________________________________________________________
-    
-    //test process
     @Test
-    
-    public void processCompositeTransactionPassTest()throws InterruptedException
+
+    public void processCompositeTransactionPassTest()
+
     {
         long acc1Balance = account1.getAccountBalance();
         long acc2Balance = account2.getAccountBalance();
