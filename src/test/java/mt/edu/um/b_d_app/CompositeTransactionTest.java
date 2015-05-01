@@ -44,13 +44,6 @@ public class CompositeTransactionTest {
     }
 
     @Test
-    public void addAtomicTransactionTestFail(){
-        int arrayListSize = transaction1.getListSize();
-        assertEquals(false,transaction1.addTransaction(database1, 5, 1, 50, "Atomic Transaction"));
-        int arrayListSizeUpdated = transaction1.getListSize();
-    }
-
-    @Test
     public void addCompositeTransactionTestPass(){
         int arrayListSize = transaction1.getListSize();
         assertEquals(true,transaction1.addTransaction("Composite Transaction"));
