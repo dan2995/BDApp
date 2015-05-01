@@ -76,7 +76,12 @@ public class TransactionManager {
     //generic Transaction object
     public boolean processTransaction (Transaction transaction) throws TransactionFailureException
     {
-        return transaction.process();
+        if(transaction.process())
+        {
+            this.setNumberTransactionsProcessed();
+            return true;
+        }
+        return false;
     }
     
     public int getNumberTransactionsProcessed()
