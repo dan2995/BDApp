@@ -20,11 +20,12 @@ public class AtomicTransaction extends Transaction {
     
     public AtomicTransaction(int source, int destination, int amount, AccountDatabase database, String name)
     {
+        super(name);
         this.database = database;
         this.sourceAccountNumber = source;
         this.destinationAccountNumber = destination;
         this.amount = amount;
-        this.name = name;
+        
     }
     
      public AtomicTransaction()
@@ -91,6 +92,8 @@ public class AtomicTransaction extends Transaction {
         //split adjustBalance into checkBalance to check that therer are sufficient funds and use setBalance
     }
     
+    //the following are methods that are redundant for an atomic transaction but have had to be implemented to facilitate generalisation in the CompositeComponent class
+    
     public Transaction getTransaction (String name)
     {
         //no lower levels to search through
@@ -100,6 +103,16 @@ public class AtomicTransaction extends Transaction {
     public boolean removeTransaction (String name)
     {
         return false;//no components to remove in an atomic transaction
+    }
+    
+    public boolean addTransaction(String name)
+    {
+        return false;
+    }
+    
+    public boolean addTransaction(AccountDatabase database, int src, int dst, int amount, String name)
+    {
+        return false;
     }
     
 }
