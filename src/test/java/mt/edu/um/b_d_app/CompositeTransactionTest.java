@@ -131,31 +131,31 @@ public class CompositeTransactionTest {
     @Test
     public void removeTransactionTestPass()
     {
-        int sizeOfT1List = transaction1.getListSize();
-        int sizeOf2to3BackList = transaction1.getTransaction("2to3andBack").getListSize();
-        
         transaction1.addTransaction(database1, 1, 2, 50, "IncreaseAcc2By50");
         transaction1.addTransaction("2to3andBack");
         transaction1.getTransaction("2to3andBack").addTransaction(database1, 2, 3, 100, "IncreaseAcc3By100");
         transaction1.getTransaction("2to3andBack").addTransaction(database1, 3, 2, 50, "IncreaseAcc2By50"); 
         
+        int sizeOfT1List = transaction1.getListSize();
+        int sizeOf2to3BackList = transaction1.getTransaction("2to3andBack").getListSize();
+        
         assertEquals(true,transaction1.removeTransaction("IncreaseAcc2By50"));
-        assertEquals(sizeOfT1List,transaction1.getListSize());
-        assertEquals(sizeOf2to3BackList-1,transaction1.getTransaction("2to3andBack").getListSize());
+        assertEquals(sizeOfT1List-1,transaction1.getListSize());
+        assertEquals(sizeOf2to3BackList,transaction1.getTransaction("2to3andBack").getListSize());
     }
     
     @Test
     public void removeTransactionFail()
     {
-        int sizeOfT1List = transaction1.getListSize();
-        int sizeOf2to3BackList = transaction1.getTransaction("2to3andBack").getListSize();
-        
         transaction1.addTransaction(database1, 1, 2, 50, "IncreaseAcc2By50");
         transaction1.addTransaction("2to3andBack");
         transaction1.getTransaction("2to3andBack").addTransaction(database1, 2, 3, 100, "IncreaseAcc3By100");
         transaction1.getTransaction("2to3andBack").addTransaction(database1, 3, 2, 50, "IncreaseAcc2By50"); 
         
-        assertEquals(null,transaction1.removeTransaction("GenericTransaction"));
+        int sizeOfT1List = transaction1.getListSize();
+        int sizeOf2to3BackList = transaction1.getTransaction("2to3andBack").getListSize();
+        
+        assertEquals(false,transaction1.removeTransaction("GenericTransaction"));
         assertEquals(sizeOfT1List,transaction1.getListSize());
         assertEquals(sizeOf2to3BackList,transaction1.getTransaction("2to3andBack").getListSize()); 
     }

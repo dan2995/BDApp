@@ -74,8 +74,10 @@ public class CompositeTransaction extends Transaction{
                 found = true;
             }
             //check the current transactions lower levels
-            found = this.transactionList.get(i).removeTransaction(name);
-
+            else
+            {
+                found = this.transactionList.get(i).removeTransaction(name);
+            }
             i++;
         }
         
