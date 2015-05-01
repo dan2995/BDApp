@@ -37,26 +37,43 @@ public class CompositeTransactionTest {
     }
 
     @Test
-    public void addAtomicTransactionTest(){
+    public void addAtomicTransactionTestPass(){
         int arrayListSize = transaction1.getListSize();
         assertEquals(true,transaction1.addTransaction(database1, 2, 1, 50, "Atomic Transaction"));
         int arrayListSizeUpdated = transaction1.getListSize();
-
     }
 
     @Test
-    public void addCompositeTransactionTest(){
+    public void addAtomicTransactionTestFail(){
+        int arrayListSize = transaction1.getListSize();
+        assertEquals(false,transaction1.addTransaction(database1, 5, 1, 50, "Atomic Transaction"));
+        int arrayListSizeUpdated = transaction1.getListSize();
+    }
+
+    @Test
+    public void addCompositeTransactionTestPass(){
         int arrayListSize = transaction1.getListSize();
         assertEquals(true,transaction1.addTransaction("Composite Transaction"));
         int arrayListSizeUpdated = transaction1.getListSize();
+    }
 
+    /*@Test
+    public void addCompositeTransactionTestFail(){
+        int arrayListSize = transaction1.getListSize();
+        assertEquals(true,transaction1.addTransaction("Composite Transaction"));
+        int arrayListSizeUpdated = transaction1.getListSize();
+    }*/
+
+    @Test
+    public void getTransactionTestPass(){
+        transaction1.addTransaction(transaction2);
+        assertEquals(transaction2,transaction1.getTransaction("GenericTransaction"));
     }
 
     @Test
-    public void getTransactionTest(){
-        
+    public void getTransactionTestFail(){
         transaction1.addTransaction(transaction2);
-        assertEquals(transaction2,transaction1.getTransaction("GenericTransaction"));
+        assertEquals(null,transaction2.getTransaction("GenericTransaction"));
     }
 
 
