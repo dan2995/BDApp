@@ -45,24 +45,26 @@ public class TransactionManagerTest {
     }
     
     @Test
-    public void numTransactionsProcessedTest()
+    public void numTransactionsProcessedTest() throws TransactionFailureException
     {
         assertEquals(0,testTManager.getNumberTransactionsProcessed());
-        testTManager.processTransaction(1,5,200,"dummyTransaction");
+        //testTManager.processTransaction(1,5,200,"dummyTransaction");
+        testTManager.processTransaction(testTrans1);
         assertEquals(1,testTManager.getNumberTransactionsProcessed());
     }
     
     @Test
-    public void processTransactionTest()//consider a version of the function which takes the object type
+    public void processTransactionTest()throws TransactionFailureException//consider a version of the function which takes the object type
     {
         long source1 = database.getAccount(1).getAccountBalance();
         long dest1 = database.getAccount(5).getAccountBalance();
-        assertEquals(true, testTManager.processTransaction(1,5,200,"dummyTransaction"));
+        assertEquals(true, testTManager.processTransaction(testTrans1));
         assertEquals(source1-200,database.getAccount(1).getAccountBalance());
         assertEquals(dest1+200,database.getAccount(5).getAccountBalance());
     }
     
-    @Test
+    //made redundant by the revisons made to the transaction manager
+    /*@Test
     public void processTransactionObjectTest()
     {
         long source1 = database.getAccount(5).getAccountBalance();
@@ -70,7 +72,7 @@ public class TransactionManagerTest {
         assertEquals(true, testTManager.processTransaction(testTrans2));
         assertEquals(source1-100,database.getAccount(5).getAccountBalance());
         assertEquals(dest1+100,database.getAccount(1).getAccountBalance());
-    }
+    }*/
     
     //As set up is run before each test, teh above tests are immune to the 15 second rule
     
@@ -84,7 +86,7 @@ public class TransactionManagerTest {
     
     //Both testTrans1 and testTrans2 use the same accounts
     @Test
-    public void trans15SecondRuleFailTest ()
+    public void trans15SecondRuleFailTest () throws TransactionFailureException
     {
         long start = System.nanoTime();
         assertEquals(true, testTManager.processTransaction(testTrans2));
@@ -94,7 +96,7 @@ public class TransactionManagerTest {
     }
     
     @Test
-    public void trans15SecondRulePassTest () throws InterruptedException
+    public void trans15SecondRulePassTest () throws InterruptedException,TransactionFailureException
     {
         assertEquals(true, testTManager.processTransaction(testTrans2));
         Thread.sleep(16000);//in milliseconds therefore 15 seconds = 15000 milliseconds
