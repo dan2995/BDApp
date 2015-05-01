@@ -19,7 +19,6 @@ public class CompositeTransactionTest {
     Account account1;
     Account account2;
     Account account3;
-    TransactionManager manager;
     CompositeTransaction transaction1;
     CompositeTransaction transaction2;
 
@@ -30,7 +29,6 @@ public class CompositeTransactionTest {
         account1 = new Account(1, "myAccount1", 100);
         account2 = new Account(2, "myAccount2", 200);
         account3 = new Account(3, "myAccount3", 300);
-        manager = new TransactionManager(database1);
         transaction1 = new CompositeTransaction("TransactionTest");
         transaction2 = new CompositeTransaction();
     }
@@ -38,14 +36,14 @@ public class CompositeTransactionTest {
     @Test
     public void addAtomicTransactionTest(){
         int arrayListSize = transaction1.getListSize();
-        assertEquals(true,transaction1.addAtomicTransaction(database1, 2, 1, 50, "Transaction"));
+        assertEquals(true,transaction1.addTransaction(database1, 2, 1, 50, "Transaction"));
         int arrayListSizeUpdated = transaction1.getListSize();
 
     }
 
     @Test
     public void addAtomicTransactionTest(){
-        assertEquals(true,transaction1.addAtomicTransaction(database1, 2, 1, 50, "Transaction"));
+        assertEquals(true,transaction1.addTransaction(database1, 2, 1, 50, "Transaction"));
     }
 
 
@@ -66,9 +64,28 @@ public class CompositeTransactionTest {
     @Test
     public void processCompositeTransactionTest()
     {
-        transaction1.addAtomicTransaction(database1, 1, 2, 50, "IncreaseAcc2By50");
-        transaction1.addCompositeTransaction("2to3andBack");
-        (transaction1.getTransaction("2to3andBack")).;
+        long acc1Balance = account1.getAccountBalance();
+        long acc2Balance = account2.getAccountBalance();
+        long acc3Balance = account3.getAccountBalance();
+       
+        transaction1.addTransaction(database1, 1, 2, 50, "IncreaseAcc2By50");
+        transaction1.addTransaction("2to3andBack");
+        transaction1.getTransaction("2to3andBack").addTransaction(database1, 2, 3, 100, "IncreaseAcc3By100");
+        transaction1.getTransaction("2to3andBack").addTransaction(database1, 3, 2, 50, "IncreaseAcc2By50");
+        
+        try
+        {
+            assertEquals(true,transaction1.process());
+        }
+        catch(TransactionFailureException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        
+        assertEquals(acc1Balance-50,account1.getAccountBalance());
+        assertEquals(acc2Balance,account2.getAccountBalance());
+        assertEquals(acc3Balance+50,account3.getAccountBalance());
+
     }
     
     //test removeTransaction

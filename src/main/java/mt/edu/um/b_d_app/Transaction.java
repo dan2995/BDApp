@@ -9,19 +9,19 @@ public abstract class Transaction {
         this.name = name;
     }
     
-    public abstract boolean process()throws TransactionFailureException;
+    public abstract boolean process()throws TransactionFailureException;//operation method
     
     public String getTransactionName()
     {
         return this.name;
     }
     
-    public abstract Transaction getTransaction(String name);
+    public abstract Transaction getTransaction(String name);//getChild method
     
-    public abstract boolean removeTransaction (String name);
+    public abstract boolean removeTransaction (String name);//remove method
     
-    public abstract boolean addTransaction (AccountDatabase database, int src, int dst, int amount, String name);
+    public abstract boolean addTransaction (AccountDatabase database, int src, int dst, int amount, String name);//add method
     
-    public abstract boolean addTransaction (String name);
+    public abstract boolean addTransaction (String name);//add method
     
 }

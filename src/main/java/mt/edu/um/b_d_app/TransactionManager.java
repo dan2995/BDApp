@@ -10,6 +10,9 @@ import java.util.ArrayList;
  *
  * @author Beatrix
  */
+
+//UPDATE FOR THE NEW TRANSACTION STRUCTURE
+
 public class TransactionManager {
     
     private int numTransactionsProcessed;
