@@ -119,4 +119,9 @@ public class AtomicTransaction extends Transaction {
     {
         return 0;
     }
+    
+    public boolean addTransaction(CompositeTransaction transaction)
+    {
+        return false;
+    }
 }

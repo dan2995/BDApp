@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="mt.edu.um.b_d_app.TransactionManagerTest" time="15.999" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="mt.edu.um.b_d_app.AtomicTransactionTest" time="0.002" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_25\jre\bin"/>
@@ -61,9 +61,12 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="mt.edu.um.b_d_app.TransactionManagerTest" name="numTransactionsProcessedTest" time="0"/>
-  <testcase classname="mt.edu.um.b_d_app.TransactionManagerTest" name="processTransactionTest" time="0"/>
-  <testcase classname="mt.edu.um.b_d_app.TransactionManagerTest" name="trans15SecondRuleFailTest" time="0"/>
-  <testcase classname="mt.edu.um.b_d_app.TransactionManagerTest" name="trans15SecondRulePassTest" time="15.997"/>
-  <testcase classname="mt.edu.um.b_d_app.TransactionManagerTest" name="processTransactionObjectTest" time="0"/>
+  <testcase classname="mt.edu.um.b_d_app.AtomicTransactionTest" name="destinationAccountNumberTest" time="0"/>
+  <testcase classname="mt.edu.um.b_d_app.AtomicTransactionTest" name="processFailAmountTest" time="0"/>
+  <testcase classname="mt.edu.um.b_d_app.AtomicTransactionTest" name="amountTest" time="0"/>
+  <testcase classname="mt.edu.um.b_d_app.AtomicTransactionTest" name="processFailDatabaseTest" time="0"/>
+  <testcase classname="mt.edu.um.b_d_app.AtomicTransactionTest" name="processTest" time="0"/>
+  <testcase classname="mt.edu.um.b_d_app.AtomicTransactionTest" name="sourceAccountNumberTest" time="0"/>
+  <testcase classname="mt.edu.um.b_d_app.AtomicTransactionTest" name="processFailAllTest" time="0"/>
+  <testcase classname="mt.edu.um.b_d_app.AtomicTransactionTest" name="processFailAccountTest" time="0"/>
 </testsuite>

@@ -24,6 +24,8 @@ public abstract class Transaction {
     
     public abstract boolean addTransaction (String name);//add method
     
+    public abstract boolean addTransaction(CompositeTransaction transaction);
+    
     public abstract int getListSize();
     
 }

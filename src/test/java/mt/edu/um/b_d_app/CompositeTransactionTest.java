@@ -29,6 +29,9 @@ public class CompositeTransactionTest {
         account1 = new Account(1, "myAccount1", 100);
         account2 = new Account(2, "myAccount2", 200);
         account3 = new Account(3, "myAccount3", 300);
+        database1.addAccount(account1);
+        database1.addAccount(account2);
+        database1.addAccount(account3);
         transaction1 = new CompositeTransaction("TransactionTest");
         transaction2 = new CompositeTransaction();
     }
@@ -51,7 +54,9 @@ public class CompositeTransactionTest {
 
     @Test
     public void getTransactionTest(){
-        assertEquals(transaction2,transaction2.getTransaction("GenericTransaction"));
+        
+        transaction1.addTransaction(transaction2);
+        assertEquals(transaction2,transaction1.getTransaction("GenericTransaction"));
     }
 
 
@@ -117,9 +122,9 @@ public class CompositeTransactionTest {
             System.out.println(e.getMessage());
         }
         
-        assertEquals(acc1Balance-50,account1.getAccountBalance());
+        assertEquals(acc1Balance,account1.getAccountBalance());
         assertEquals(acc2Balance,account2.getAccountBalance());
-        assertEquals(acc3Balance+50,account3.getAccountBalance());
+        assertEquals(acc3Balance,account3.getAccountBalance());
 
     }
     
@@ -150,7 +155,7 @@ public class CompositeTransactionTest {
         transaction1.getTransaction("2to3andBack").addTransaction(database1, 2, 3, 100, "IncreaseAcc3By100");
         transaction1.getTransaction("2to3andBack").addTransaction(database1, 3, 2, 50, "IncreaseAcc2By50"); 
         
-        assertEquals(true,transaction1.removeTransaction("GenericTransaction"));
+        assertEquals(null,transaction1.removeTransaction("GenericTransaction"));
         assertEquals(sizeOfT1List,transaction1.getListSize());
         assertEquals(sizeOf2to3BackList,transaction1.getTransaction("2to3andBack").getListSize()); 
     }
