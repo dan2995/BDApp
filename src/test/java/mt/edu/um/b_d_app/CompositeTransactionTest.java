@@ -70,7 +70,7 @@ public class CompositeTransactionTest {
     }
 
     @Test
-
+    //modified the test due to the 15 second rule
     public void processCompositeTransactionPassTest()
 
     {
@@ -92,9 +92,10 @@ public class CompositeTransactionTest {
             System.out.println(e.getMessage());
         }
         
+        //working under the assumption that the latter two transaction don't execute due to the 15 second rule
         assertEquals(acc1Balance-50,account1.getAccountBalance());
-        assertEquals(acc2Balance,account2.getAccountBalance());
-        assertEquals(acc3Balance+50,account3.getAccountBalance());
+        assertEquals(acc2Balance+50,account2.getAccountBalance());
+        assertEquals(acc3Balance,account3.getAccountBalance());
 
     }
     

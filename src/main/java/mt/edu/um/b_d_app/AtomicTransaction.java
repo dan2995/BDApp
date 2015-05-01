@@ -67,6 +67,8 @@ public class AtomicTransaction extends Transaction {
     }*/
     
     //accesses the account database to look up the accounts
+    
+    //how to work with the exception for transactionfailure??
     public boolean process()
     {
         if(this.database==null) return false;
