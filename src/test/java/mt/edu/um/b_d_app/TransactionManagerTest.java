@@ -45,7 +45,7 @@ public class TransactionManagerTest {
     }
     
     @Test
-    public void numTransactionsProcessedTest() throws TransactionFailureException
+    public void numTransactionsProcessedTest() throws TransactionFailureException, InterruptedException
     {
         assertEquals(0,testTManager.getNumberTransactionsProcessed());
         //testTManager.processTransaction(1,5,200,"dummyTransaction");
@@ -54,7 +54,7 @@ public class TransactionManagerTest {
     }
     
     @Test
-    public void processTransactionTest()throws TransactionFailureException//consider a version of the function which takes the object type
+    public void processTransactionTest()throws TransactionFailureException, InterruptedException//consider a version of the function which takes the object type
     {
         long source1 = database.getAccount(1).getAccountBalance();
         long dest1 = database.getAccount(5).getAccountBalance();
@@ -86,7 +86,7 @@ public class TransactionManagerTest {
     
     //Both testTrans1 and testTrans2 use the same accounts
     @Test
-    public void trans15SecondRuleFailTest () throws TransactionFailureException
+    public void trans15SecondRuleFailTest () throws TransactionFailureException,InterruptedException
     {
         long start = System.nanoTime();
         assertEquals(true, testTManager.processTransaction(testTrans2));

@@ -86,7 +86,7 @@ public class CompositeTransactionTest {
     //test process
     @Test
     
-    public void processCompositeTransactionPassTest()
+    public void processCompositeTransactionPassTest()throws InterruptedException
     {
         long acc1Balance = account1.getAccountBalance();
         long acc2Balance = account2.getAccountBalance();
@@ -113,7 +113,7 @@ public class CompositeTransactionTest {
     }
     
     @Test
-    public void processCompositeTransactionFailTest()
+    public void processCompositeTransactionFailTest()throws InterruptedException
     {
         long acc1Balance = account1.getAccountBalance();
         long acc2Balance = account2.getAccountBalance();

@@ -13,7 +13,7 @@ import org.junit.Test;
  *
  * @author Beatrix
  */
-public class AtomicTransactionTest {
+public class AtomicTransactionTest  {
  
     //The test accounts declared for the AtomicTransaction classes tests
     Account testAccount1;
@@ -72,7 +72,7 @@ public class AtomicTransactionTest {
     
 
     @Test
-    public void processTest()
+    public void processTest()throws InterruptedException
     {
         long source_balance = database.getAccount(1).getAccountBalance();
         long destination_balance = database.getAccount(5).getAccountBalance();
@@ -82,25 +82,25 @@ public class AtomicTransactionTest {
     }
     
     @Test
-    public void processFailAccountTest ()
+    public void processFailAccountTest ()throws InterruptedException
     {
         assertEquals(false,failTrans1.process());
     }
     
     @Test
-    public void processFailDatabaseTest ()
+    public void processFailDatabaseTest ()throws InterruptedException
     {
         assertEquals(false,failTrans2.process());
     }
     
     @Test
-    public void processFailAmountTest ()
+    public void processFailAmountTest ()throws InterruptedException
     {
         assertEquals(false,failTrans3.process());
     }
     
     @Test
-    public void processFailAllTest ()
+    public void processFailAllTest ()throws InterruptedException
     {
         assertEquals(false,failTrans4.process());
     }
