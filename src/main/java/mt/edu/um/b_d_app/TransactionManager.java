@@ -74,7 +74,7 @@ public class TransactionManager {
     }*/
     
     //generic Transaction object
-    public boolean processTransaction (Transaction transaction) throws TransactionFailureException
+    public boolean processTransaction (Transaction transaction) throws TransactionFailureException, InterruptedException
     {
         if(transaction.process())
         {

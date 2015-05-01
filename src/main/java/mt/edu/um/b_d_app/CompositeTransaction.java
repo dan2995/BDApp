@@ -41,7 +41,7 @@ public class CompositeTransaction extends Transaction{
         return this.transactionList.add(transaction);
     }
     
-    public boolean process() throws TransactionFailureException
+    public boolean process() throws TransactionFailureException, InterruptedException
     {
         int i = 0;
         boolean pass = true;
