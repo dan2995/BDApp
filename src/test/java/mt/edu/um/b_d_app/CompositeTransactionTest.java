@@ -36,14 +36,22 @@ public class CompositeTransactionTest {
     @Test
     public void addAtomicTransactionTest(){
         int arrayListSize = transaction1.getListSize();
-        assertEquals(true,transaction1.addTransaction(database1, 2, 1, 50, "Transaction"));
+        assertEquals(true,transaction1.addTransaction(database1, 2, 1, 50, "Atomic Transaction"));
         int arrayListSizeUpdated = transaction1.getListSize();
 
     }
 
     @Test
-    public void addAtomicTransactionTest(){
-        assertEquals(true,transaction1.addTransaction(database1, 2, 1, 50, "Transaction"));
+    public void addCompositeTransactionTest(){
+        int arrayListSize = transaction1.getListSize();
+        assertEquals(true,transaction1.addTransaction("Composite Transaction"));
+        int arrayListSizeUpdated = transaction1.getListSize();
+
+    }
+
+    @Test
+    public void getTransactionTest(){
+        assertEquals(transaction2,transaction2.getTransaction("GenericTransaction"));
     }
 
 
