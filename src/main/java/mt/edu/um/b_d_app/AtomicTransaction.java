@@ -80,7 +80,7 @@ public class AtomicTransaction extends Transaction {
         }
         
         //check neither account has been used in the last 15 seconds
-        if(!this.timeRuleVerification(source., ))
+        if( !this.timeRuleVerification(source.getLastAccess()) || !this.timeRuleVerification(destination.getLastAccess()) )
         {
             return false;
         }
@@ -88,6 +88,10 @@ public class AtomicTransaction extends Transaction {
         //make sure account is changing the balance
         if(source.adjustBalance(-(this.amount)) && destination.adjustBalance(this.amount))
         {
+            //update the timestamps in the respective account classes
+            long finished = System.nanoTime();
+            source.setLastAccess(finished);
+            destination.setLastAccess(finished);
             return true;
         }
         else
@@ -131,10 +135,16 @@ public class AtomicTransaction extends Transaction {
         return false;
     }
     
-    private boolean timeRuleVerification(long timestamp1, long timestamp2)
+    //timestamps are in nanoseconds
+    private boolean timeRuleVerification(long timestamp)
     {
-        
-        
+        long now = (System.nanoTime()/1000);//current time in microseconds
+        long passPoint = (timestamp/1000) + 15000000;
+        if(passPoint<now)
+        {
+            return true;//account may be used
+        }
+        return false;
     }
     
 }
