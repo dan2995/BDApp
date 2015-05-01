@@ -114,5 +114,9 @@ public class AtomicTransaction extends Transaction {
     {
         return false;
     }
-    
+ 
+    public int getListSize()
+    {
+        return 0;
+    }
 }
