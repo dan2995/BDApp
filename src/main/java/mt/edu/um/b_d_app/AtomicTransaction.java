@@ -80,7 +80,7 @@ public class AtomicTransaction extends Transaction {
         }
         
         //check neither account has been used in the last 15 seconds
-        if(!this.timeRuleVerification(this.sourceAccountNumber, this.destinationAccountNumber))
+        if(!this.timeRuleVerification(source., ))
         {
             return false;
         }
@@ -131,38 +131,8 @@ public class AtomicTransaction extends Transaction {
         return false;
     }
     
-    private boolean timeRuleVerification(int src, int dst)
-    //needs the database to prevent using the default TM database meber of the transaction object database is different
+    private boolean timeRuleVerification(long timestamp1, long timestamp2)
     {
-        //locate the account in the active list if they exist
-        int i = 0;
-        boolean stop = false;
-        long now = (System.nanoTime()/1000);
-        //assuming that processing of the check below is not sufficient enough to make an account record checked later in the loop valid
-        //i.e. that the below procesing time is negligible
-        while((i<active.size()) && (!stop))
-        {
-            int currentElement = (active.get(i)).getAccountNumber();
-            if((currentElement == src) || (currentElement == dst))
-            {
-                long timestamp = (active.get(i)).getLastUsed();    
-                long passPoint = (timestamp/1000) + 15000000;
-                if(passPoint > now)//15 seconds has not passed yet (*10^6 to convert to micro seconds)
-                {
-                    stop = true;
-                }
-                else//transaction may proceed
-                {
-                    active.remove(i);
-                    i--;//counteract the increment due to the shift of the elements
-                }    
-            }
-            i++;
-               
-        }
-        
-        return !stop;
-        
         
         
     }
