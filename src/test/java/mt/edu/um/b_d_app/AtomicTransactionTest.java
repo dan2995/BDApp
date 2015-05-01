@@ -105,4 +105,27 @@ public class AtomicTransactionTest {
         assertEquals(false,failTrans4.process());
     }
     
+    @Test
+    public void getTransactionTest ()
+    {
+        assertEquals(null,testTrans1.getTransaction("AnyTransaction"));
+    }
+    
+    @Test
+    public void removeTransactionTest ()
+    {
+        assertEquals(false,testTrans1.removeTransaction("AnyTransaction"));
+    }
+    
+    @Test
+    public void addCompositeTransaction()
+    {
+        assertEquals(false,testTrans1.addTransaction("AnyTransaction"));
+    }
+    
+    @Test
+    public void addAtomicTransaction()
+    {
+        assertEquals(false,testTrans1.addTransaction(database,1,5,100,"AnyName"));
+    }
 }
