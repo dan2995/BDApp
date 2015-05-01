@@ -5,11 +5,13 @@ public class Account {
     private int accountNumber;
     private String accountName;
     private long accountBalance;
+    private long lastAccess;
 
     public Account(int accNumber, String accName, long accBalance){
         accountNumber = accNumber;
         accountName = accName;
         accountBalance = accBalance;
+        lastAccess = 0;
     }
 
    /* private void setAccountNumber(int accountNumber){

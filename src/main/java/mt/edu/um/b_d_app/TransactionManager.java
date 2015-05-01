@@ -16,14 +16,14 @@ import java.util.ArrayList;
 public class TransactionManager {
     
     private int numTransactionsProcessed;
-    AccountDatabase database;
-    private ArrayList<LastUsed> active = new ArrayList<LastUsed> ();
+    //AccountDatabase database;
+    //private ArrayList<LastUsed> active = new ArrayList<LastUsed> ();
     
     //either have a database in the transaction object or here in the transaction manager
     //if in the transaction object assumes that the transactions come from the same database 
     public TransactionManager(AccountDatabase database)
     {
-        this.database = database;
+        //this.database = database;
         this.numTransactionsProcessed = 0;
     }
     
@@ -72,6 +72,12 @@ public class TransactionManager {
         }
     }
     
+    //generic Transaction object
+    public boolean processTransaction (Transaction transaction)
+    {
+        
+    }
+    
     public int getNumberTransactionsProcessed()
     {
         return this.numTransactionsProcessed;
@@ -82,7 +88,7 @@ public class TransactionManager {
         this.numTransactionsProcessed++;
     }
     
-    
+    /*
     //an improvement would be to remove any element of active that has an expired timestamp
     private boolean timeRuleVerification(int src, int dst)
     //needs the database to prevent using the default TM database meber of the transaction object database is different
@@ -116,7 +122,7 @@ public class TransactionManager {
         }
         
         return !stop;
-    }
+    }*/
     
     private void updateActive (int src, int dst)
     {
