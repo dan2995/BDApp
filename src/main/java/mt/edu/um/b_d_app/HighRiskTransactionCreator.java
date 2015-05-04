@@ -2,10 +2,6 @@ package mt.edu.um.b_d_app;
 
 import java.util.ArrayList;
 
-/**
- * Created by Daniela on 01/05/2015.
- */
-
 /*
 
 High risk deposits take src account 3123
