@@ -4,7 +4,7 @@ public class Account {
 
     private int accountNumber;
     private String accountName;
-    private long accountBalance;
+    private double accountBalance;
     private long lastAccess;
 
     public Account(int accNumber, String accName, long accBalance){
@@ -22,16 +22,16 @@ public class Account {
         return accountName;
     }
 
-    private void setAccountBalance(long accountBalance){
+    private void setAccountBalance(double accountBalance){
         this.accountBalance = accountBalance;
     }
 
-    public long getAccountBalance(){
+    public double getAccountBalance(){
         return accountBalance;
     }
 
     //the method that takes the amount, invoked by Transaction.process()
-    public boolean adjustBalance(long amount){
+    public boolean adjustBalance(double amount){
         if((this.accountBalance + amount) >= 0)
         {
             this.setAccountBalance(this.getAccountBalance()+amount);

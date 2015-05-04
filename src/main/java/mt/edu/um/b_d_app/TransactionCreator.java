@@ -8,7 +8,7 @@ public class TransactionCreator {
 
     //transaction manager will receive list of account numbers and find the accounts
     //move database back to transaction manager
-    public Transaction createTransaction(RiskTypes type, ArrayList<Account> destinationList, ArrayList<Integer> amountList){
+    public Transaction createTransaction(RiskTypes type, ArrayList<Account> destinationList, ArrayList<Double> amountList, AccountDatabase database){
         
         TransactionCreator creator = findCreatorForTypeOfTransaction(type);
         
@@ -18,7 +18,7 @@ public class TransactionCreator {
         }
         
         //Assuming a correct creator was found
-        return creator.createTransaction(destinationList, amountList);
+        return creator.createTransaction(destinationList, amountList, database);
         
     }
     
@@ -27,7 +27,7 @@ public class TransactionCreator {
         return null;//set to null as no default type was specified in the assignment specification
     }
     
-    public Transaction createTransaction(ArrayList<Account> destinationList, ArrayList<Integer> amountList){
+    public Transaction createTransaction(ArrayList<Account> destinationList, ArrayList<Double> amountList,AccountDatabase database){
         
         return null;//no type specified for this level in the transaction creator hierarchy
         

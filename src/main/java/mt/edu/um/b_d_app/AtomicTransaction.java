@@ -13,12 +13,12 @@ public class AtomicTransaction extends Transaction {
     
     private int sourceAccountNumber;
     private int destinationAccountNumber;
-    private long amount;
+    private double amount;
     private AccountDatabase database;//apply the singleton pattern to the database
     //might become a redundant structure in this class
     //have a single database in the transaction manager?
     
-    public AtomicTransaction(int source, int destination, int amount, AccountDatabase database, String name)
+    public AtomicTransaction(int source, int destination, double amount, AccountDatabase database, String name)
     {
         super(name);
         this.database = database;
@@ -56,7 +56,7 @@ public class AtomicTransaction extends Transaction {
         this.destinationAccountNumber = accountNumber;
     }*/
     
-    public long getAmount()
+    public double getAmount()
     {
         return this.amount;
     }
@@ -122,7 +122,7 @@ public class AtomicTransaction extends Transaction {
         return false;
     }
     
-    public boolean addTransaction(AccountDatabase database, int src, int dst, int amount, String name)
+    public boolean addTransaction(AccountDatabase database, int src, int dst, double amount, String name)
     {
         return false;
     }

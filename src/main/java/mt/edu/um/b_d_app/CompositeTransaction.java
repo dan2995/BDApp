@@ -26,7 +26,7 @@ public class CompositeTransaction extends Transaction{
         this("GenericTransaction");
     }
     
-    public boolean addTransaction(AccountDatabase database, int src, int dst, int amount, String name)
+    public boolean addTransaction(AccountDatabase database, int src, int dst, double amount, String name)
     {
         return this.transactionList.add(new AtomicTransaction(src,dst,amount,database,name));
     }

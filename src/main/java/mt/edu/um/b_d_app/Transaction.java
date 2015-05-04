@@ -20,7 +20,7 @@ public abstract class Transaction {
     
     public abstract boolean removeTransaction (String name);//remove method
     
-    public abstract boolean addTransaction (AccountDatabase database, int src, int dst, int amount, String name);//add method
+    public abstract boolean addTransaction (AccountDatabase database, int src, int dst, double amount, String name);//add method
     
     public abstract boolean addTransaction (String name);//add method
     
