@@ -74,9 +74,9 @@ public class CompositeTransactionTest {
     public void processCompositeTransactionPassTest()
 
     {
-        long acc1Balance = account1.getAccountBalance();
-        long acc2Balance = account2.getAccountBalance();
-        long acc3Balance = account3.getAccountBalance();
+        double acc1Balance = account1.getAccountBalance();
+        double acc2Balance = account2.getAccountBalance();
+        double acc3Balance = account3.getAccountBalance();
        
         transaction1.addTransaction(database1, 1, 2, 50, "IncreaseAcc2By50");
         transaction1.addTransaction("2to3andBack");
@@ -102,9 +102,9 @@ public class CompositeTransactionTest {
     @Test
     public void processCompositeTransactionFailTest()throws InterruptedException
     {
-        long acc1Balance = account1.getAccountBalance();
-        long acc2Balance = account2.getAccountBalance();
-        long acc3Balance = account3.getAccountBalance();
+        double acc1Balance = account1.getAccountBalance();
+        double acc2Balance = account2.getAccountBalance();
+        double acc3Balance = account3.getAccountBalance();
        
         transaction1.addTransaction(database1, 1, 2, 150, "IncreaseAcc2By50");//should fail
         transaction1.addTransaction("2to3andBack");

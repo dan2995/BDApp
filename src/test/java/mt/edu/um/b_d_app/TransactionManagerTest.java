@@ -57,8 +57,8 @@ public class TransactionManagerTest {
     @Test
     public void processTransactionTest()throws TransactionFailureException, InterruptedException//consider a version of the function which takes the object type
     {
-        long source1 = database.getAccount(1).getAccountBalance();
-        long dest1 = database.getAccount(5).getAccountBalance();
+        double source1 = database.getAccount(1).getAccountBalance();
+        double dest1 = database.getAccount(5).getAccountBalance();
         assertEquals(true, testTManager.processTransaction(testTrans1));
         assertEquals(source1-200,database.getAccount(1).getAccountBalance());
         assertEquals(dest1+200,database.getAccount(5).getAccountBalance());

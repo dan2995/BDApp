@@ -74,8 +74,8 @@ public class AtomicTransactionTest  {
     @Test
     public void processTest()throws InterruptedException
     {
-        long source_balance = database.getAccount(1).getAccountBalance();
-        long destination_balance = database.getAccount(5).getAccountBalance();
+        double source_balance = database.getAccount(1).getAccountBalance();
+        double destination_balance = database.getAccount(5).getAccountBalance();
         assertEquals(true, testTrans1.process());
         assertEquals(source_balance-testTrans1.getAmount(),database.getAccount(1).getAccountBalance());
         assertEquals(destination_balance+testTrans1.getAmount(),database.getAccount(5).getAccountBalance());
