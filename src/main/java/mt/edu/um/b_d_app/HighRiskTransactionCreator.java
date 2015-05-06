@@ -19,18 +19,15 @@ public class HighRiskTransactionCreator extends TransactionCreator {
     int DepositSourceAccountNo = 3123;
     int MainTransSourceAccountNo = 3143;
     
-    //temporary default deposit account is Unknown
-    int Unknown = 0;
-    int Amount = 0;
     
-    public Transaction createTransaction(ArrayList<Account> destinationList, ArrayList<Double> amountList,AccountDatabase database)
+    public Transaction createTransaction(Account depositDSTAccount, float depositAmount, ArrayList<Account> destinationList, ArrayList<Double> amountList,AccountDatabase database)
     {
         //Specification states that all of the compound transactions have three transactions at at level 1 (topmost level of the transaction)
         Transaction result = new CompositeTransaction("HighRiskTransaction");
         //adding some form of ID should these transactions be placed in a structure together to be searched?
         
         //There is only one deposit transaction with o known destination account number
-        result.addTransaction(database, DepositSourceAccountNo, Unknown, Amount, "DepositTransaction");
+        result.addTransaction(database, DepositSourceAccountNo, depositDSTAccount.getAccountNumber(), depositAmount, "DepositTransaction");
         
         //creating the main compound transaction and the commsion compoun transaction
         CompositeTransaction main = new CompositeTransaction("MainTransaction");
