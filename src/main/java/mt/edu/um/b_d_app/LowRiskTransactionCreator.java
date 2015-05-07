@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 /*
 
-High risk deposits take src account 8665
-High risk main transaction always have src account number 3133
+Low risk deposits take src account 8665
+Low risk main transaction always have src account number 3133
 For commission src 6588, dst 4445, and 5% of the amount quoted in the main transaction
 
 */
