@@ -131,4 +131,9 @@ public class TransactionCreatorTest {
         assertEquals(null, creatorMain.createTransaction(depositDSTAccount,depositAmount, destinationList, amountList, database));
     }
 
+    @Test
+    public void nonExistentTypeTest(){
+        assertEquals(null, creatorMain.createTransaction(RiskTypes.MEDIUM,depositDSTAccount,depositAmount, destinationList, amountList, database));
+    }
+
 }

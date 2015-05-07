@@ -6,5 +6,6 @@ package mt.edu.um.b_d_app;
 public enum RiskTypes {
 
     HIGH,
-    LOW
+    LOW,
+    MEDIUM
 }
