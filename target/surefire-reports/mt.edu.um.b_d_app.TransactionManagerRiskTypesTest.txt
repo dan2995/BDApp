@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: mt.edu.um.b_d_app.TransactionManagerRiskTypesTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 sec <<< FAILURE!
-processTransactionTest(mt.edu.um.b_d_app.TransactionManagerRiskTypesTest)  Time elapsed: 0 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 sec <<< FAILURE!
+processTransactionTest(mt.edu.um.b_d_app.TransactionManagerRiskTypesTest)  Time elapsed: 0.001 sec  <<< ERROR!
 mt.edu.um.b_d_app.TransactionFailureException: The transaction: mt.edu.um.b_d_app.AtomicTransaction@182decdb failed to be processed.
 	at mt.edu.um.b_d_app.CompositeTransaction.process(CompositeTransaction.java:53)
 	at mt.edu.um.b_d_app.TransactionManager.processTransaction(TransactionManager.java:79)

@@ -71,7 +71,7 @@ public class CompositeTransactionTest {
 
     @Test
     //modified the test due to the 15 second rule
-    public void processCompositeTransactionPassTest()
+    public void processCompositeTransactionPassTest()throws InterruptedException
 
     {
         double acc1Balance = account1.getAccountBalance();
