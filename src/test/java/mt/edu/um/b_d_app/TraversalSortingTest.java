@@ -14,6 +14,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+//all of the tests have a return type of atomic accounts
+
 public class TraversalSortingTest {
     
     @Before
@@ -43,7 +45,7 @@ public class TraversalSortingTest {
     @Test
     public void srcAccountDoesNotExistFilteringTest()
     {
-        
+        assertEquals(null, transaction.getTransactionsUsingSource(int src));
     }
     
 }
