@@ -12,7 +12,6 @@ For commission src 6588, dst 4445, and 5% of the amount quoted in the main trans
 
 public class LowRiskTransactionCreator extends TransactionCreator {
 
-    //update these to match the specified accounts in the assignment
     
     int CommissionSourceAccountNo = 6588;
     int CommissionDstAccountNo = 4445;
@@ -21,18 +20,15 @@ public class LowRiskTransactionCreator extends TransactionCreator {
     int DepositSourceAccountNo = 8665;
     int MainTransSourceAccountNo = 3133;
 
-    //temporary default deposit account is Unknown
-    int Unknown = 0;
-    int Amount = 0;
 
-    public Transaction createTransaction(ArrayList<Account> destinationList, ArrayList<Double> amountList,AccountDatabase database)
+    public Transaction createTransaction(Account depositDSTAccount, float depositAmount,ArrayList<Account> destinationList, ArrayList<Double> amountList,AccountDatabase database)
     {
         //Specification states that all of the compound transactions have three transactions at at level 1 (topmost level of the transaction)
         Transaction result = new CompositeTransaction("LowRiskTransaction");
         //adding some form of ID should these transactions be placed in a structure together to be searched?
 
         //There is only one deposit transaction with o known destination account number
-        result.addTransaction(database, DepositSourceAccountNo, Unknown, Amount, "DepositTransaction");
+        result.addTransaction(database, DepositSourceAccountNo, depositDSTAccount.getAccountNumber(), depositAmount, "DepositTransaction");
 
         //creating the main compound transaction and the commsion compoun transaction
         CompositeTransaction main = new CompositeTransaction("MainTransaction");
@@ -43,7 +39,9 @@ public class LowRiskTransactionCreator extends TransactionCreator {
             commission.addTransaction(database, this.CommissionSourceAccountNo, this.CommissionDstAccountNo, amountList.get(i)*this.commissionPercentage, "CTransaction"+i);
         }
 
-
+        result.addTransaction(main);
+        result.addTransaction(commission);
+        
         return result;
     }
 

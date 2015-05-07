@@ -38,6 +38,8 @@ public class HighRiskTransactionCreator extends TransactionCreator {
             commission.addTransaction(database, this.CommissionSourceAccountNo, this.CommissionDstAccountNo, amountList.get(i)*this.commissionPercentage, "CTransaction"+i);
         }
         
+        result.addTransaction(main);
+        result.addTransaction(commission);
         
         return result;
     }
