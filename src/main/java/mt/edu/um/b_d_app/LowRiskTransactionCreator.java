@@ -45,4 +45,28 @@ public class LowRiskTransactionCreator extends TransactionCreator {
         return result;
     }
 
+    public int getCommissionSourceAccountNo()
+    {
+        return this.CommissionSourceAccountNo;
+    }
+
+    public int getCommissionDstAccountNo()
+    {
+        return this.CommissionDstAccountNo;
+    }
+
+    public double getCommissionPercentage()
+    {
+        return this.commissionPercentage;
+    }
+
+    public int getDepositSourceAccountNo()
+    {
+        return this.DepositSourceAccountNo;
+    }
+
+    public int getMainTransSourceAccountNo()
+    {
+        return this.MainTransSourceAccountNo;
+    }
 }
