@@ -12,6 +12,8 @@ For commission src 6588, dst 4445, and 5% of the amount quoted in the main trans
 
 public class LowRiskTransactionCreator extends TransactionCreator {
 
+    //update these to match the specified accounts in the assignment
+    
     int CommissionSourceAccountNo = 6588;
     int CommissionDstAccountNo = 4445;
     double commissionPercentage = 0.05;
