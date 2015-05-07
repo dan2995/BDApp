@@ -84,7 +84,7 @@ public class TransactionManager {
         return false;
     }
     
-    public boolean processTransaction (RiskTypes type,Account depositDSTAccount, float depositAmount ,ArrayList<Account> destinationList, ArrayList<Double> amountList, AccountDatabase database) throws TransactionFailureException, InterruptedException
+    public boolean processTransaction (RiskTypes type,Account depositDSTAccount, double depositAmount ,ArrayList<Account> destinationList, ArrayList<Double> amountList, AccountDatabase database) throws TransactionFailureException, InterruptedException
     {
         TransactionCreator creator = new TransactionCreator();
         Transaction transaction = creator.createTransaction(type, depositDSTAccount, depositAmount, destinationList, amountList, database);
