@@ -60,8 +60,8 @@ public class TransactionManagerTest {
         double source1 = database.getAccount(1).getAccountBalance();
         double dest1 = database.getAccount(5).getAccountBalance();
         assertEquals(true, testTManager.processTransaction(testTrans1));
-        assertEquals(source1-200,database.getAccount(1).getAccountBalance());
-        assertEquals(dest1+200,database.getAccount(5).getAccountBalance());
+        assertEquals(source1-200,database.getAccount(1).getAccountBalance(),0.5);
+        assertEquals(dest1+200,database.getAccount(5).getAccountBalance(),0.5);
     }
     
     //made redundant by the revisons made to the transaction manager
