@@ -41,7 +41,7 @@ public class CompositeTransaction extends Transaction{
         return this.transactionList.add(transaction);
     }
     
-    public boolean process() throws TransactionFailureException
+    public boolean process() throws TransactionFailureException, InterruptedException
     {
         int i = 0;
         boolean pass = true;
@@ -52,6 +52,7 @@ public class CompositeTransaction extends Transaction{
             {
                 throw new TransactionFailureException("The transaction: "+transactionList.get(i).toString()+" failed to be processed.");
             }
+            Thread.sleep(15000);
             i++;
             
         }
