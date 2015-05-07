@@ -127,7 +127,8 @@ public class TransactionCreatorTest {
     }
 
     @Test
-    public void createTransactionNoTypeTest(){
-        
+    public void createTransactionNoTypeTest() {
+        assertEquals(null, creatorMain.createTransaction(depositDSTAccount,depositAmount, destinationList, amountList, database));
     }
+
 }
