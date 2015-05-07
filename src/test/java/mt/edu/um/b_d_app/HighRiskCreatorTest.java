@@ -65,7 +65,7 @@ public class HighRiskCreatorTest {
     @Test
     public void createTransactionTest()
     {
-        Transaction result = creator.createTransaction(depositDSTAccount, LIMIT, destinationList, amountList, database);
+        Transaction result = creator.createTransaction(depositDSTAccount, depositAmount, destinationList, amountList, database);
         
         //check that there are three level one transactions
         assertEquals(3,result.getListSize());

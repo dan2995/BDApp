@@ -21,7 +21,7 @@ public class LowRiskTransactionCreator extends TransactionCreator {
     int MainTransSourceAccountNo = 3133;
 
 
-    public Transaction createTransaction(Account depositDSTAccount, float depositAmount,ArrayList<Account> destinationList, ArrayList<Double> amountList,AccountDatabase database)
+    public Transaction createTransaction(Account depositDSTAccount, double depositAmount,ArrayList<Account> destinationList, ArrayList<Double> amountList,AccountDatabase database)
     {
         //Specification states that all of the compound transactions have three transactions at at level 1 (topmost level of the transaction)
         Transaction result = new CompositeTransaction("LowRiskTransaction");
