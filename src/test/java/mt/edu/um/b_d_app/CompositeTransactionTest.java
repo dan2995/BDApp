@@ -93,9 +93,9 @@ public class CompositeTransactionTest {
         }
         
         //working under the assumption that the latter two transaction don't execute due to the 15 second rule
-        assertEquals(acc1Balance-50,account1.getAccountBalance());
-        assertEquals(acc2Balance+50,account2.getAccountBalance());
-        assertEquals(acc3Balance,account3.getAccountBalance());
+        assertEquals(acc1Balance-50,account1.getAccountBalance(),0.5);
+        assertEquals(acc2Balance+50,account2.getAccountBalance(),0.5);
+        assertEquals(acc3Balance,account3.getAccountBalance(),0.5);
 
     }
     
@@ -120,9 +120,9 @@ public class CompositeTransactionTest {
             System.out.println(e.getMessage());
         }
         
-        assertEquals(acc1Balance,account1.getAccountBalance());
-        assertEquals(acc2Balance,account2.getAccountBalance());
-        assertEquals(acc3Balance,account3.getAccountBalance());
+        assertEquals(acc1Balance,account1.getAccountBalance(),0.5);
+        assertEquals(acc2Balance,account2.getAccountBalance(),0.5);
+        assertEquals(acc3Balance,account3.getAccountBalance(),0.5);
 
     }
     

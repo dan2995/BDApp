@@ -67,7 +67,7 @@ public class AtomicTransactionTest  {
     @Test
     public void amountTest()
     {
-        assertEquals(200, testTrans1.getAmount());
+        assertEquals(200, testTrans1.getAmount(),0.5);
     }
     
 
@@ -77,8 +77,8 @@ public class AtomicTransactionTest  {
         double source_balance = database.getAccount(1).getAccountBalance();
         double destination_balance = database.getAccount(5).getAccountBalance();
         assertEquals(true, testTrans1.process());
-        assertEquals(source_balance-testTrans1.getAmount(),database.getAccount(1).getAccountBalance());
-        assertEquals(destination_balance+testTrans1.getAmount(),database.getAccount(5).getAccountBalance());
+        assertEquals(source_balance-testTrans1.getAmount(),database.getAccount(1).getAccountBalance(),0.5);
+        assertEquals(destination_balance+testTrans1.getAmount(),database.getAccount(5).getAccountBalance(),0.5);
     }
     
     @Test

@@ -60,7 +60,7 @@ public class AccountTest {
     @Test
     public void getAccountBalanceTest()
     {
-        assertEquals(100.0,account.getAccountBalance());
+        assertEquals(100.0,account.getAccountBalance(),0.5);
     }
 
     /*@Test
