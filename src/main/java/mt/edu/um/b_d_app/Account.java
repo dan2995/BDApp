@@ -7,7 +7,7 @@ public class Account {
     private double accountBalance;
     private long lastAccess;
 
-    public Account(int accNumber, String accName, long accBalance){
+    public Account(int accNumber, String accName, double accBalance){
         accountNumber = accNumber;
         accountName = accName;
         accountBalance = accBalance;

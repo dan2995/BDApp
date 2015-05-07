@@ -12,12 +12,12 @@ For commission src 6565, dst 4444, and 10% of the amount quoted in the main tran
 
 public class HighRiskTransactionCreator extends TransactionCreator {
     
-    int CommissionSourceAccountNo = 6565;
-    int CommissionDstAccountNo = 4444;
-    double commissionPercentage = 0.1;
+    private int CommissionSourceAccountNo = 6565;
+    private int CommissionDstAccountNo = 4444;
+    private double commissionPercentage = 0.1;
     
-    int DepositSourceAccountNo = 3123;
-    int MainTransSourceAccountNo = 3143;
+    private int DepositSourceAccountNo = 3123;
+    private int MainTransSourceAccountNo = 3143;
     
     
     public Transaction createTransaction(Account depositDSTAccount, float depositAmount, ArrayList<Account> destinationList, ArrayList<Double> amountList,AccountDatabase database)
@@ -44,4 +44,28 @@ public class HighRiskTransactionCreator extends TransactionCreator {
         return result;
     }
     
+    public int getCommissionSourceAccountNo()
+    {
+        return this.CommissionSourceAccountNo;
+    }
+    
+    public int getCommissionDstAccountNo()
+    {
+        return this.CommissionDstAccountNo;
+    }
+    
+    public double getCommissionPercentage()
+    {
+        return this.commissionPercentage;
+    }
+    
+    public int getDepositSourceAccountNo()
+    {
+        return this.DepositSourceAccountNo;
+    }
+    
+    public int getMainTransSourceAccountNo()
+    {
+        return this.MainTransSourceAccountNo;
+    }
 }
