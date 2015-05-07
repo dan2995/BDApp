@@ -7,5 +7,5 @@ public enum RiskTypes {
 
     HIGH,
     LOW,
-    MEDIUM
+    MEDIUM //This was only added for testing purposes to fail certain methods
 }
