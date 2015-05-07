@@ -40,6 +40,9 @@ public class HighRiskCreatorTest {
         
         database = new AccountDatabase();
         
+        destinationList = new ArrayList<Account>();
+        amountList = new ArrayList<Double>();
+        
         //populating the destination list
         //               amount list
         //               database

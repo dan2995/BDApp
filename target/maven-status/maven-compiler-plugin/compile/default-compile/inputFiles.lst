@@ -1,8 +1,12 @@
 C:\Users\Beatrix\Documents\GitHub\BDApp\src\main\java\mt\edu\um\b_d_app\TransactionManager.java
 C:\Users\Beatrix\Documents\GitHub\BDApp\src\main\java\mt\edu\um\b_d_app\CompositeTransaction.java
+C:\Users\Beatrix\Documents\GitHub\BDApp\src\main\java\mt\edu\um\b_d_app\LowRiskTransactionCreator.java
 C:\Users\Beatrix\Documents\GitHub\BDApp\src\main\java\mt\edu\um\b_d_app\Transaction.java
 C:\Users\Beatrix\Documents\GitHub\BDApp\src\main\java\mt\edu\um\b_d_app\Account.java
+C:\Users\Beatrix\Documents\GitHub\BDApp\src\main\java\mt\edu\um\b_d_app\RiskTypes.java
 C:\Users\Beatrix\Documents\GitHub\BDApp\src\main\java\mt\edu\um\b_d_app\AtomicTransaction.java
 C:\Users\Beatrix\Documents\GitHub\BDApp\src\main\java\mt\edu\um\b_d_app\LastUsed.java
 C:\Users\Beatrix\Documents\GitHub\BDApp\src\main\java\mt\edu\um\b_d_app\AccountDatabase.java
+C:\Users\Beatrix\Documents\GitHub\BDApp\src\main\java\mt\edu\um\b_d_app\TransactionCreator.java
 C:\Users\Beatrix\Documents\GitHub\BDApp\src\main\java\mt\edu\um\b_d_app\TransactionFailureException.java
+C:\Users\Beatrix\Documents\GitHub\BDApp\src\main\java\mt\edu\um\b_d_app\HighRiskTransactionCreator.java
