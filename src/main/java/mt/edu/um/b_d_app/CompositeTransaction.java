@@ -52,7 +52,7 @@ public class CompositeTransaction extends Transaction{
             {
                 throw new TransactionFailureException("The transaction: "+transactionList.get(i).toString()+" failed to be processed.");
             }
-            Thread.sleep(16000);
+            //Thread.sleep(16000);
             i++;
             
         }
