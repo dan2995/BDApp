@@ -11,9 +11,9 @@ package mt.edu.um.b_d_app;
  */
 public enum TraversalTypes {
     
-    SOURCE,
-    ASCENDING,
-    DESCENDING
+    FILTERSOURCEACCOUNT,
+    AMOUNTASCENDING,
+    AMOUNTDESCENDING
     
     
 }

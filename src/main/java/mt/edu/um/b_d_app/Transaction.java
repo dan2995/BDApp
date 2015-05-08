@@ -1,5 +1,7 @@
 package mt.edu.um.b_d_app;
 
+import java.util.ArrayList;
+
 public abstract class Transaction {
     
     private String name;
@@ -43,5 +45,7 @@ public abstract class Transaction {
     }
 
     public abstract Iterator createIterator();
+    
+   
 
 }
