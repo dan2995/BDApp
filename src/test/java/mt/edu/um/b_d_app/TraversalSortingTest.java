@@ -62,7 +62,7 @@ public class TraversalSortingTest {
     @Test
     public void amountAscendingTest()
     {
-        ArrayList<AtomicTransaction> result = transaction.getTransactionsByAmount(SortType.Ascending);
+        ArrayList<AtomicTransaction> result = transaction.getTransactionsBy(TraversalTypes.ASCENDING);
         
         for(int i = 0;i<result.size()-1;i++)
         {
@@ -73,7 +73,7 @@ public class TraversalSortingTest {
     @Test
     public void amountDescendingTest()
     {
-        ArrayList<AtomicTransaction> result = transaction.getTransactionsByAmount(SortType.Ascending);
+        ArrayList<AtomicTransaction> result = transaction.getTransactionsBy(TraversalTypes.DESCENDING);
         
         for(int i = 0;i<result.size()-1;i++)
         {
@@ -87,7 +87,7 @@ public class TraversalSortingTest {
     {
         int src;//need to set this to the right account number
         
-        ArrayList<AtomicTransaction> result = transaction.getTransactionsByAccount(FilterType.Source,src);
+        ArrayList<AtomicTransaction> result = transaction.getTransactionsBy(TraversalTypes.SOURCE,src);
        
         for(int i = 0;i<transactionsForAcc.size();i++)
         {
@@ -99,7 +99,7 @@ public class TraversalSortingTest {
     public void srcAccountDoesNotExistFilteringTest()
     {
         int src;
-        assertEquals(null, transaction.getTransactionsByAccount(FilterType.Source,src));
+        assertEquals(null, transaction.getTransactionsBy(TraversalTypes.SOURCE,src));
     }
     
 }
