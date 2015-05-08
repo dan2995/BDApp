@@ -20,13 +20,28 @@ import org.junit.Test;
 public class TraversalSortingTest {
     
     Transaction transaction;
+    HighRiskTransactionCreator creator;
     AccountDatabase database;
     ArrayList<AtomicTransaction> transactionsForAcc; 
+    double hardCBalance = 100000;
+    int DepositDstAccountNo = 1010;
     
     @Before
     public void Setup()
     {
-       
+        //Setting uo the database
+        
+        database = new AccountDatabase();
+        
+        //The hardcoded accounts in the creator class
+        database.addAccount(creator.getCommissionSourceAccountNo(), "HRiskTComSrcAccount", hardCBalance);
+        database.addAccount(creator.getCommissionDstAccountNo(), "HRiskTComDstAccount", hardCBalance);
+        database.addAccount(creator.getDepositSourceAccountNo(), "HRiskDepSrcAccount", hardCBalance);
+        database.addAccount(creator.getMainTransSourceAccountNo(), "HRiskMainTransSrcAccount", hardCBalance);
+        
+        database.addAccount(DepositDstAccountNo, "DepositDstAccount", hardCBalance);
+        
+        
     }
     
     @Test

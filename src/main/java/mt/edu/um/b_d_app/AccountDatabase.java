@@ -10,7 +10,7 @@ public class AccountDatabase {
     }
 
     //may be shortened to the creation of a Transaction object which is then passed to the overloaded method taking the object as its parameter
-    public boolean addAccount(int accountNumber, String accountName, long accountBalance){
+    public boolean addAccount(int accountNumber, String accountName, double accountBalance){
         boolean flag = false;
         Account account1;
         int i = 0;
