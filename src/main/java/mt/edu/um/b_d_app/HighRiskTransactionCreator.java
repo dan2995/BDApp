@@ -23,19 +23,19 @@ public class HighRiskTransactionCreator extends TransactionCreator {
     public Transaction createTransaction(Account depositDSTAccount, double depositAmount, ArrayList<Account> destinationList, ArrayList<Double> amountList,AccountDatabase database)
     {
         //Specification states that all of the compound transactions have three transactions at at level 1 (topmost level of the transaction)
-        Transaction result = new CompositeTransaction("HighRiskTransaction");
+        Transaction result = new CompositeTransaction("HighRiskTransaction", RiskTypes.HIGH);
         //adding some form of ID should these transactions be placed in a structure together to be searched?
         
         //There is only one deposit transaction with o known destination account number
-        result.addTransaction(database, DepositSourceAccountNo, depositDSTAccount.getAccountNumber(), depositAmount, "DepositTransaction");
+        result.addTransaction(database, DepositSourceAccountNo, depositDSTAccount.getAccountNumber(), depositAmount, "DepositTransaction", RiskTypes.HIGH);
         
         //creating the main compound transaction and the commsion compoun transaction
-        CompositeTransaction main = new CompositeTransaction("MainTransaction");
-        CompositeTransaction commission = new CompositeTransaction("CommissionTransaction");
+        CompositeTransaction main = new CompositeTransaction("MainTransaction", RiskTypes.HIGH);
+        CompositeTransaction commission = new CompositeTransaction("CommissionTransaction", RiskTypes.HIGH);
         for(int i = 0; i<destinationList.size();i++)
         {
-            main.addTransaction(database, MainTransSourceAccountNo, destinationList.get(i).getAccountNumber(), amountList.get(i), "MTransaction"+i);
-            commission.addTransaction(database, this.CommissionSourceAccountNo, this.CommissionDstAccountNo, amountList.get(i)*this.commissionPercentage, "CTransaction"+i);
+            main.addTransaction(database, MainTransSourceAccountNo, destinationList.get(i).getAccountNumber(), amountList.get(i), "MTransaction"+i, RiskTypes.HIGH);
+            commission.addTransaction(database, this.CommissionSourceAccountNo, this.CommissionDstAccountNo, amountList.get(i)*this.commissionPercentage, "CTransaction"+i, RiskTypes.HIGH);
         }
         
         result.addTransaction(main);

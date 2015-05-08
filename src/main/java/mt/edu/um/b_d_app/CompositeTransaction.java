@@ -15,25 +15,25 @@ public class CompositeTransaction extends Transaction{
     
     private ArrayList<Transaction> transactionList;
     
-    public CompositeTransaction(String name)
+    public CompositeTransaction(String name, RiskTypes type)
     {
-        super(name);
+        super(name, type);
         transactionList = new ArrayList<Transaction> ();
     }
     
     public CompositeTransaction()
     {
-        this("GenericTransaction");
+        this("GenericTransaction", RiskTypes.NOTYPE);
     }
     
-    public boolean addTransaction(AccountDatabase database, int src, int dst, double amount, String name)
+    public boolean addTransaction(AccountDatabase database, int src, int dst, double amount, String name, RiskTypes type)
     {
-        return this.transactionList.add(new AtomicTransaction(src,dst,amount,database,name));
+        return this.transactionList.add(new AtomicTransaction(src,dst,amount,database,name,type));
     }
     
-    public boolean addTransaction(String name)
+    public boolean addTransaction(String name, RiskTypes type)
     {
-        return this.transactionList.add(new CompositeTransaction(name));
+        return this.transactionList.add(new CompositeTransaction(name,type));
     }
     
     public boolean addTransaction(CompositeTransaction transaction)
@@ -112,6 +112,10 @@ public class CompositeTransaction extends Transaction{
         return transactionList.size();
     }
 
-    //public abstract Iterator  createIterator(){
+    /*public abstract Iterator  createIterator(){
+    
+    return new CompositeIterator(this);
+
+    }*/
 
 }

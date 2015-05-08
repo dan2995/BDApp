@@ -18,9 +18,9 @@ public class AtomicTransaction extends Transaction {
     //might become a redundant structure in this class
     //have a single database in the transaction manager?
     
-    public AtomicTransaction(int source, int destination, double amount, AccountDatabase database, String name)
+    public AtomicTransaction(int source, int destination, double amount, AccountDatabase database, String name, RiskTypes type)
     {
-        super(name);
+        super(name, type);
         this.database = database;
         this.sourceAccountNumber = source;
         this.destinationAccountNumber = destination;
@@ -33,7 +33,7 @@ public class AtomicTransaction extends Transaction {
         //handling an invalid transaction by setting all fields to zero
         //account numbers have been confirmed to be assumed to start from one
         
-        this(0,0,0, null,"GenericTransaction");
+        this(0,0,0, null,"GenericTransaction",RiskTypes.NOTYPE);
     }
     
     public int getSourceAccountNumber()
@@ -117,12 +117,12 @@ public class AtomicTransaction extends Transaction {
         return false;//no components to remove in an atomic transaction
     }
     
-    public boolean addTransaction(String name)
+    public boolean addTransaction(String name, RiskTypes type)
     {
         return false;
     }
     
-    public boolean addTransaction(AccountDatabase database, int src, int dst, double amount, String name)
+    public boolean addTransaction(AccountDatabase database, int src, int dst, double amount, String name, RiskTypes type)
     {
         return false;
     }
@@ -149,7 +149,10 @@ public class AtomicTransaction extends Transaction {
         return false;
     }
 
-    //public abstract Iterator  createIterator(){
+    /*public abstract Iterator  createIterator(){
 
+        return new AtomicIterator(this);
+    
+    }*/
 
 }
