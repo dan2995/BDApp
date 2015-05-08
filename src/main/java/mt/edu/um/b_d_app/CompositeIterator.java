@@ -21,14 +21,19 @@ public class CompositeIterator extends Iterator{
             for(int i = 0; i<transaction.getListSize();i++)
             {
                 //use iterators
-                
+                Transaction current = transaction.getTransaction(i);
+                Iterator iterator = current.createIterator();
+                while(!iterator.isDone())
+                {
+                    this.transactions.add(iterator.next());
+                }
             }
         }
         this.index = 0;
     }
 
     @Override
-    public Transaction first()
+    public AtomicTransaction first()
     {
         if(transactions==null)
         {
@@ -38,7 +43,7 @@ public class CompositeIterator extends Iterator{
     }
 
     @Override
-    public Transaction next()
+    public AtomicTransaction next()
     {
         if(this.index<this.transactions.size()-1)
         {
@@ -59,7 +64,7 @@ public class CompositeIterator extends Iterator{
     }
 
     @Override
-    public Transaction currentItem()//a sort of peek. do not move past
+    public AtomicTransaction currentItem()//a sort of peek. do not move past
     {
         if(this.index<this.transactions.size())
         {

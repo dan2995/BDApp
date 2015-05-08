@@ -7,12 +7,12 @@ import com.sun.prism.shader.Solid_TextureFirstPassLCD_Loader;
  */
 public abstract class Iterator {
 
-    public abstract Transaction first();
+    public abstract AtomicTransaction first();
 
-    public abstract Transaction next();
+    public abstract AtomicTransaction next();
 
     public abstract boolean isDone();
 
-    public abstract Transaction currentItem();
+    public abstract AtomicTransaction currentItem();
 
 }

@@ -15,13 +15,13 @@ public class AtomicIterator extends Iterator {
     }
     
     @Override
-    public Transaction first()
+    public AtomicTransaction first()
     {
             return this.transaction;
     }        
 
     @Override
-    public Transaction next()
+    public AtomicTransaction next()
     {
         if(index==0)
         {
@@ -42,7 +42,7 @@ public class AtomicIterator extends Iterator {
     }
 
     @Override
-    public Transaction currentItem()
+    public AtomicTransaction currentItem()
     {
         return this.transaction;
     }
