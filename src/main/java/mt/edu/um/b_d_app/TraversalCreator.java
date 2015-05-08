@@ -16,6 +16,15 @@ public class TraversalCreator {
     public ArrayList<AtomicTransaction> getTransactionsBy(TraversalTypes type)
     {
         TraversalCreator creator = findCreatorForType(type);
+        
+        return creator.getTransactionBy();
+    }
+    
+    public ArrayList<AtomicTransaction> getTransactionsBy(TraversalTypes type, int accNo)
+    {
+        TraversalCreator creator = findCreatorForType(type);
+        
+        return creator.getTransactionBy(accNo);
     }
     
     private TraversalCreator findCreatorForType(TraversalTypes type)
