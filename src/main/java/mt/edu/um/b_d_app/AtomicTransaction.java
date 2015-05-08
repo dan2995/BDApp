@@ -149,10 +149,16 @@ public class AtomicTransaction extends Transaction {
         return false;
     }
 
-    /*public abstract Iterator  createIterator(){
+    @Override
+    public Iterator createIterator(){
 
         return new AtomicIterator(this);
     
-    }*/
+    }
 
+    public boolean isAtomic()
+    {
+        return true;
+    }
+    
 }

@@ -112,11 +112,12 @@ public class CompositeTransaction extends Transaction{
         return transactionList.size();
     }
 
-    /*public abstract Iterator  createIterator(){
+    @Override
+    public Iterator  createIterator(){
     
     return new CompositeIterator(this);
 
-    }*/
+    }
 
     public Transaction getTransaction(int index){
         return transactionList.get(index);

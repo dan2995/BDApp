@@ -44,6 +44,6 @@ public class AtomicIterator extends Iterator {
     @Override
     public Transaction currentItem()
     {
-        
+        return this.transaction;
     }
 }

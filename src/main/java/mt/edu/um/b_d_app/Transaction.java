@@ -36,7 +36,12 @@ public abstract class Transaction {
     public abstract boolean addTransaction(CompositeTransaction transaction);
     
     public abstract int getListSize();
+    
+    public boolean isAtomic()
+    {
+        return false;
+    }
 
-    //public abstract Iterator  createIterator(){
+    public abstract Iterator createIterator();
 
 }
