@@ -148,5 +148,8 @@ public class AtomicTransaction extends Transaction {
         }
         return false;
     }
-    
+
+    //public abstract Iterator  createIterator(){
+
+
 }

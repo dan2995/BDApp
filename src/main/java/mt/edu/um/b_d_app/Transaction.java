@@ -27,5 +27,7 @@ public abstract class Transaction {
     public abstract boolean addTransaction(CompositeTransaction transaction);
     
     public abstract int getListSize();
-    
+
+    //public abstract Iterator  createIterator(){
+
 }

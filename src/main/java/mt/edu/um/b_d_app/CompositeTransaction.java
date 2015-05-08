@@ -111,5 +111,7 @@ public class CompositeTransaction extends Transaction{
     public int getListSize(){
         return transactionList.size();
     }
-    
+
+    //public abstract Iterator  createIterator(){
+
 }
