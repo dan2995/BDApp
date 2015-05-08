@@ -32,21 +32,21 @@ public class CompositeTransactionTest {
         database1.addAccount(account1);
         database1.addAccount(account2);
         database1.addAccount(account3);
-        transaction1 = new CompositeTransaction("TransactionTest");
+        transaction1 = new CompositeTransaction("TransactionTest", RiskTypes.NOTYPE);
         transaction2 = new CompositeTransaction();
     }
 
     @Test
     public void addAtomicTransactionTestPass(){
         int arrayListSize = transaction1.getListSize();
-        assertEquals(true,transaction1.addTransaction(database1, 2, 1, 50, "Atomic Transaction"));
+        assertEquals(true,transaction1.addTransaction(database1, 2, 1, 50, "Atomic Transaction", RiskTypes.NOTYPE));
         int arrayListSizeUpdated = transaction1.getListSize();
     }
 
     @Test
     public void addCompositeTransactionTestPass(){
         int arrayListSize = transaction1.getListSize();
-        assertEquals(true,transaction1.addTransaction("Composite Transaction"));
+        assertEquals(true,transaction1.addTransaction("Composite Transaction", RiskTypes.NOTYPE));
         int arrayListSizeUpdated = transaction1.getListSize();
     }
 
@@ -78,10 +78,10 @@ public class CompositeTransactionTest {
         double acc2Balance = account2.getAccountBalance();
         double acc3Balance = account3.getAccountBalance();
        
-        transaction1.addTransaction(database1, 1, 2, 50, "IncreaseAcc2By50");
-        transaction1.addTransaction("2to3andBack");
-        transaction1.getTransaction("2to3andBack").addTransaction(database1, 2, 3, 100, "IncreaseAcc3By100");
-        transaction1.getTransaction("2to3andBack").addTransaction(database1, 3, 2, 50, "IncreaseAcc2By50");
+        transaction1.addTransaction(database1, 1, 2, 50, "IncreaseAcc2By50", RiskTypes.NOTYPE);
+        transaction1.addTransaction("2to3andBack", RiskTypes.NOTYPE);
+        transaction1.getTransaction("2to3andBack").addTransaction(database1, 2, 3, 100, "IncreaseAcc3By100", RiskTypes.NOTYPE);
+        transaction1.getTransaction("2to3andBack").addTransaction(database1, 3, 2, 50, "IncreaseAcc2By50", RiskTypes.NOTYPE);
         
         try
         {
@@ -106,10 +106,10 @@ public class CompositeTransactionTest {
         double acc2Balance = account2.getAccountBalance();
         double acc3Balance = account3.getAccountBalance();
        
-        transaction1.addTransaction(database1, 1, 2, 150, "IncreaseAcc2By50");//should fail
-        transaction1.addTransaction("2to3andBack");
-        transaction1.getTransaction("2to3andBack").addTransaction(database1, 2, 3, 100, "IncreaseAcc3By100");
-        transaction1.getTransaction("2to3andBack").addTransaction(database1, 3, 2, 50, "IncreaseAcc2By50");
+        transaction1.addTransaction(database1, 1, 2, 150, "IncreaseAcc2By50", RiskTypes.NOTYPE);//should fail
+        transaction1.addTransaction("2to3andBack", RiskTypes.NOTYPE);
+        transaction1.getTransaction("2to3andBack").addTransaction(database1, 2, 3, 100, "IncreaseAcc3By100", RiskTypes.NOTYPE);
+        transaction1.getTransaction("2to3andBack").addTransaction(database1, 3, 2, 50, "IncreaseAcc2By50", RiskTypes.NOTYPE);
         
         try
         {
@@ -129,10 +129,10 @@ public class CompositeTransactionTest {
     @Test
     public void removeTransactionTestPass()
     {
-        transaction1.addTransaction(database1, 1, 2, 50, "IncreaseAcc2By50");
-        transaction1.addTransaction("2to3andBack");
-        transaction1.getTransaction("2to3andBack").addTransaction(database1, 2, 3, 100, "IncreaseAcc3By100");
-        transaction1.getTransaction("2to3andBack").addTransaction(database1, 3, 2, 50, "IncreaseAcc2By50"); 
+        transaction1.addTransaction(database1, 1, 2, 50, "IncreaseAcc2By50", RiskTypes.NOTYPE);
+        transaction1.addTransaction("2to3andBack", RiskTypes.NOTYPE);
+        transaction1.getTransaction("2to3andBack").addTransaction(database1, 2, 3, 100, "IncreaseAcc3By100", RiskTypes.NOTYPE);
+        transaction1.getTransaction("2to3andBack").addTransaction(database1, 3, 2, 50, "IncreaseAcc2By50", RiskTypes.NOTYPE); 
         
         int sizeOfT1List = transaction1.getListSize();
         int sizeOf2to3BackList = transaction1.getTransaction("2to3andBack").getListSize();
@@ -145,10 +145,10 @@ public class CompositeTransactionTest {
     @Test
     public void removeTransactionFail()
     {
-        transaction1.addTransaction(database1, 1, 2, 50, "IncreaseAcc2By50");
-        transaction1.addTransaction("2to3andBack");
-        transaction1.getTransaction("2to3andBack").addTransaction(database1, 2, 3, 100, "IncreaseAcc3By100");
-        transaction1.getTransaction("2to3andBack").addTransaction(database1, 3, 2, 50, "IncreaseAcc2By50"); 
+        transaction1.addTransaction(database1, 1, 2, 50, "IncreaseAcc2By50", RiskTypes.NOTYPE);
+        transaction1.addTransaction("2to3andBack", RiskTypes.NOTYPE);
+        transaction1.getTransaction("2to3andBack").addTransaction(database1, 2, 3, 100, "IncreaseAcc3By100", RiskTypes.NOTYPE);
+        transaction1.getTransaction("2to3andBack").addTransaction(database1, 3, 2, 50, "IncreaseAcc2By50", RiskTypes.NOTYPE); 
         
         int sizeOfT1List = transaction1.getListSize();
         int sizeOf2to3BackList = transaction1.getTransaction("2to3andBack").getListSize();

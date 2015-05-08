@@ -5,6 +5,8 @@ public abstract class Transaction {
     private String name;
     private RiskTypes type;
     
+    /*ADD CONSTRUCTORS TO THE CLASSES THAT DO NOT REQUIRE THE TYPE ARGUMENT AND AUTOMATICALLY SET IT TO NOTYPE*/
+    
     Transaction(String name, RiskTypes type)
     {
         this.name = name;

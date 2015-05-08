@@ -39,8 +39,8 @@ public class TransactionManagerTest {
         database.addAccount(1, "tAcc1", 500);
         database.addAccount(5, "tAcc2", 500);
         
-        testTrans1 = new AtomicTransaction(1,5,200,database,"testTrans1");
-        testTrans2 = new AtomicTransaction(5,1,100,database,"testTrans2");
+        testTrans1 = new AtomicTransaction(1,5,200,database,"testTrans1", RiskTypes.NOTYPE);
+        testTrans2 = new AtomicTransaction(5,1,100,database,"testTrans2", RiskTypes.NOTYPE);
         testTManager = new TransactionManager(database);
         
     }

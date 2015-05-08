@@ -25,6 +25,8 @@ public class TraversalSortingTest {
     ArrayList<AtomicTransaction> transactionsForAcc; 
     double hardCBalance = 100000;
     int DepositDstAccountNo = 1010;
+    Account DepositDstAccount;
+    double depositAmount = 50.75;
     
     @Before
     public void Setup()
@@ -32,6 +34,7 @@ public class TraversalSortingTest {
         //Setting uo the database
         
         database = new AccountDatabase();
+        creator = new HighRiskTransactionCreator();
         
         //The hardcoded accounts in the creator class
         database.addAccount(creator.getCommissionSourceAccountNo(), "HRiskTComSrcAccount", hardCBalance);
@@ -39,8 +42,20 @@ public class TraversalSortingTest {
         database.addAccount(creator.getDepositSourceAccountNo(), "HRiskDepSrcAccount", hardCBalance);
         database.addAccount(creator.getMainTransSourceAccountNo(), "HRiskMainTransSrcAccount", hardCBalance);
         
-        database.addAccount(DepositDstAccountNo, "DepositDstAccount", hardCBalance);
+        DepositDstAccount = new Account(DepositDstAccountNo, "DepositDstAccount", hardCBalance);
+        database.addAccount(DepositDstAccount);
         
+        ArrayList<Account> mainList = new ArrayList<Account>();
+        ArrayList<Double> amountList = new ArrayList<Double>();
+        for(int i = 0; i<10; i++)
+        {
+            Account temp = new Account(i, "Account"+i, hardCBalance);
+            database.addAccount(temp);
+            mainList.add(temp);
+            amountList.add((i+0.5)*2);
+        }
+        
+        transaction = creator.createTransaction(this.DepositDstAccount, depositAmount, mainList, amountList, database);
         
     }
     

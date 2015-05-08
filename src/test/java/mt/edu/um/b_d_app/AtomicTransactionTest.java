@@ -41,11 +41,11 @@ public class AtomicTransactionTest  {
         database.addAccount(1, "tAcc1", 500);
         database.addAccount(5, "tAcc2", 500);
         
-        testTrans1 = new AtomicTransaction(1,5,200,database,"testTrans1");
+        testTrans1 = new AtomicTransaction(1,5,200,database,"testTrans1", RiskTypes.NOTYPE);
         
-        failTrans1 = new AtomicTransaction(1,0,50,database,"failTrans1");//non-existent account
-        failTrans2 = new AtomicTransaction(1,5,10,null,"failTrans2");//null database
-        failTrans3 = new AtomicTransaction(1,5,1300,database,"failTrans3");//invalid amount
+        failTrans1 = new AtomicTransaction(1,0,50,database,"failTrans1", RiskTypes.NOTYPE);//non-existent account
+        failTrans2 = new AtomicTransaction(1,5,10,null,"failTrans2", RiskTypes.NOTYPE);//null database
+        failTrans3 = new AtomicTransaction(1,5,1300,database,"failTrans3", RiskTypes.NOTYPE);//invalid amount
         failTrans4 = new AtomicTransaction();
     }
     
@@ -120,18 +120,18 @@ public class AtomicTransactionTest  {
     @Test
     public void addCompositeTransaction()
     {
-        assertEquals(false,testTrans1.addTransaction("AnyTransaction"));
+        assertEquals(false,testTrans1.addTransaction("AnyTransaction", RiskTypes.NOTYPE));
     }
     
     @Test
     public void addAtomicTransaction()
     {
-        assertEquals(false,testTrans1.addTransaction(database,1,5,100,"AnyName"));
+        assertEquals(false,testTrans1.addTransaction(database,1,5,100,"AnyName", RiskTypes.NOTYPE));
     }
 
     @Test
     public void addTransactionFail(){
-        assertEquals(false, testTrans1.addTransaction(database, 1,2,100,"Name"));
+        assertEquals(false, testTrans1.addTransaction(database, 1,2,100,"Name", RiskTypes.NOTYPE));
     }
 
     @Test
@@ -141,7 +141,7 @@ public class AtomicTransactionTest  {
 
     @Test
     public void addTransactionTest(){
-        CompositeTransaction fail = new CompositeTransaction("fail");
+        CompositeTransaction fail = new CompositeTransaction("fail", RiskTypes.NOTYPE);
         assertEquals(false, testTrans1.addTransaction(fail));
     }
 }
