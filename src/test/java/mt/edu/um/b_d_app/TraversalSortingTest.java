@@ -15,41 +15,39 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-//all of the tests have a return type of atomic accounts
+//all of the tests need addition assertEquals to ensure that the length of result is correct
 
 public class TraversalSortingTest {
     
     Transaction transaction;
     AccountDatabase database;
     ArrayList<AtomicTransaction> transactionsForAcc; 
-    ArrayList<AtomicTransaction> transactionsDescendingAmount;
-    ArrayList<AtomicTransaction> transactionsAscendingAmount;
     
     @Before
     public void Setup()
     {
-        
+       
     }
     
     @Test
     public void amountAscendingTest()
     {
-        ArrayList<AtomicTransaction> result = transaction.getTransactionsAscendingAmount();
+        ArrayList<AtomicTransaction> result = transaction.getTransactionsByAmount(SortType.Ascending);
         
-        for(int i = 0;i<transactionsAscendingAmount.size();i++)
+        for(int i = 0;i<result.size()-1;i++)
         {
-            assertEquals(transactionsAscendingAmount.get(i), result.get(i)); 
+            assertEquals(true,result.get(i).getAmount()<=result.get(i+1).getAmount()); 
         }
     }
     
     @Test
     public void amountDescendingTest()
     {
-        ArrayList<AtomicTransaction> result = transaction.getTransactionsDescendingAmount();
+        ArrayList<AtomicTransaction> result = transaction.getTransactionsByAmount(SortType.Ascending);
         
-        for(int i = 0;i<transactionsDescendingAmount.size();i++)
+        for(int i = 0;i<result.size()-1;i++)
         {
-            assertEquals(transactionsDescendingAmount.get(i), result.get(i)); 
+            assertEquals(true,result.get(i).getAmount()>=result.get(i+1).getAmount()); 
         }
         
     }
@@ -57,18 +55,21 @@ public class TraversalSortingTest {
     @Test
     public void srcAccountExistsFilteringTest()
     {
-        ArrayList<AtomicTransaction> result = transaction.getTransactionsUsingSource(int src);
+        int src;//need to set this to the right account number
+        
+        ArrayList<AtomicTransaction> result = transaction.getTransactionsByAccount(FilterType.Source,src);
        
         for(int i = 0;i<transactionsForAcc.size();i++)
         {
-            assertEquals(transactionsForAcc.get(i), result.get(i)); 
+            assertEquals(src, result.get(i).getSourceAccountNumber()); 
         }
     }
     
     @Test
     public void srcAccountDoesNotExistFilteringTest()
     {
-        assertEquals(null, transaction.getTransactionsUsingSource(int src));
+        int src;
+        assertEquals(null, transaction.getTransactionsByAccount(FilterType.Source,src));
     }
     
 }
