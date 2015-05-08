@@ -118,4 +118,8 @@ public class CompositeTransaction extends Transaction{
 
     }*/
 
+    public Transaction getTransaction(int index){
+        return transactionList.get(index);
+    }
+
 }
