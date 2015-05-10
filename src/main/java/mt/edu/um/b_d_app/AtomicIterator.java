@@ -34,11 +34,13 @@ public class AtomicIterator extends Iterator {
     @Override
     public boolean isDone()
     {
-        if(index>0)
+        switch(index)
         {
-            return true;
+            case 0:
+                return false;
+            default:
+                return true;
         }
-        return false;
     }
 
     @Override
