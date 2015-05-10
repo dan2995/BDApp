@@ -64,6 +64,8 @@ public class TraversalSortingTest {
     @Test
     public void amountAscendingTest()
     {
+        assertEquals(3,transaction.getListSize());
+        
         ArrayList<AtomicTransaction> result = transaction.getTransactionsBy(TraversalTypes.AMOUNTASCENDING);
         
         for(int i = 0;i<result.size()-1;i++)

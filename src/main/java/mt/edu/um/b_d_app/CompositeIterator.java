@@ -12,6 +12,7 @@ public class CompositeIterator extends Iterator{
     
     CompositeIterator(CompositeTransaction transaction)
     {
+        this.index = 0;
         if(transaction.getListSize()==0)
         {
             transactions = null;
@@ -25,11 +26,11 @@ public class CompositeIterator extends Iterator{
                 Iterator iterator = current.createIterator();
                 while(!iterator.isDone())
                 {
-                    this.transactions.add(iterator.next());//THROWING A NULL POINTER EXCEPTION SOMEHWERE HERE
+                    AtomicTransaction nextATrans = iterator.next();
+                    this.transactions.add(nextATrans);//THROWING A NULL POINTER EXCEPTION SOMEHWERE HERE
                 }
             }
         }
-        this.index = 0;
     }
 
     @Override
@@ -56,11 +57,11 @@ public class CompositeIterator extends Iterator{
     @Override
     public boolean isDone()
     {
-        if(index<this.transactions.size())
+        if(index>this.transactions.size())
         {
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     @Override

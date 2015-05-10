@@ -109,17 +109,19 @@ public class CompositeTransaction extends Transaction{
     }
 
     public int getListSize(){
+        
         return transactionList.size();
     }
 
     @Override
-    public Iterator  createIterator(){
+    public Iterator createIterator(){
     
     return new CompositeIterator(this);
 
     }
 
     public Transaction getTransaction(int index){
+        
         return transactionList.get(index);
     }
 

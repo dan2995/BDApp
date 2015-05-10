@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: mt.edu.um.b_d_app.TransactionClassTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.004 sec <<< FAILURE!
-destinationAccountNumberTest(mt.edu.um.b_d_app.TransactionClassTest)  Time elapsed: 0.001 sec  <<< ERROR!
+Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0 sec <<< FAILURE!
+destinationAccountNumberTest(mt.edu.um.b_d_app.TransactionClassTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.ExceptionInInitializerError
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -95,7 +95,7 @@ java.lang.NoClassDefFoundError: Could not initialize class mt.edu.um.b_d_app.Tra
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-processFailDatabaseTest(mt.edu.um.b_d_app.TransactionClassTest)  Time elapsed: 0.001 sec  <<< ERROR!
+processFailDatabaseTest(mt.edu.um.b_d_app.TransactionClassTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class mt.edu.um.b_d_app.TransactionClassTest
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -185,7 +185,7 @@ java.lang.NoClassDefFoundError: Could not initialize class mt.edu.um.b_d_app.Tra
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-processFailAllTest(mt.edu.um.b_d_app.TransactionClassTest)  Time elapsed: 0.001 sec  <<< ERROR!
+processFailAllTest(mt.edu.um.b_d_app.TransactionClassTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class mt.edu.um.b_d_app.TransactionClassTest
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
