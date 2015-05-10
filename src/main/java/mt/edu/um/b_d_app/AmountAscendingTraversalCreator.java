@@ -15,7 +15,7 @@ public class AmountAscendingTraversalCreator extends TraversalCreator {
         
         Iterator iterateTrans = transaction.createIterator();
         
-        ArrayList<AtomicTransaction> result = new ArrayList<AtomicTransaction>();
+        AtomicTransaction result [] = new ArrayList<AtomicTransaction>();
         
         
         //Extract the atomic transactions
@@ -26,7 +26,19 @@ public class AmountAscendingTraversalCreator extends TraversalCreator {
         
         
         //now sort by criteria
-        
+        boolean stop = false;
+        while(!stop)
+        {
+            for(int i = 0; i<result.size()-1;i++)
+            {
+                if(result.get(i).getAmount()>result.get(i+1).getAmount())
+                {
+                    AtomicTransaction temp = result.get(i+1);
+                    result.
+                }
+            }
+            
+        }
         
         return result;
 

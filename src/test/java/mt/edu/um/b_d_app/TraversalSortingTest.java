@@ -59,6 +59,8 @@ public class TraversalSortingTest {
         
     }
     
+    //AD LENGTH CHECKS FOR THE LOOPS TO CHECK THAT TEHRE ARE AS MANY ATOMIC TRANSACTIONS IN RESULT AS EXPECTED
+    
     @Test
     public void amountAscendingTest()
     {
