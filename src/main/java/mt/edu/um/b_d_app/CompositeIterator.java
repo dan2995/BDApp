@@ -25,7 +25,7 @@ public class CompositeIterator extends Iterator{
                 Iterator iterator = current.createIterator();
                 while(!iterator.isDone())
                 {
-                    this.transactions.add(iterator.next());
+                    this.transactions.add(iterator.next());//THROWING A NULL POINTER EXCEPTION SOMEHWERE HERE
                 }
             }
         }
