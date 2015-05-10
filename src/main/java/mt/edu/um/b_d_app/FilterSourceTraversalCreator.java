@@ -17,16 +17,14 @@ public class FilterSourceTraversalCreator extends TraversalCreator{
         
         ArrayList<AtomicTransaction> result = new ArrayList<AtomicTransaction>();
         
-        
-        //Extract the atomic transactions
         while(!iterateTrans.isDone())
         {
-            result.add(iterateTrans.next());
+            AtomicTransaction temp = iterateTrans.next();//get the next transaction from the iterator
+            if(temp.getSourceAccountNumber()==accNo)
+            {
+                result.add(temp);//if the source account number matches the required source account number, add to the result list
+            }
         }
-        
-        
-        //now sort by criteria
-        
         
         return result;
 

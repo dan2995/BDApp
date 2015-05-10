@@ -1,6 +1,7 @@
 package mt.edu.um.b_d_app;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by Daniela on 08/05/2015.
@@ -15,7 +16,7 @@ public class AmountAscendingTraversalCreator extends TraversalCreator {
         
         Iterator iterateTrans = transaction.createIterator();
         
-        AtomicTransaction result [] = new ArrayList<AtomicTransaction>();
+        ArrayList<AtomicTransaction> result = new ArrayList<AtomicTransaction>();
         
         
         //Extract the atomic transactions
@@ -24,17 +25,17 @@ public class AmountAscendingTraversalCreator extends TraversalCreator {
             result.add(iterateTrans.next());
         }
         
-        
-        //now sort by criteria
+        //now sort by criteria using Bubble sort
         boolean stop = false;
         while(!stop)
         {
+            stop = true;
             for(int i = 0; i<result.size()-1;i++)
             {
-                if(result.get(i).getAmount()>result.get(i+1).getAmount())
+                if(result.get(i).getAmount()>result.get(i+1).getAmount())//if the first is greater than the second
                 {
-                    AtomicTransaction temp = result.get(i+1);
-                    result.
+                    Collections.swap(result, i, i+1);
+                    stop = false;
                 }
             }
             

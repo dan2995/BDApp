@@ -6,7 +6,7 @@ package mt.edu.um.b_d_app;
 public class AtomicIterator extends Iterator {
     
     int index;
-    AtomicTransaction transaction;
+    AtomicTransaction transaction;//CHANGE TO ARRAY LIST AND MOVE TO THE SUPERCLASS
     
     AtomicIterator(AtomicTransaction transaction)
     {
