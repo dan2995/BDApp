@@ -1,6 +1,7 @@
 package mt.edu.um.b_d_app;
 
-import com.sun.prism.shader.Solid_TextureFirstPassLCD_Loader;
+
+//import com.sun.prism.shader.Solid_TextureFirstPassLCD_Loader;
 
 /**
  * Created by Daniela on 08/05/2015.
