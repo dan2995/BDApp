@@ -46,6 +46,14 @@ public abstract class Transaction {
 
     public abstract Iterator createIterator();
     
-   
+    public ArrayList<AtomicTransaction> getTransactionsBy(TraversalTypes type, int accNo)
+    {
+        return (new TraversalCreator()).getTransactionsBy(type, accNo, this);
+    }
+
+    public ArrayList<AtomicTransaction> getTransactionsBy(TraversalTypes type)
+    {
+        return (new TraversalCreator()).getTransactionsBy(type, this);
+    }
 
 }

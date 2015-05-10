@@ -13,18 +13,18 @@ import java.util.ArrayList;
  */
 public class TraversalCreator {
     
-    public ArrayList<AtomicTransaction> getTransactionsBy(TraversalTypes type)
+    public ArrayList<AtomicTransaction> getTransactionsBy(TraversalTypes type, Transaction transaction)
     {
         TraversalCreator creator = findCreatorForType(type);
         
-        return creator.getTransactionBy();
+        return creator.getTransactionsBy(transaction);
     }
     
-    public ArrayList<AtomicTransaction> getTransactionsBy(TraversalTypes type, int accNo)
+    public ArrayList<AtomicTransaction> getTransactionsBy(TraversalTypes type, int accNo, Transaction transaction)
     {
         TraversalCreator creator = findCreatorForType(type);
         
-        return creator.getTransactionBy(accNo);
+        return creator.getTransactionsBy(accNo, transaction);
     }
     
     private TraversalCreator findCreatorForType(TraversalTypes type)
@@ -40,6 +40,16 @@ public class TraversalCreator {
             default:
                 return null;
         }
+    }
+    
+    public ArrayList<AtomicTransaction> getTransactionsBy(Transaction transaction)
+    {
+        return null;
+    }
+    
+    public ArrayList<AtomicTransaction> getTransactionsBy(int accNo, Transaction transaction)
+    {
+        return null;
     }
     
 }

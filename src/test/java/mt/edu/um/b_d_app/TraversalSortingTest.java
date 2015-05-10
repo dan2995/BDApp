@@ -62,7 +62,7 @@ public class TraversalSortingTest {
     @Test
     public void amountAscendingTest()
     {
-        ArrayList<AtomicTransaction> result = transaction.getTransactionsBy(TraversalTypes.ASCENDING);
+        ArrayList<AtomicTransaction> result = transaction.getTransactionsBy(TraversalTypes.AMOUNTASCENDING);
         
         for(int i = 0;i<result.size()-1;i++)
         {
@@ -73,7 +73,7 @@ public class TraversalSortingTest {
     @Test
     public void amountDescendingTest()
     {
-        ArrayList<AtomicTransaction> result = transaction.getTransactionsBy(TraversalTypes.DESCENDING);
+        ArrayList<AtomicTransaction> result = transaction.getTransactionsBy(TraversalTypes.AMOUNTDESCENDING);
         
         for(int i = 0;i<result.size()-1;i++)
         {
@@ -85,9 +85,9 @@ public class TraversalSortingTest {
     @Test
     public void srcAccountExistsFilteringTest()
     {
-        int src;//need to set this to the right account number
+        int src= creator.getCommissionSourceAccountNo();//need to set this to the right account number
         
-        ArrayList<AtomicTransaction> result = transaction.getTransactionsBy(TraversalTypes.SOURCE,src);
+        ArrayList<AtomicTransaction> result = transaction.getTransactionsBy(TraversalTypes.FILTERSOURCEACCOUNT,src);
        
         for(int i = 0;i<transactionsForAcc.size();i++)
         {
@@ -98,8 +98,8 @@ public class TraversalSortingTest {
     @Test
     public void srcAccountDoesNotExistFilteringTest()
     {
-        int src;
-        assertEquals(null, transaction.getTransactionsBy(TraversalTypes.SOURCE,src));
+        int src = 70707;
+        assertEquals(null, transaction.getTransactionsBy(TraversalTypes.FILTERSOURCEACCOUNT,src));
     }
     
 }
