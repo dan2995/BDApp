@@ -20,7 +20,7 @@ public class FilterSourceTraversalCreator extends TraversalCreator{
         while(!iterateTrans.isDone())
         {
             AtomicTransaction temp = iterateTrans.next();//get the next transaction from the iterator
-            if(temp.getSourceAccountNumber()==accNo)
+            if(temp.getSourceAccountNumber()==accNo)//if no account numbers mathc, then
             {
                 result.add(temp);//if the source account number matches the required source account number, add to the result list
             }

@@ -47,7 +47,7 @@ public class TraversalSortingTest {
         
         ArrayList<Account> mainList = new ArrayList<Account>();
         ArrayList<Double> amountList = new ArrayList<Double>();
-        for(int i = 0; i<10; i++)
+        for(int i = 0; i<5; i++)
         {
             Account temp = new Account(i, "Account"+i, hardCBalance);
             database.addAccount(temp);
