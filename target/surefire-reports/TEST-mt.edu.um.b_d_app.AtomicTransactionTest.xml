@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="15" failures="0" name="mt.edu.um.b_d_app.AtomicTransactionTest" time="0.003" errors="0" skipped="0">
+<testsuite tests="15" failures="0" name="mt.edu.um.b_d_app.AtomicTransactionTest" time="0.005" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_25\jre\bin"/>
@@ -68,8 +68,8 @@
   <testcase classname="mt.edu.um.b_d_app.AtomicTransactionTest" name="processFailDatabaseTest" time="0"/>
   <testcase classname="mt.edu.um.b_d_app.AtomicTransactionTest" name="removeTransactionTest" time="0"/>
   <testcase classname="mt.edu.um.b_d_app.AtomicTransactionTest" name="processTest" time="0"/>
-  <testcase classname="mt.edu.um.b_d_app.AtomicTransactionTest" name="addTransactionFail" time="0"/>
-  <testcase classname="mt.edu.um.b_d_app.AtomicTransactionTest" name="addTransactionTest" time="0"/>
+  <testcase classname="mt.edu.um.b_d_app.AtomicTransactionTest" name="addTransactionFail" time="0.001"/>
+  <testcase classname="mt.edu.um.b_d_app.AtomicTransactionTest" name="addTransactionTest" time="0.001"/>
   <testcase classname="mt.edu.um.b_d_app.AtomicTransactionTest" name="addCompositeTransaction" time="0"/>
   <testcase classname="mt.edu.um.b_d_app.AtomicTransactionTest" name="getTransactionTest" time="0"/>
   <testcase classname="mt.edu.um.b_d_app.AtomicTransactionTest" name="sourceAccountNumberTest" time="0"/>

@@ -22,7 +22,7 @@ public class TraversalSortingTest {
     Transaction transaction;
     HighRiskTransactionCreator creator;
     AccountDatabase database;
-    ArrayList<AtomicTransaction> transactionsForAcc; 
+    //ArrayList<AtomicTransaction> transactionsForAcc; 
     double hardCBalance = 100000;
     int DepositDstAccountNo = 1010;
     Account DepositDstAccount;
@@ -31,6 +31,8 @@ public class TraversalSortingTest {
     @Before
     public void Setup()
     {
+        //transactionsForAcc = new ArrayList<AtomicTransaction>();
+        
         //Setting uo the database
         
         database = new AccountDatabase();
@@ -85,7 +87,8 @@ public class TraversalSortingTest {
         }
         
     }
-           
+     
+    //still causing problems
     @Test
     public void srcAccountExistsFilteringTest()
     {
@@ -93,7 +96,8 @@ public class TraversalSortingTest {
         
         ArrayList<AtomicTransaction> result = transaction.getTransactionsBy(TraversalTypes.FILTERSOURCEACCOUNT,src);
        
-        for(int i = 0;i<transactionsForAcc.size();i++)
+        //5 accounts in the main transaction list therefore five commision transactions
+        for(int i = 0;i<5;i++)
         {
             assertEquals(src, result.get(i).getSourceAccountNumber()); 
         }
