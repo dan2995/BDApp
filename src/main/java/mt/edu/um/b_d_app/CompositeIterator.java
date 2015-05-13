@@ -61,22 +61,22 @@ public class CompositeIterator extends Iterator{
     @Override
     public AtomicTransaction next()
     {
-        if(this.index<this.transactions.size()-1)
+        if(this.index<this.transactions.size())
         {
-            index++;
-            return this.transactions.get(index);
+            return this.transactions.get(index++);
         }
+        index++;
         return null;
     }
 
     @Override
     public boolean isDone()
     {
-        if(index>this.transactions.size())
+        if(index>=this.transactions.size())
         {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     @Override
