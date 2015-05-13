@@ -103,7 +103,10 @@ public class TraversalSortingTest {
     public void srcAccountDoesNotExistFilteringTest()
     {
         int src = 70707;
-        assertEquals(null, transaction.getTransactionsBy(TraversalTypes.FILTERSOURCEACCOUNT,src));
+        //the filter by source account traversal creator returns an empty list if no source accounts are found matching the requested account number
+        ArrayList<AtomicTransaction> result = transaction.getTransactionsBy(TraversalTypes.FILTERSOURCEACCOUNT,src);
+        
+        assertEquals(true, result.isEmpty());
     }
     
 }
