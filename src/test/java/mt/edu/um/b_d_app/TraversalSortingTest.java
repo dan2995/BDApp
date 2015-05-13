@@ -70,7 +70,7 @@ public class TraversalSortingTest {
         
         ArrayList<AtomicTransaction> result = transaction.getTransactionsBy(TraversalTypes.AMOUNTASCENDING);
         
-        for(int i = 0;i<result.size()-1;i++)
+        for(int i = 0;i<11;i++)
         {
             assertEquals(true,result.get(i).getAmount()<=result.get(i+1).getAmount()); 
         }
@@ -81,7 +81,7 @@ public class TraversalSortingTest {
     {
         ArrayList<AtomicTransaction> result = transaction.getTransactionsBy(TraversalTypes.AMOUNTDESCENDING);
         
-        for(int i = 0;i<result.size()-1;i++)
+        for(int i = 0;i<11;i++)
         {
             assertEquals(true,result.get(i).getAmount()>=result.get(i+1).getAmount()); 
         }

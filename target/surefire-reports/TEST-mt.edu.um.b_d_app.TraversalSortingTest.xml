@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="mt.edu.um.b_d_app.TraversalSortingTest" time="0.078" errors="1" skipped="0">
+<testsuite tests="4" failures="0" name="mt.edu.um.b_d_app.TraversalSortingTest" time="0.016" errors="3" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_25\jre\bin"/>
@@ -61,10 +61,12 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="mt.edu.um.b_d_app.TraversalSortingTest" name="srcAccountDoesNotExistFilteringTest" time="0.016"/>
-  <testcase classname="mt.edu.um.b_d_app.TraversalSortingTest" name="srcAccountExistsFilteringTest" time="0.031">
-    <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at mt.edu.um.b_d_app.TraversalSortingTest.srcAccountExistsFilteringTest(TraversalSortingTest.java:96)
+  <testcase classname="mt.edu.um.b_d_app.TraversalSortingTest" name="srcAccountDoesNotExistFilteringTest" time="0.008"/>
+  <testcase classname="mt.edu.um.b_d_app.TraversalSortingTest" name="srcAccountExistsFilteringTest" time="0">
+    <error message="Index: 0, Size: 0" type="java.lang.IndexOutOfBoundsException">java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(ArrayList.java:653)
+	at java.util.ArrayList.get(ArrayList.java:429)
+	at mt.edu.um.b_d_app.TraversalSortingTest.srcAccountExistsFilteringTest(TraversalSortingTest.java:102)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -96,59 +98,83 @@
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </error>
-    <system-out>Composite transaction HighRiskTransaction mt.edu.um.b_d_app.CompositeTransaction@7d6f77cc of size 3 at level 1 is creating its iterator...
-Fetching transaction DepositTransaction mt.edu.um.b_d_app.AtomicTransaction@5aaa6d82 from inside HighRiskTransaction mt.edu.um.b_d_app.CompositeTransaction@7d6f77cc
-Extracting transaction from inside DepositTransaction: DepositTransaction
-Have added mt.edu.um.b_d_app.AtomicTransaction@5aaa6d82 to the array list of atomic transactions
-Moving on to extract the next transaction for mt.edu.um.b_d_app.CompositeTransaction@7d6f77cc
-Fetching transaction MainTransaction mt.edu.um.b_d_app.CompositeTransaction@73a28541 from inside HighRiskTransaction mt.edu.um.b_d_app.CompositeTransaction@7d6f77cc
-Composite transaction MainTransaction mt.edu.um.b_d_app.CompositeTransaction@73a28541 of size 5 at level 1 is creating its iterator...
-Fetching transaction MTransaction0 mt.edu.um.b_d_app.AtomicTransaction@6f75e721 from inside MainTransaction mt.edu.um.b_d_app.CompositeTransaction@73a28541
-Extracting transaction from inside MTransaction0: MTransaction0
-Have added mt.edu.um.b_d_app.AtomicTransaction@6f75e721 to the array list of atomic transactions
-Moving on to extract the next transaction for mt.edu.um.b_d_app.CompositeTransaction@73a28541
-Fetching transaction MTransaction1 mt.edu.um.b_d_app.AtomicTransaction@69222c14 from inside MainTransaction mt.edu.um.b_d_app.CompositeTransaction@73a28541
-Extracting transaction from inside MTransaction1: MTransaction1
-Have added mt.edu.um.b_d_app.AtomicTransaction@69222c14 to the array list of atomic transactions
-Moving on to extract the next transaction for mt.edu.um.b_d_app.CompositeTransaction@73a28541
-Fetching transaction MTransaction2 mt.edu.um.b_d_app.AtomicTransaction@606d8acf from inside MainTransaction mt.edu.um.b_d_app.CompositeTransaction@73a28541
-Extracting transaction from inside MTransaction2: MTransaction2
-Have added mt.edu.um.b_d_app.AtomicTransaction@606d8acf to the array list of atomic transactions
-Moving on to extract the next transaction for mt.edu.um.b_d_app.CompositeTransaction@73a28541
-Fetching transaction MTransaction3 mt.edu.um.b_d_app.AtomicTransaction@782830e from inside MainTransaction mt.edu.um.b_d_app.CompositeTransaction@73a28541
-Extracting transaction from inside MTransaction3: MTransaction3
-Have added mt.edu.um.b_d_app.AtomicTransaction@782830e to the array list of atomic transactions
-Moving on to extract the next transaction for mt.edu.um.b_d_app.CompositeTransaction@73a28541
-Fetching transaction MTransaction4 mt.edu.um.b_d_app.AtomicTransaction@470e2030 from inside MainTransaction mt.edu.um.b_d_app.CompositeTransaction@73a28541
-Extracting transaction from inside MTransaction4: MTransaction4
-Have added mt.edu.um.b_d_app.AtomicTransaction@470e2030 to the array list of atomic transactions
-Moving on to extract the next transaction for mt.edu.um.b_d_app.CompositeTransaction@73a28541
-Moving on to extract the next transaction for mt.edu.um.b_d_app.CompositeTransaction@7d6f77cc
-Fetching transaction CommissionTransaction mt.edu.um.b_d_app.CompositeTransaction@3fb4f649 from inside HighRiskTransaction mt.edu.um.b_d_app.CompositeTransaction@7d6f77cc
-Composite transaction CommissionTransaction mt.edu.um.b_d_app.CompositeTransaction@3fb4f649 of size 5 at level 1 is creating its iterator...
-Fetching transaction CTransaction0 mt.edu.um.b_d_app.AtomicTransaction@33833882 from inside CommissionTransaction mt.edu.um.b_d_app.CompositeTransaction@3fb4f649
-Extracting transaction from inside CTransaction0: CTransaction0
-Have added mt.edu.um.b_d_app.AtomicTransaction@33833882 to the array list of atomic transactions
-Moving on to extract the next transaction for mt.edu.um.b_d_app.CompositeTransaction@3fb4f649
-Fetching transaction CTransaction1 mt.edu.um.b_d_app.AtomicTransaction@200a570f from inside CommissionTransaction mt.edu.um.b_d_app.CompositeTransaction@3fb4f649
-Extracting transaction from inside CTransaction1: CTransaction1
-Have added mt.edu.um.b_d_app.AtomicTransaction@200a570f to the array list of atomic transactions
-Moving on to extract the next transaction for mt.edu.um.b_d_app.CompositeTransaction@3fb4f649
-Fetching transaction CTransaction2 mt.edu.um.b_d_app.AtomicTransaction@16b3fc9e from inside CommissionTransaction mt.edu.um.b_d_app.CompositeTransaction@3fb4f649
-Extracting transaction from inside CTransaction2: CTransaction2
-Have added mt.edu.um.b_d_app.AtomicTransaction@16b3fc9e to the array list of atomic transactions
-Moving on to extract the next transaction for mt.edu.um.b_d_app.CompositeTransaction@3fb4f649
-Fetching transaction CTransaction3 mt.edu.um.b_d_app.AtomicTransaction@e2d56bf from inside CommissionTransaction mt.edu.um.b_d_app.CompositeTransaction@3fb4f649
-Extracting transaction from inside CTransaction3: CTransaction3
-Have added mt.edu.um.b_d_app.AtomicTransaction@e2d56bf to the array list of atomic transactions
-Moving on to extract the next transaction for mt.edu.um.b_d_app.CompositeTransaction@3fb4f649
-Fetching transaction CTransaction4 mt.edu.um.b_d_app.AtomicTransaction@244038d0 from inside CommissionTransaction mt.edu.um.b_d_app.CompositeTransaction@3fb4f649
-Extracting transaction from inside CTransaction4: CTransaction4
-Have added mt.edu.um.b_d_app.AtomicTransaction@244038d0 to the array list of atomic transactions
-Moving on to extract the next transaction for mt.edu.um.b_d_app.CompositeTransaction@3fb4f649
-Moving on to extract the next transaction for mt.edu.um.b_d_app.CompositeTransaction@7d6f77cc
+    <system-out>Have created the iterator
+Have initialised the result array list, now of size 0
+Exiting the filter traversal creator method
 </system-out>
   </testcase>
-  <testcase classname="mt.edu.um.b_d_app.TraversalSortingTest" name="amountDescendingTest" time="0.015"/>
-  <testcase classname="mt.edu.um.b_d_app.TraversalSortingTest" name="amountAscendingTest" time="0.016"/>
+  <testcase classname="mt.edu.um.b_d_app.TraversalSortingTest" name="amountDescendingTest" time="0.008">
+    <error message="Index: 0, Size: 0" type="java.lang.IndexOutOfBoundsException">java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(ArrayList.java:653)
+	at java.util.ArrayList.get(ArrayList.java:429)
+	at mt.edu.um.b_d_app.TraversalSortingTest.amountDescendingTest(TraversalSortingTest.java:86)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</error>
+  </testcase>
+  <testcase classname="mt.edu.um.b_d_app.TraversalSortingTest" name="amountAscendingTest" time="0">
+    <error message="Index: 0, Size: 0" type="java.lang.IndexOutOfBoundsException">java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(ArrayList.java:653)
+	at java.util.ArrayList.get(ArrayList.java:429)
+	at mt.edu.um.b_d_app.TraversalSortingTest.amountAscendingTest(TraversalSortingTest.java:75)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</error>
+  </testcase>
 </testsuite>
