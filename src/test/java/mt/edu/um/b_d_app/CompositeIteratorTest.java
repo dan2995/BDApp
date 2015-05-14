@@ -88,6 +88,10 @@ public class CompositeIteratorTest {
     @Test
     public void NoCurrentAvailableTest()
     {
+        CompositeTransaction temp = new CompositeTransaction();//empty list inside
+        Iterator iterator = temp.createIterator();
         
+        //starting index 0 is equal to size zero therefore null is expected
+        assertEquals(null,iterator.currentItem());
     }
 }
