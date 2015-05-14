@@ -82,7 +82,15 @@ public class CompositeIteratorTest {
     @Test
     public void currentTest()
     {
+        AtomicTransaction temp = iteratorForTransaction.next();
+        assertEquals("DepositTransaction", temp.getTransactionName());
+        assertEquals(this.depositAmount, temp.getAmount(),0.05);
+        assertEquals(this.DepositDstAccount.getAccountNumber(),temp.getDestinationAccountNumber());
         
+        temp = iteratorForTransaction.next();//this should be the first transaction from the main transaction list
+        assertEquals("MTransaction0", temp.getTransactionName());
+        assertEquals(1, temp.getAmount(),0.05);
+        assertEquals(0,temp.getDestinationAccountNumber());
     }
     
     @Test
