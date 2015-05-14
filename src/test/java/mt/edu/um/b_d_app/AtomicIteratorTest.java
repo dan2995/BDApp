@@ -78,12 +78,15 @@ public class AtomicIteratorTest {
 
     @Test
     public void currentTest(){
-
+        assertEquals(creator, iterator.currentItem());
     }
 
     @Test
     public void NoCurrentAvailableTest(){
+        AtomicTransaction temp = new AtomicTransaction();//empty list inside
+        Iterator iteratorA = temp.createIterator();
 
+        assertEquals(null,iterator.currentItem());
     }
 
 }
