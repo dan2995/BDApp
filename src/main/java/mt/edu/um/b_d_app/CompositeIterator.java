@@ -82,9 +82,12 @@ public class CompositeIterator extends Iterator{
     @Override
     public AtomicTransaction currentItem()//a sort of peek. do not move past
     {
-        if(this.index<this.transactions.size())
+        if(transactions!=null)
         {
-            return this.transactions.get(index);
+            if(this.index<this.transactions.size())
+            {
+                return this.transactions.get(index);
+            }
         }
         return null;
     }
