@@ -54,7 +54,7 @@ public class CompositeIteratorTest {
             amountList.add((i+0.5)*2);
         }
         
-        transaction = creator.createTransaction(this.DepositDstAccount, depositAmount, mainList, amountList, database);
+        transaction = creator.createTransaction(this.DepositDstAccount, depositAmount, mainList, amountList, database);//creating a high risk transaction
         
         iteratorForTransaction = transaction.createIterator();
     }
@@ -62,6 +62,11 @@ public class CompositeIteratorTest {
     @Test
     public void firstItemInIteratorTest()
     {
+        //the first item should be the deposit transaction
+        AtomicTransaction temp = iteratorForTransaction.first();
+        assertEquals("DepositTransaction", temp.getTransactionName());
+        assertEquals(this.depositAmount, temp.getAmount(),0.05);
+        assertEquals(this.DepositDstAccount.getAccountNumber(),temp.getDestinationAccountNumber());
         
     }
     
