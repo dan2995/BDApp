@@ -82,16 +82,4 @@ public class CompositeIteratorTest {
     {
         
     }
-    
-    @Test
-    public void isDoneTest()
-    {
-        
-    }
-    
-    @Test
-    public void notIsDoneTest()
-    {
-        
-    }
 }
