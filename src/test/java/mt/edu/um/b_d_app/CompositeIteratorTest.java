@@ -73,7 +73,10 @@ public class CompositeIteratorTest {
     @Test
     public void noFirstItemInIterator()
     {
+        CompositeTransaction temp = new CompositeTransaction();//empty list inside
+        Iterator iterator = temp.createIterator();
         
+        assertEquals(null,iterator.first());
     }
     
     @Test
