@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * Created by Daniela on 14/05/2015.
  */
@@ -67,6 +69,10 @@ public class AtomicIteratorTest {
 
     @Test
     public void noFirstItemInIterator(){
+        AtomicTransaction temp = new AtomicTransaction();//empty list inside
+        Iterator iteratorA = temp.createIterator();
+
+        assertEquals(null,iterator.first());
 
     }
 
