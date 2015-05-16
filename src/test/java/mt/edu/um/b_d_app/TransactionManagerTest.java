@@ -5,6 +5,7 @@
  */
 package mt.edu.um.b_d_app;
 
+import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
@@ -102,6 +103,49 @@ public class TransactionManagerTest {
         assertEquals(true, testTManager.processTransaction(testTrans2));
         Thread.sleep(16000);//in milliseconds therefore 15 seconds = 15000 milliseconds
         assertEquals(true, testTManager.processTransaction(testTrans1));
+    }
+    
+    
+    @Test
+    public void compoundTransactionProcessTest()
+    {
+        int DSTAccountNumber = 1010;//hardcoded reference for testing purposes
+        double hardCodedStartBalance = 100000.00;
+
+        Account CommissionSourceAccount;
+        Account CommissionDstAccount;
+        Account DepositSourceAccount;
+        Account MainTransSourceAccount;
+
+        Account depositDSTAccount;
+        double depositAmount;
+        
+        
+        LowRiskTransactionCreator creator  = new LowRiskTransactionCreator();
+        ArrayList<Account> mainDestAccounts= new ArrayList<Account>();
+        mainDestAccounts.add(database.getAccount(1));
+        mainDestAccounts.add(database.getAccount(5));
+        ArrayList<Double> mainAmounts = new ArrayList<Double>();
+        mainAmounts.add(new Double (10.5));
+        mainAmounts.add(new Double(11.5));
+        
+        depositDSTAccount = new Account(DSTAccountNumber,"DepositAcount",25.5);
+            depositAmount = 71.3;
+
+            //Creating the accounts hardcoded in the creator class
+            CommissionSourceAccount = new Account(creator.getCommissionSourceAccountNo(),"CommSrcAccount",hardCodedStartBalance);
+            CommissionDstAccount = new Account(creator.getCommissionDstAccountNo(),"CommDstAccount", hardCodedStartBalance);
+            DepositSourceAccount = new Account(creator.getDepositSourceAccountNo(),"DepSrcAccount",hardCodedStartBalance);
+            MainTransSourceAccount = new Account(creator.getMainTransSourceAccountNo(),"MainTransSrcAccount",hardCodedStartBalance);
+
+            database.addAccount(CommissionSourceAccount);
+            database.addAccount(CommissionDstAccount);
+            database.addAccount(DepositSourceAccount);
+            database.addAccount(MainTransSourceAccount);
+            database.addAccount(depositDSTAccount);
+        
+        
+        
     }
     
 }
