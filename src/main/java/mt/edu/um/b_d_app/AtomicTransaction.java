@@ -156,9 +156,9 @@ public class AtomicTransaction extends Transaction {
     
     }
 
-    public boolean isAtomic()
+    /*public boolean isAtomic()
     {
         return true;
-    }
+    }*/
     
 }

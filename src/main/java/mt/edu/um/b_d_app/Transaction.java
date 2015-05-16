@@ -22,10 +22,10 @@ public abstract class Transaction {
         return this.name;
     }
     
-    public RiskTypes getType ()
+    /*public RiskTypes getType ()
     {
         return this.type;
-    }
+    }*/
     
     public abstract Transaction getTransaction(String name);//getChild method
     
@@ -39,10 +39,10 @@ public abstract class Transaction {
     
     public abstract int getListSize();
     
-    public boolean isAtomic()
+    /*public boolean isAtomic()
     {
         return false;
-    }
+    }*/
 
     public abstract Iterator createIterator();
     
