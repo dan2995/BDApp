@@ -107,7 +107,7 @@ public class TransactionManagerTest {
     
     
     @Test
-    public void compoundTransactionProcessTest()
+    public void compoundTransactionProcessTest() throws TransactionFailureException,InterruptedException
     {
         int DSTAccountNumber = 1010;//hardcoded reference for testing purposes
         double hardCodedStartBalance = 100000.00;
@@ -143,8 +143,13 @@ public class TransactionManagerTest {
             database.addAccount(DepositSourceAccount);
             database.addAccount(MainTransSourceAccount);
             database.addAccount(depositDSTAccount);
+            
+        double balance1 = database.getAccount(1).getAccountBalance();
+        double balance5 = database.getAccount(5).getAccountBalance();
         
-        
+        assertEquals(true,this.testTManager.processTransaction(RiskTypes.LOW, depositDSTAccount, depositAmount, mainDestAccounts, mainAmounts, database));
+        assertEquals(balance1+10.5,database.getAccount(1).getAccountBalance(),0.05);
+        assertEquals(balance5+11.5,database.getAccount(5).getAccountBalance(),0.05);
         
     }
     

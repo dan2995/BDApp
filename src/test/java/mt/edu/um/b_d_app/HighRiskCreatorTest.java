@@ -59,6 +59,7 @@ public class HighRiskCreatorTest {
         database.addAccount(CommissionDstAccount);
         database.addAccount(DepositSourceAccount);
         database.addAccount(MainTransSourceAccount);
+        database.addAccount(depositDSTAccount);
         
     }
     
