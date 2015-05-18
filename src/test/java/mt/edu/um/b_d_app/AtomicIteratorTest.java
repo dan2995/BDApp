@@ -12,6 +12,7 @@ public class AtomicIteratorTest {
 
     @Before
     public void Setup(){
+        creator = new AtomicTransaction();
         iterator = new AtomicIterator(creator);
     }
 
@@ -39,7 +40,7 @@ public class AtomicIteratorTest {
         AtomicTransaction temp = new AtomicTransaction();//empty list inside
         Iterator iteratorA = temp.createIterator();
 
-        assertEquals(null,iterator.currentItem());
+        assertEquals(null,iteratorA.currentItem());
     }
 
 }
